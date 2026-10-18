@@ -1,5 +1,579 @@
 [
   {
+    "id": "esim-kral-mi",
+    "title": "Eşim Kral Mı?",
+    "slug": "esim-kral-mi",
+    "description": "Bu dizi için konu özeti henüz eklenmedi.",
+    "cover": "https://awscover.netshort.com/tos-vod-mya-v-da59d5a2040f5f77/imageG/production/2108819355115532289/1792218781060-5011302526682351-3比4jpg~tplv-vod-rs:540:720.webp",
+    "banner": "https://awscover.netshort.com/tos-vod-mya-v-da59d5a2040f5f77/imageG/production/2108819355115532289/1792218781060-5011302526682351-3比4jpg~tplv-vod-rs:540:720.webp",
+    "category": "Romantik",
+    "tags": [
+      "Altyazılı",
+      "HD",
+      "Popüler"
+    ],
+    "rating": "9.8",
+    "views": "85.4K",
+    "total_episodes": 49,
+    "featured": false,
+    "episodes": [
+      {
+        "episode": 1,
+        "title": "Bölüm 1",
+        "video_url": "https://video.netshort.com/oU3jliMPixwF3rsEVZADIW6O6YaBXk4c5AdXQ?a=0&auth_key=1792649178-8bb47a28400945408b3a320241ef9612-0-11a67fdb2676113be101808a93d9add8&br=804&bt=804&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=4e40a1bd3b484f03b308dc3174676d02&er=0&l=20261012060351071E66204A05CA7738A2&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M29paHI5cnE6ZTozMzZoNEApMzk5OjZnM2UzNzc2ZWQ3N2dmZmQxMmQ0YjNhMi1kXjVzcy9hNDEuYDUwMGM1X2EuLWI6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 2,
+        "title": "Bölüm 2",
+        "video_url": "https://video.netshort.com/oQwBNeVEM8XDdFuPVcg7HfEjFUfbDQmfxUEiMA?a=0&auth_key=1792648985-aa7786fb653d4a44b370137a9dfb5541-0-3919723db78aba06bb33ed2ceb7d32dd&br=758&bt=758&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=86b8f5c2c8df45fcbcca15400a123cac&er=0&l=20261012060053896364CA983D48912EF1&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3FyaXk5cjo2ZTozMzZoNEApZDY0Mzc0ZmVpN2dmZmllO2deNTJlMmQ0czNhMi1kXjVzc2BgL14tMl5gYDJjNS8yNTM6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 3,
+        "title": "Bölüm 3",
+        "video_url": "https://video.netshort.com/oAEKEwTfHwtAf9qNqdzqAQFboNyDEbqAfs6kMC?a=0&auth_key=1792648956-7dc178bd50194e22bbf3740890cde482-0-8d0b58b9ffe12b98502db87be5021246&br=814&bt=814&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=b48a573438744dbbac3a97f95104dd1f&er=0&l=20261012060053D5FBE99A084316947378&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2d4M3c5cnQ6ZTozMzZoNEApNGczOGk8NmRlNzo2Njg7ZWdobWctMmRrYTNhMi1kXjVzc2NhMS42NF5gX2ExNTE0XjE6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 4,
+        "title": "Bölüm 4",
+        "video_url": "https://cfvideo.netshort.com/ogAWKNCqYzMPfiNP563B7qQqwhAffN793EJAiD?a=0&auth_key=1792648944-f219eb5ec88b43969a593c5b1438dc4e-0-78c1c761300fd3b4678563cf504816c8&br=906&bt=906&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=bd982a68f338431caa441dba82d88b51&er=0&l=20261012060053AEBA39FA3D822B8DB861&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzR2anM5cjk2ZTozMzZoNEApODtnO2U0N2Q0NzZpOTU8ZWdxbzNxMmRzczNhMi1kXjVzcy5fNS9eYTFeYDA1MDVeNWE6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=w9mSGMVsQIVNsk0f1NavVjhNcqcbGXKFNbIAvLh4~QDLp24j-OBOPC2RVJGiHplBbH-XfveHwvmO-An7aQb-Ih5SMLOFKhsl814am6d6sUYqmSeTjRgmVGapNBIJaeUE-MbHVFzEpjNHqB57giDNEGEVjBcWdDG0OI1z92qgECtdSfnRWP0YS28Eb14SaA3jrYFb7x2SE2TlhQXAQreqO~MSyy0-McvTKR9dOEe9jc9ziAzeSZayE8MPvUjTKjjXvB2PECxiE5fLfeK8k3gET7n~Ir~VKyk3nsURU0ukVIsYldaAajZmibsvPxsR1p1t172Af75xFyOREd8sCANyig__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 5,
+        "title": "Bölüm 5",
+        "video_url": "https://cfvideo.netshort.com/okfVHsbjUzDmfMJELPFeaAW7BPMEEVF6HpQgAf?a=0&auth_key=1792648979-617131baa7784e7f92dcac06fcf2f63d-0-1454187d428d3778a245807fa1bbc900&br=804&bt=804&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=a8b3f3820bea48a289be2beabb2dc2ef&er=0&l=202610120600531720635BCF0BE39C4268&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajx4M3c5cjk2ZTozMzZoNEApaGY1ZWg1ZTtkN2gzO2llZGc0bWctMmRrczNhMi1kXjVzc2MvYV9eX2I2LzVeXy8wMDU6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=Te8VrdBccUm0it-oI3yyFXRX1GZ89okioxIldypxaVho5dVzhT1vYwM3WKw7n09gOS2kJ8TL7oGNaF3UVc9Pp07YCbU~8R3QppOwT~TKrO1FL5PjQcP7O9CH2VVYRxkHeR10PmojwTWpci8qxySWzUH81TmmRKWsvytSkI~SMgWs5vdVsQ4Am60eot~FrMXFSSbQ8GsnzE4EwaMucVhNG-i4TW4Eroo2XrP6ev13JXEKUFY7SGcpKJuMkedaVqKlwnUofBqPdV8IXdrEjs7UwrxG8F8TmFf4E1H2bFoymkRZS8j2BJACFJbZ~X786snq8vLXS7qvKL1QeSJ9JXG2tA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 6,
+        "title": "Bölüm 6",
+        "video_url": "https://video.netshort.com/owA6L1hAI5fi14iGoQEQ3jvsDPKvym4MOHZA7B?a=0&auth_key=1792648969-a118edeeea7542b1b8fb8b4b1f235095-0-dc393a8dcc12afeec8b3c1498153c117&br=797&bt=797&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=fb5e93c98388460c8dd6c6190e6486fc&er=0&l=20261012060053CA6DF4CF0B1B85BCA3CC&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2ppaHI5cjk2ZTozMzZoNEApaTs5MzRmZzszNzs7Zjw4aWdtZmQxMmRrczNhMi1kXjVzc2AzMWI2MzNhYDM1MDYwYl86Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 7,
+        "title": "Bölüm 7",
+        "video_url": "https://video.netshort.com/oE67Mf5zDwQvDiEqXzifACq9QPm0f1AINGB4qS?a=0&auth_key=1792648942-a3ef951368a14e6f986fe22a80f27ca5-0-260574ee2140a667f21edccf8117acce&br=629&bt=629&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=090e80194967477cb01bf635adedcdb9&er=0&l=2026101206005317A1DAF283D31C2F8F0A&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amppaHI5cjw2ZTozMzZoNEApZWZoZDZpNGU6Nzk3NDszM2duZmQxMmRjczNhMi1kXjVzczZhYWEyM18tYDQ0NjYtYjY6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 8,
+        "title": "Bölüm 8",
+        "video_url": "https://cfvideo.netshort.com/oIftPHZgmFBFuWRAQEEBfHf4XieV6VH8DUbMEL?a=0&auth_key=1792648935-b61ef0d2ba994fbbacc291778d0c74ef-0-6753c75890f7d528630cfa4c7f45ac79&br=707&bt=707&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=0ccd9d632f244e4eb3e1fa2d91c9bec8&er=0&l=2026101206005330372C693517E3890013&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anFyaXk5cjk2ZTozMzZoNEApZmVmPDVpaGU3NzU1OTxmM2c1NTJlMmRjczNhMi1kXjVzczViNi5hXi4wYmIxYzBhYWA6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=wB3lWR-Wwgso0RIlbR5whX8c9JoLMWra3f~Kl9E7AFsvWsEjQzzWAKS~wOTq99CFJzivbXy0wbpP6d~QYHG0BhYtjlk1ZMDF2ANs7fpcV9WsabQxAvHQKy5Ty3dfO4Rqhitvi7ONaMcjcoQnP9BQw5c~mP87o2KbhbdWqGjwMEci2WAyQszMiylAn88BXFfG~11t0OhIM72GYzWmiEAwxB7aXbhSzuhqrBqIgFX-1aVV6L7xttB3gZCCwahTR5tlYkeKagYbF2ZkRWA1Nslh8WGPJ-LpTnIQFhCcBBnn8tqLVZVMUhjpIGYyac5nxOMhm5C2bHNRzQ7KViLKATq3xA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 9,
+        "title": "Bölüm 9",
+        "video_url": "https://cfvideo.netshort.com/oQ73PDw7BEX65M5ffNiQw5NMhCfzqHAAiDqAqz?a=0&auth_key=1792648933-805e245d95044ce5b9f7b65bd6371f54-0-620dd4858d0fd3799a350b2cbb53ffa9&br=815&bt=815&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=5edae34469b04e21999a8547f919002c&er=0&l=202610120600537032E6ECCCC6BFA741CE&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajR2anM5cjk2ZTozMzZoNEApNTM0aTc7PDw1N2U5N2hnOGdwbzNxMmRjczNhMi1kXjVzc2AtNjY0Ml42LmItNjEwXmI6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=oeMdf0PA-ucTtKTmRPE8oGpvTHOjXNgeYwTdHI3nF3XZKonjs39OJYJrXj3X6M1C443p6Xfe5j~J7rjtYfxuT0JH~wO2SVnH2OOWGSXawone93A0fxYAGC1C0-XoZUaAE~Hyq~T4lMLGpieQSHTO~GwNSDxiHM7ZQ7KbkRjGkdyOOdMrEfA0eCpVCA7u~PUuxphFQ6z6lAZUwFvdrp9l7Z72L36uNs5K1EVrm-u0taRYCOqb-b3kG1u2kC25wRbsulSEarez7R-yzB~8pmC5MhHnRjOyk2oFz-6cTc6iIulchrUMdYLrK-cJk9I7x84X9zx4e-vMjmVt5xeHLfdffA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 10,
+        "title": "Bölüm 10",
+        "video_url": "https://video.netshort.com/oU61AZms6EvhhDcAN0PfMPQL4Ki57ABz1A3G9i?a=0&auth_key=1792648891-a2bb8bf642c3413cabea3110287396ce-0-ff2c596c11e93c17b8b391fdca7842dc&br=855&bt=855&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=ee3f65ab41054081963bead660f409ed&er=0&l=20261012060053A217D3A6E626BB6F7B99&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzR2anM5cjk2ZTozMzZoNEApaDNpOWdoNjw7NzM3ZDk2aGdwbzNxMmQ0czNhMi1kXjVzc2E2MS0zXl8zLi0yLl8yY2I6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 11,
+        "title": "Bölüm 11",
+        "video_url": "https://ns-aws-cdn.netshort.com/oIHs5bUiNFBWa63nGAQLxiVJAAc7MEjAXBviQ?a=0&auth_key=1792648967-452eacc968f944c6a2f94ef467abbc87-0-e474ba39fff205199c7e3de5ec8817af&br=691&bt=691&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=6&eid=c2809b629a214caca8cf7a981ac5a3c0&er=0&l=202610120600536171E43C0406A3938327&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajV2anM5cm43ZTozMzZoNEApZmRmNDw6ZmRkNzU8OTw7ZmcybzNxMmRrLTNhMi1kXjVzcy0wMl41XmM1YGAuXi9fLS86Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 12,
+        "title": "Bölüm 12",
+        "video_url": "https://cfvideo.netshort.com/oYAqMFqqHCHaAdDZEf5DxwQqEadFZzfpJjbfNw?a=0&auth_key=1792648958-a17fbafe5fcf4ab587d5d20f99dde042-0-2fffe75e1fd274f7e5e0079964b12296&br=611&bt=611&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=cfa58440c51f4324950d4aa37bcb2f6b&er=0&l=20261012060053EDEADE5D178824AD8A45&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anRuNHk5cnQ6ZTozMzZoNEApOTVmOmQ3Mzw1NzRmNztkZmdgZl9pMmRjYTNhMi1kXjVzc19jX18wXmEyMTBjMi0xMmM6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=oYa3ntRSRdfcHYd61qyxTRVhFsfVRL65libNjkJwccO3IgUkzPZFV2k~J1HZNwOlEOhpWZfIoLSYY53eQl-jaDemeO3e20CQaJM4AkLsGw3fSG0dF6Kb6M2UatewJNXnWnXgFYndqymhpegM1~OkCvhy2N5Atpxz6YliZO2lrEq3lK2n-lFPfonyFG2A8-PtprTHnSGEgrKOVMoiw3u7ouy3N8TQKJ41BmjN1aAFdOG-1FpAvGF~0ZrJexB0BPSLChkxSZ6QibqYhPOQ4q6lfdDOXVKOJCN2s-8BX6yWlFMbBXInebFVdwPzjL9Mxkqv-zdBy6XzfFAnWWgD~mzqCg__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 13,
+        "title": "Bölüm 13",
+        "video_url": "https://cfvideo.netshort.com/okniDP56AI4qw0zCQMhBfAxNfLfiQADqHqCqE6?a=0&auth_key=1792648943-1bd25a2ac61b4f6fb593a37f76c893b8-0-91320d24002f41f0ec2116ffef2b0d93&br=639&bt=639&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=75be88c19b6e42f0b0a59c43d5ba6f25&er=0&l=202610120600535CABFCA0575DBE1B66F5&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amppaHI5cjg2ZTozMzZoNEApNTllZzc8ZGVpNzk8ZjtlOmdsZmQxMmRzczNhMi1kXjVzczJjXjIwYDItLS9iXy41YjI6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=Kx8fz2J26HsbsKpvMPE6QD7HI9VnjWclcWqMMpxajyFKYg0zgEanCcv1p0hF731mjTKi3Sqgivm4a5tbHnUG6zfeJI1uH-rD9RdHaYvSkExhKwV0pejGRvziwGtwEr38bcRKrjVxDK4vyemRtoatbxBL72X5fD55Svo4WXGeKTmHuxMq8~1MHPadOl4iMYcaIi1zOpAU1uEf8Cqv2WMBtB7zacHG3~~-uKwq63lMVe53jXZ0p5Z8EaxolPosU8tjXAPs26q65fFW5LQ4y81vbRw99Eu9HDEb3aEnG~BADKA4kzwutzPhH0SKWH95VwNPVYyfgsxhe4S85Gi32kTuWw__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 14,
+        "title": "Bölüm 14",
+        "video_url": "https://ns-aws-cdn.netshort.com/o0EM33KEimBvZstihEAAH1Pf5E7AG1QpAA6hPN?a=0&auth_key=1792648922-055531e0f8964fcf9cec72c6139f49de-0-22a25088019479f843208ff4b29d3583&br=553&bt=553&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=6&eid=3ff56bd77ed54777afe8689a042414be&er=0&l=20261012060053E5109DA24B8DF47A9D43&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajR2anM5cjk2ZTozMzZoNEApZTQ1Mzw5aGQ6N2c6ZzlpNmdvbzNxMmQ0czNhMi1kXjVzc2IxMTFeNTVjNDQyYjRfMmM6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 15,
+        "title": "Bölüm 15",
+        "video_url": "https://ns-aws-cdn.netshort.com/okEEVwmAiu8PBTVQ8FHYUZEHMDf6fvfXbQFe3g?a=0&auth_key=1792648942-5539e82c67f6403c877b5b754542047b-0-bb36fbf570ed743d51225b0319e99f12&br=734&bt=734&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=6&eid=4c27d4c20fd04bf190e00587560524ab&er=0&l=202610120600538C4EE509E8E4E7E9EADA&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3FyaXk5cjk2ZTozMzZoNEApZDUzODszaDxpN2czZmc1N2c1NTJlMmQ0czNhMi1kXjVzc18xMjM0Mi0tLl8tYy8xNGA6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 16,
+        "title": "Bölüm 16",
+        "video_url": "https://ns-aws-cdn.netshort.com/o8E6MfsYHgQZfEEVnmFfBFVypPZLeJAAbHD6UV?a=0&auth_key=1792648934-e2dd7875fdb74b1ab38bff03d6ac9913-0-382224f1d97fb4b2b96d749172e60023&br=728&bt=728&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=6&eid=8a765dd2d5704341a3c1dbaa11d7dff0&er=0&l=2026101206005367DE59643621BEAA1CCC&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajx4M3c5cjg2ZTozMzZoNEApaWdnNGRnZmQ3NzpnZzg6O2cxbWctMmRjczNhMi1kXjVzcy1jNC5eXy4wLjAtMi9hM146Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 17,
+        "title": "Bölüm 17",
+        "video_url": "https://cfvideo.netshort.com/ogtBweVEMFVDhFdPVWg6HfERFUfbbQmfM5JqEA?a=0&auth_key=1792648914-aabd5b8194fc49199a4be8bf67d74be6-0-c21e5009dfbfbb316ed52c3dc5ea2ba8&br=641&bt=641&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=f4896fda695642908a3cdb617e113065&er=0&l=20261012060053F54C3717018870F6A9F6&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=am9uNHk5cjg2ZTozMzZoNEApOTY0OjlnNjs8Nzg5Zzk7aWdwZl9pMmRrczNhMi1kXjVzczItLmIuX2BeLS8zNl5jNjE6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=o5qpz03c3LdF1HGssHcjLiY7hDt1FyL9lnaMSfpJvS-7sd-EbZuzXIYs6OsGM~mMcaREPeccO8S~E4-n97fb2oDFWDg6PRBo1Lv9Q~slKDleF~PPFagKPTICKRmHiTyfR55hwHCcjeLvSzDLUdPq5Gllrpslyl8sXdf8PWGA6u~lWTqlZwaSjNdlb~OgQcrq1ITgoCRS8qqyp4Dj8Wsu4ycrGbo8z7m4v3Y9wYs1cS9DVLRjBNYfRzm838iDss-G2bQGcKL7g-TXpukYBQ4m8eK7KX4OxrX8n11~szLFAVMTI3yx~~J4LMsbTt8Jvi4Kk66pzsEV8RAmpdgBwDjjng__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 18,
+        "title": "Bölüm 18",
+        "video_url": "https://cfvideo.netshort.com/ok4QHEHXMfVf6rjPFOEtFFmUbB6DqVegdAfbJV?a=0&auth_key=1792648936-1e6222b122734cd7a7f6b3a4c00408aa-0-82443a95358cdbcb414cf3cb86535d73&br=786&bt=786&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=677c41700a104d68ab984f79bc067673&er=0&l=20261012060053EE054109FF0244957505&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M29uNHk5cjg2ZTozMzZoNEApOjozZTo3PGQ5NzQzOjc6OWdxZl9pMmRzczNhMi1kXjVzczAzM2A2YzVfNWEtXi0uYDQ6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=EOuCSvKQDXC4ZepBDb-PKSKc3XIZZrTdd8Vn5usAQ6k205~yoo4sUAmEGMFMUnwqrEyPYnzO2poao5uvheMk--28~-mVGn~JY46XokVlCKT1UgjENTjhR38sdZgOjnYuD2xkFKuRC-hgnrR7wcxsFfJMdCRnMHLyFXPVgwCE300lQM1DsahpW9ddFX0GbQTtdVQXoSlIRwTXZpsETv29N2wb7nYpPrGm~qKV9XgUbl7ho9eU7zPY~2VgD7M8EZg1AlKOfaZ6~~wTMFmMul7BSUlkrKQnBmI6Ta0eqO7EGwCWKY14SD~LDX4yxUrMSaKTocb7ggMb2A8gWs2wnlEifw__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 19,
+        "title": "Bölüm 19",
+        "video_url": "https://cfvideo.netshort.com/ogIBKeVEMBDDtFuPVhg7HfEmFUfbXQmzIeb2GA?a=0&auth_key=1792648913-c6f39e27af8e44e1979ceec775c1a6fe-0-7d8c1721223c8c1f5e70700ffda42268&br=849&bt=849&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=ebb6c3fdb1824633bc3a275dc153f393&er=0&l=20261012060053F9F2817892D47AAC36C2&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzR2anM5cjs2ZTozMzZoNEApPGk4Zjg1NmU2NztlaWZlaGdzbzNxMmRjczNhMi1kXjVzczAwMC5hNF5gMDMvLmEwM186Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=iN62EDolVH3b-lHoIAoj~44H6x3CKDwVeiZZ38iTA-VFkGK1VV2H~H4gT3~bTy27gGKBSh3tA3mAsfhvdm2DMItV3D4U~cDCHJ1~YLmrW7wKTxZlqG45Y481EBueDtgcdj25vi7wZqwm8HDB-leEjYaPEGvwuG1q3yJMR1DiysekZhIvFYzRHRx4gf2m7OOwuv-MeClqdydZCoT~JH-OB9JC3JlJEHLo-~jBayFgjgtnoF1ekRMZHvi3nFFEYVp4tovYqmEq8JtnQ4qUR97bokQ0X5SmOIQH9YPHWt~ADXsk79ppP6UyBXjBRQr80s4kDhj-btEMIiZ5OK2Kdl~pnA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 20,
+        "title": "Bölüm 20",
+        "video_url": "https://video.netshort.com/okbAwEPjqffuA75hNifADqBCkFzP2iqN6s3LQM?a=0&auth_key=1792648910-cdb318f5b01540dbb62b568fc79d25fd-0-db85b74cf333bb830d4086f8ba4842d5&br=821&bt=821&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=ce010fd5fd4043f1b6f8530811805af7&er=0&l=20261012060053C1E4246359765FA837AC&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzR2anM5cjg2ZTozMzZoNEApaTg7NDM4aWVpNzdpZzMzZmdvbzNxMmRzczNhMi1kXjVzczReLS41MDUzLjAtYTJjLmI6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 21,
+        "title": "Bölüm 21",
+        "video_url": "https://video.netshort.com/oIEBiA37h15ihPfMAQI7iv1lsPZ91EvAHANGKY?a=0&auth_key=1792648947-eb3aac230f44491a9577f63af69d94a3-0-4c63fd7cf97c653a10404cf2245a2822&br=749&bt=749&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=7fa70c2da9374d29b59679c41eb24447&er=0&l=202610120600537DF9CDFDFCE00847C001&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajR2anM5cjg2ZTozMzZoNEApNzdlNGY6PGU1NzZkNTNkOmdubzNxMmRrczNhMi1kXjVzczQxL2IxNjMyNmE0NmFgNGM6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 22,
+        "title": "Bölüm 22",
+        "video_url": "https://video.netshort.com/owwf5pQiABVVnfm8lfXgwTci408wQUfXMFHbA8?a=0&auth_key=1792648919-986a6d356d2e4c8bbe6b52d3021a97cf-0-876430847a22fed16fe418e95c01f5e8&br=769&bt=769&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=428e70b389d64b5aa6e3394b8dc6a1b5&er=0&l=2026101206005383D591B06BABAAA0C115&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anFyaXk5cjc2ZTozMzZoNEApZWRmOzc2aGQ4N2c7ZTo7N2c0NTJlMmRzczNhMi1kXjVzczIuM2FfNjAzXl8zNjAtYi86Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 23,
+        "title": "Bölüm 23",
+        "video_url": "https://cfvideo.netshort.com/okUdTTAVgwfF4EHP3nbVfmfFoeD2BFHEJQ6VqM?a=0&auth_key=1792648928-6920a01a45f44a00b72d77c70ce0dd6a-0-c84dfe8807108e6a9b478efa4ca9ff71&br=844&bt=844&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=1902fcb6b6a345a1b21d3010ebd1c59e&er=0&l=20261012060053AF4AC508ABEFDA969152&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M29uNHk5cjc2ZTozMzZoNEApPGZnaDQ2NGVkN2RlZWkzNGdwZl9pMmRzczNhMi1kXjVzc2IyLl8tLWEvLjIwMzNgLzY6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=WJVXiFtCsJOgW-iN1m94ULg5ViDYCFvb7-~WKMGhoMn4RXs1YFQ5HJNMyYYZSYpMBn8UMpay7WIHr0eUllhgUOHqD~pog1mIOBIzEUdU-VApCfwEJxIFKz4Odu5-3PZc-6ECPRpbnXOY00RctuOdg0rF-sKeLeE7F2~qtyz6yuH7RQZNq7Bvov2Q7-hmaEI~-UIVnDqagc3vqu8s0mh10ElTwJ5yt-sLTCj1NcH~Y6jwx5uYW0kWZq4BdWvKvBLL-a10eLCvBW5ER9erHzaqHscLH5GMhD0UqDQCIT4T4nDgAHMNDvXEGNRn8eNFs56BZX4hLsiwSstWkRjYU27D2A__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 24,
+        "title": "Bölüm 24",
+        "video_url": "https://video.netshort.com/oIgiA8XVMBMVX60UnwQfHoA0mFgRoclVeSbe8f?a=0&auth_key=1792648924-ba7d27ad017c4d78ba859436463cc200-0-576cf32a2cf3d4c8a8ed6cbf992748ce&br=952&bt=952&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=ad56afecceda4c4cad6faa36f5c6436f&er=0&l=20261012060053BF4FC998EA85DDA000F9&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=am9uNHk5cjc2ZTozMzZoNEApOTdmaTZkOWQ3N2dmaGQ4ZGdvZl9pMmRzczNhMi1kXjVzc2MwMzIzXmNhYGBeYmBjM2E6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 25,
+        "title": "Bölüm 25",
+        "video_url": "https://cfvideo.netshort.com/oMvQMi5kfZI6BPuJGv6Ah814KsioAHrEQ10DAv?a=0&auth_key=1792648955-b6f04c9fd83f4750b672ca1f58af69e8-0-14cf7be5a75da2575034d49832a80492&br=777&bt=777&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=58a2d8dbaeab4b20b90646efb73c03b0&er=0&l=202610120600536EC615557DB40AA01F82&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amppaHI5cjc2ZTozMzZoNEApZTM2ZWg3M2U1N2RkZ2dkOGdrZmQxMmRrczNhMi1kXjVzcy0wYDRjMzM2LV9fYl81LzU6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=Kq6Z24vUYG8QiQ6gegyYIOqGRsPajFKVaLBZtrjhcTa3oQa9fxbeTySx4DnncU4~IifgP1K-n8x7Y1VVqrYFHRFdpq-EgNToOjLXIFxVDXEJUk2nakrWMNG6fZP1kfzj9e6x7TnKDSxZBv59lYH0EjeUM1pgVqP~pE-RyycNxw0sITmllqUZMHa0SeCanLHWj0ArXEG6OvFn2Fuuk8etnP2sCtjmIjEW2~Vk6okoWGwP17GcLTX3vlKw414aA3jvejVVQI~bEICYCAeQYC2gk0tz--pKlJzcphndTSZrFhPJ2GPcFAu1iCYeYN0~bmc7sr1YX~4AB-vfNjVjO9dqaA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 26,
+        "title": "Bölüm 26",
+        "video_url": "https://cfvideo.netshort.com/os7FRUgbkU4HLsMRBgVXdm2eA8f4VDQFyA9ewf?a=0&auth_key=1792648944-53c25df875ed4f7ea8f32965ccbde367-0-15130f8592497347adec1e7e851224ca&br=740&bt=740&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=2debeaad24974ab6a3a68086e20d3928&er=0&l=20261012060053CBAE6A0D8E18208DFB0C&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anFyaXk5cjs2ZTozMzZoNEApNTYzaDs7ZGRlNzw1ZGhoNWdeNTJlMmRjczNhMi1kXjVzczU2YS8zLTMwM140MWFeX2E6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=G2FYM-geOWMzg5w4UpY~sWViqpN2JTrnTsmt11ZaaevWKwsvUzCrIN0-4tXTwq8t0vBinpZO8kIlvB87jiepdvSjqqUr5Wd05qRnd-XMQVM0ewX22NFFjAetr8aYsAxGf32SdNFM9tWC4RT8QtK6sOnLP5UbRFuSXnkWWoEf7~fcqtiCTtqFEP3wpzac6jSE-IUvHNGy1t6SdO-WxylvSi-y5V0PdYlMihdtOCKnAthYrCVYAjS7WsJSR~j1tunK3d~oPWqmN-EqXEi4VKJYqOVlYxURVJ4SCwb1uIY0Cr80t6BXr9W8SnoHe0EkW7OGfSzUwOynYerDlZwD0H0gAw__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 27,
+        "title": "Bölüm 27",
+        "video_url": "https://cfvideo.netshort.com/oY7MG1IIZv6i1PpYAvEtQ4fvoDiK3iABQ5sA0h?a=0&auth_key=1792648942-649b44a7dcd440bfbc8133ea6cef875e-0-fe6433787dce398445eb894be9b8641f&br=810&bt=810&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=6c43929f74ac4b2db7061d4dacad24b4&er=0&l=202610120600535FB0DB19248D5686836E&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2ppaHI5cjs2ZTozMzZoNEApZTVkZDc0M2U1N2Q6PDw3OWduZmQxMmRrczNhMi1kXjVzczExYWBhYTM0YV9gMWMvMGA6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=a-9Qmsl1qUzBoNAvY9U-1keMDujvS1e3vM9~NWGSfQPtztHAMywxnIODGc1SrLjguYrZRy-1JTsjB8aI1TyVgIS64YcUcpsv~X7LNndXN-fharj-RpETpWuUhc6txdOpLAwGzguvGDp1J50AjAcU4nn2ktB-VOAnEAPWR6AE5y8zIU42DYhx1Ie12saREn5D5b1h4-Hl~sQ9BHOP8IeWEltlVAMZstneNEy71177djLTBODB0sChPUaMK~tzN6zx0JNCjBadB8QIDdjF7oJLdwPAvKn7AxdHaWqLO5zuZcm6Vdh0uHP2FdiE18~iI1qhNvkS-BYulhddBlPbWpMoWw__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 28,
+        "title": "Bölüm 28",
+        "video_url": "https://cfvideo.netshort.com/o0MM2DqEiZBfzwciDmC6rqPf4HIANqQXAs8Qf5?a=0&auth_key=1792648927-8a624b2aef054d6a9be37d3e4eddf2a8-0-cc17b223371a932cb0394a084bf8fbf1&br=823&bt=823&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=a55a6a7dd00e44759200270c07227c0f&er=0&l=2026101206005341D596195E935F833514&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2ppaHI5cmY2ZTozMzZoNEApMzo1MzM1Mzw6NzNnOjk4ZGdvZmQxMmRzczNhMi1kXjVzc2NgLzRgNC0vMjFiLWFeXjI6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=nfZEoe4c8bIdvOwmunpSKtejCU3sitL5jmK1OIkzuxJ1yvYpBSg6XiBMAIpe1-MBOVJoB7rfeovR-zTV6kH6gYZHKk1XmDHQpsTp1lxoGaj8DN7-rIz~8wkjV4416mJNkq-ZUQGH5uwXBeIOEyZtlovFqP8bDqDCqXVrueDw7-S2~acqYgGkil6GfiQiTNvWbsq0QreDV4oqe3rmbwJkhoASYUlrvQwhi6QD4yE8wCqH-7SnnHCXBA-o69b9CFkC12Dq6PGT3f7rJCeLzj8OTFGYvDynqdg2xYXX3CnpWAkPreslgmOUHtLjEuJcQ5aFclpWKr2lst8W7ObCNa76CA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 29,
+        "title": "Bölüm 29",
+        "video_url": "https://cfvideo.netshort.com/oAsmgAnRMee8HFfkVQ80frAKyXATmVBUgogbDw?a=0&auth_key=1792648939-d5549209d8204ee5815f36da096b09d0-0-c6a84ea9665cbe89875a05051435de0d&br=910&bt=910&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=7a225f8c7d754fccb42de9c363ab0b48&er=0&l=2026101206005306223E8606E0CF824833&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzx4M3c5cjc2ZTozMzZoNEApNzNkOWZoNWVmNzo6Ozg1OmcxbWctMmRzczNhMi1kXjVzczVfXzAwNmExYGMyYWBjL146Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=YS1AzkQWjAKd-1NFv1zwpq0AEKv9ufMNNfUAj2RnJKVDZQ1EexkUXlYza6zOQRAsO-z9PbeoVMNgnvD~WEwZkMcvImFMJLafaxOM21FrcrMdbkmGc0TdBlO7iw9x-4XxEkLJAkGiG~C0Fr2rGxRc8HmGv9ZI-8coYHrnAFRzTk51aITwhjOC6oXi-uvOrb-RoFatQGIdZHU~he9ShboSOTOlLp7EKIt43-7-0RQji1pFu3QnLGylhFW-eT9Z13jFNFRMezxE2YpS2UIFNnCPw4drIkxKISoKYDXhuqzMHfKmUvy8KNrJ-t7Jq9eA3tVa2RDyUjIwgShLENOuAxziDw__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 30,
+        "title": "Bölüm 30",
+        "video_url": "https://cfvideo.netshort.com/oYfBAzHw4sVReFnVnMGH2AhfgmfbI8LVgrcUMD?a=0&auth_key=1792648914-8d85464a8a9e4b009dc6911aee61d741-0-5a530949832249451e7dce228369374d&br=728&bt=728&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=0fdf7df25fe444208f7f29fb75673111&er=0&l=20261012060053CDC833F63B4B9B9D82F8&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajR2anM5cjc2ZTozMzZoNEApNDY5Omk1Ojs1N2g4aTpnM2dtbzNxMmQ0czNhMi1kXjVzcy4uNDJfNmNjLTExYy9hY2M6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=XhbZ3ESXtjxozb2JmeMv7TtLqb64jj3zjiYVDHIiS7~3QIdyI~VjgAo30ux8obR7r2FtWX3VoMbh7WndXuSkYU6ouWMExUi1L3C2FlbYaRFCo17dfXAmiXBrx68hMwlj4XB2BPpe7NgMal3cA3lV70AUv8OnHuv2OXcRMGabbbmP3mn0lpT0rL1gg5rmOOT7m6zrl44jzRsmMK49p8mYpq3CGr8B36SEBZS91rUvYbgwZBf5XuyToR~Xjzn6sEzoaTYMpeePwTHJ5kvrWeM2Qe3kFsRqeKi-jO-ZQHNq9jxTZz7HooarqIY7ikADs~74Lf9Mu4Fm30kJyEqnYyTmZA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 31,
+        "title": "Bölüm 31",
+        "video_url": "https://cfvideo.netshort.com/ok0j8oAcAQke6SoBHfVUwM0FmReTgyA8VfAX8b?a=0&auth_key=1792648961-2736067c4c4c47038c9c5d3af8231a82-0-1109a9829950490148913d0618cb3388&br=758&bt=758&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=ac1036a4599848439fc255d32d359b52&er=0&l=20261012060053918CEA45F18FFC39B91F&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajx4M3c5cjc2ZTozMzZoNEApODw2NWc4Zjw3Nzw4ZDY0ZGcwbWctMmRjczNhMi1kXjVzcy9fMmEwMi9jMDU1NjEzLWA6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=LQoXzYXxtzPUQ0gmy4sQO6fTIB6sd~pRThAqpLqmTnHcm9zcu1NRek4iI5qMxlqTZARfKAwOrdtle0XClsc6~TmcLTtDctU2nroY7a6ISAlOgN5l5QfHpvgUevoMDBIa2cxW4yMkyOz40FxgIXIdJtDZhRT~FzshrkclOP4JXVHGZkGmKHZfDHiHq0Ot-Pj9Hhqxox2QTjuy-jYsb2nU~UEY8mszYuoghcYrIZIDRThDZqn64FlkwvQe6iyl6daU~inWbwXPlyZhnFCl6AKN3C64wcb9BrHCYlYXs33byQoNvFWIbWe1l2CgdYyt2URDEqGKARwN77nJ3V8XAcETwA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 32,
+        "title": "Bölüm 32",
+        "video_url": "https://video.netshort.com/oQbi3PN6A75qwhzChMqBfA0NfIfiQUDqHOnqEA?a=0&auth_key=1792648924-4dfe1b4d43db40afbf5793ec83f0ba8c-0-84b26097fae4eb9a2ee30ba7c8ae748f&br=852&bt=852&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=54300e148f974396a7b0ad1e34f35aad&er=0&l=202610120600531AED269749F259A787B1&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzR2anM5cjc2ZTozMzZoNEApZDhpNjRkZWQ8Nzw7NDM2OGdubzNxMmRjczNhMi1kXjVzc2FeMDFiYS00MzA0YzFiLTE6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 33,
+        "title": "Bölüm 33",
+        "video_url": "https://cfvideo.netshort.com/o8emDffPUEqgE6PVqQVVFFFMAQbHfaJ2DBKGdB?a=0&auth_key=1792648913-274a228cb2c8408ab74b53ac40eff580-0-da732e19cf365f6fea59bfde178fe91c&br=885&bt=885&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=50ff5870352247dcb302c26914e216e4&er=0&l=20261012060053613D02717266119A1982&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M29uNHk5cjY2ZTozMzZoNEApaDRoNDlmM2VnNzU2OjhpOGdvZl9pMmRzczNhMi1kXjVzczEzLzE2Ly8wYDQvMi01Yy06Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=Jt5fRgOdHa-JaZsghYUHVCME2lJV~IEOTmdFKm9MFS35kV6hH6~kO6~P~syW~cuBZSChKCjaT4MlA7fID4YF2hy0rP2q1CzQk29Pt42ksbawiWwYL7bBn-j1lSprVigJbkV-KORIwnoogErTr2M6rB1RsbrvuIunpWnNIgAuXhmBlGzU1ahENgGArpDXYWXYFKEo9BMULzYbtdL7K7~UNnSmSXY~QBQTvQyPJq5EVeislcPHJJy0tk-7pcQ6SlLfC1Dqn3Gm7aOjhJEnKrtNhsiczweFKotXj7d3nFJ2pOR68zSvuVfDEhKsIo0DyWF8V8tp1q4KvBJjl5vQekuLbA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 34,
+        "title": "Bölüm 34",
+        "video_url": "https://video.netshort.com/oIQMNDuGqAwHqJA4PCzi0rfiEDBQISf5Hqfj66?a=0&auth_key=1792648925-8de54d3b80504d0aa16725c668900734-0-ab1566081f0d342d628656557a9b2ef5&br=820&bt=820&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=bf651b6c34a64fe8a9a4efc45f4b88e0&er=0&l=20261012060053285DCFA45D382280B771&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2ppaHI5cjY2ZTozMzZoNEApaDs3OGZoZGRoN2Q2OTQ5ZWdrZmQxMmRzczNhMi1kXjVzcy01X2MxYzE2NWMzMWBfMmM6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 35,
+        "title": "Bölüm 35",
+        "video_url": "https://cfvideo.netshort.com/oIbFeFBOQ8OfDfmi6VzgfOgM4gAUEJEuDHPXEV?a=0&auth_key=1792648949-793a847e04b0442e943621f1fc0094a7-0-42a81a525c7c70bec68fc853acf7aaa9&br=818&bt=818&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=b09b763b3eaa465c975ae1ef076dff49&er=0&l=20261012060053B504224F02473D7A1F8D&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3FyaXk5cjY2ZTozMzZoNEApN2k5M2hoODw4N2Q2Njo8ZWc0NTJlMmRrczNhMi1kXjVzczZjYTRjLl40YDNeYl8zXy06Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=Rk8V7dscGeT36joz~LcnxqBuJiJqDnvZVbtIRGEVqCtYSCLnOv~EM3y2dC~Nn~Z6YQ2Ha4G4iPaoJa4Ah6Stl6mA28yS3UluFYzLnO0EpcDqZ964WnbDG955RiUe0FevwnXu7GRL0ax8AV6t8N~T0bzv0OPrYxdUq5xOhERFwxbTq~ov22oOCebXGmwkHPQex4vyQHXdmcYHYb~M2D0e4G6aWUcCDUVvBpiOLU0xZYUMO74NEG6B1FPuuOJHdbpN-HujSaLAhnsRSd9y~bhIUTeEDpnzBNEaOy3fnkXqux9LzmehOoArFxD9HIFN6nAudQF20hRs8594PZwJ3uvIQw__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 36,
+        "title": "Bölüm 36",
+        "video_url": "https://video.netshort.com/o0eVPlbfUMGmPMnIGPL8dAf6B0YoRVFgHCAgjf?a=0&auth_key=1792648917-ba08fc10d0354192a5b0bff0b773b2c4-0-fb66ad61930ba23edd330ff657e7aa42&br=809&bt=809&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=a78101ca44544481904fefc1de32ed46&er=0&l=20261012060053CADA7B77CDE93AA1D512&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amppaHI5cjY2ZTozMzZoNEApN2g2Z2ZoNzw7Nzg3ZjM7ZGdqZmQxMmRrczNhMi1kXjVzczNhL2IuY2MtLjExMV4uLjQ6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 37,
+        "title": "Bölüm 37",
+        "video_url": "https://cfvideo.netshort.com/o4GAfiAgQAjvv5Z761AGvxsMldA1ELN3BhPhiK?a=0&auth_key=1792648959-781179eb4bc24f0da1146d2252e31477-0-939d1d9e04f929e53f24693d2ae49f62&br=887&bt=887&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=8b01b1a688604a99ac9a5beb4a6d8dc1&er=0&l=202610120600539494D77C675F1D23B8F5&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajR2anM5cjY2ZTozMzZoNEApZjs5N2g4PGQ8Nzk7ZGUzO2dsbzNxMmRrczNhMi1kXjVzcy5hYV5fX15gNl4tNTMuLl86Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=GfAILy8nC3e0z6B12PmGuDugKoRLrLNlQIEyZbHc-hZnja7ywsrZYV3XcbRm9G8PicsRA3f7ngYdFKU8OpK4oQJJ3FTmTZtt90sAsBnhgB4iVCvR5niK1Ts9qYaBrrlhsJmsH3THJdN6-0lcuCXwDaHrdzRs7zOtE9Bn5ZUJ6NrzaJiMMa4svtZ7S1-AD-CUwLZ3KBPGKoEQFTuG0AB4ayvd-Gv4oswTBJbmIq~Fs7L~OmsKafAQxdttisND01r9hkpUG6uR8KizwYV-TyV~xaktqyUhvl4GEUcC1V8HRpPJNYP8~dGX5SF79fyBxyW3PO5PqorgIyFHLxyijIvSFA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 38,
+        "title": "Bölüm 38",
+        "video_url": "https://cfvideo.netshort.com/oEM5QJ51GEIv6sLv4TAQ6DB1hOsiiAjhAKRfPZ?a=0&auth_key=1792648926-b26a52e06e324137a198eb3a97ff5767-0-151f72d28b19b6fecbcb9103527e4779&br=1076&bt=1076&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=261fbbe0a7894b8f98850240a7376918&er=0&l=20261012060053651C58DC725BA1F41E2F&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2ppaHI5cjY2ZTozMzZoNEApNDk2ZDczOzw7NztkaGU0NWdqZmQxMmRrczNhMi1kXjVzczU2NDQtLzI1Y182NC1fYzM6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=jcKr03CxEKQwbiivscKe2xdF2UNN4ASAcbEQCVBYt6TXLBBhFpaLEyDBWjwzkcIIvPMyNh4ANLBQPWTGpkcjtu0wu7NoaZ5msF41Blx1Ve9paYiJtYjlT2qQ~-NySanLN1tJvA6TCInO83mVaDB9eI0bx4MOy4clE4gIvtBwGuXw3Xp3uu~HBbcPBEdbhSopo1RB23M65NVHIb2x~xfYjFTj4V1rbgXVmk6nqJ2pnIhxI6ed0iHsypBIba7cTYkBLK6tutLHNwpAjF2CbTxLpJJROFHzdrZGjvbIogQVaH4ty646~DID2Ma2lfCMbxzHURtyc6NxpPikV11xUjsWYw__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 39,
+        "title": "Bölüm 39",
+        "video_url": "https://cfvideo.netshort.com/owP3M6kvAQAipNK75DBhs1E5ZACfYPGyhiy1XA?a=0&auth_key=1792648890-c4d9ce3aa5d14b5a9fa475555a5fd803-0-288acc225d5368aed1575888d17c916f&br=586&bt=586&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=14af030e235743719e3f2919098637c0&er=0&l=20261012060053517136DBBF6CE1A15FDB&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzR2anM5cjc2ZTozMzZoNEApZjY7MzQ1Njw6Nzg1MzNkNGdtbzNxMmQ0czNhMi1kXjVzcy00MzY2NmNiLjA0MGIwYzE6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=IBn55u8ZFSQm686N4AncE9ncAyx3VSvXE2-ZsCalqHxukqROaQcayUaBQOiH~n4XFp64f~6r7S~mO7nJW-jxzAxogt2zuWwio-0oExe9DAQdA15BrqtW7bkU6yNBJ6EuGlv5QcXyEjQHdnBERojotjwM8MGzcI5EXeZxi6FU6uNQr07CKnQBUgrGfxNJIHJ3GHzNdysoO9fjRBpRmNMa1of2TMSZWBw0rO-0oS8izGcNU7aCXZMTUZFFk~tALYaMCOT492AnUOwgWllIG5220FLo8t23XYK93RGMNf9ezmvc9gRPtbrphBcscmVtLgXMrwbXIm48-J4dOUIN-oguOA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 40,
+        "title": "Bölüm 40",
+        "video_url": "https://video.netshort.com/ogEbf7EM6PYEQgDsFVfSFAfgQeAp8IKtBHmVPU?a=0&auth_key=1792648944-a395ddfb48624f61baead9a4bc694dfd-0-e05575d6a6f3d7216dd5be062938417a&br=763&bt=763&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=2ff0b1664e4c4148b9c423ce2e960b2c&er=0&l=20261012060055D5FBE99A08431694738B&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzx4M3c5cmU2ZTozMzZoNEApNTM8NWY1ZmU3Nzc3OWVpNWc2bWctMmRjczNhMi1kXjVzc2BfM2JiMDE2NS5gYjMuLWM6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 41,
+        "title": "Bölüm 41",
+        "video_url": "https://video.netshort.com/ocpMmHVIEhDfmgTFHAF0fVPewNRBbUgvAF7hfy?a=0&auth_key=1792648919-012cca1e812144daaa5c4ae232d4b722-0-b2a87350ee7b8cec66538ce053677591&br=891&bt=891&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=84ba15b7d7e045af959bcefd55bba6fb&er=0&l=202610120600556171E43C0406A3938333&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amppaHI5cjs2ZTozMzZoNEApaWRlOGlmPDxkN2hnZTRlO2dtZmQxMmRjczNhMi1kXjVzc18zXzJhYl8yYzItNDQyXjE6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 42,
+        "title": "Bölüm 42",
+        "video_url": "https://video.netshort.com/oUA8eAgGVFfnHx2LIjwHkfAsUBcwemTVDbR08Z?a=0&auth_key=1792648943-ba9ea5ef40a743b78d7c0a793ca142b4-0-3e9c82c237b70cb5623b45f61c90862a&br=834&bt=834&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=20a8fa6777374adba9c4e665fd8f4157&er=0&l=20261012060055F9F2817892D47AAC36CF&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=MzR2anM5cjY2ZTozMzZoNEApODc7aTloZmRnNzY6OWlkNWdsbzNxMmQ0czNhMi1kXjVzczQuY2EyMzE2X140NDReNS06Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 43,
+        "title": "Bölüm 43",
+        "video_url": "https://cfvideo.netshort.com/oMFVfPDmBFXS2UHgAVEDz7f6IfPWV8uBBgMfbb?a=0&auth_key=1792648957-e76fa1234a5246e3bb42e5425598bcbd-0-f8367374b851126ad121fef73a970c79&br=767&bt=767&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=7e8aa51b960a473fa823c939c270c30b&er=0&l=20261012060055B504224F02473D7A1F9E&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajR2anM5cjo2ZTozMzZoNEApM2Y6ZjZmNWQ2NzM8NGQ7OmdybzNxMmRzczNhMi1kXjVzc18wLS82NjA1YzReM18yXmI6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=S7MKTUx83TxH0Mn5J8SL9fXc1YUrWRuLcREJyG2VZWuak~1FufPrRMEnDGGR32hDWMJdygSBVfY7nniZx5358gR~wKE4di5ZtPGpYFZiFlODvs0JMf82taA8zgndIDKzot0v-iS6qplYJ3CCz~JQrdlLAzFlQIN6fXh1sXVFZ6YsDMVvmClzKAblAtILO3mJbnwmdMM6bS3kwQFxU61ocFakmTDET6hTPcem5joVhmMqN-M3EnWWPRWivO~089Mj1SexPlMfJFxAPegcQBJYtLyUgkaUzuylMS8qLag~XBcbljtgNs2Zun2RpBebfCBX0ZZVMUrRd1BpF01IHvKPtQ__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 44,
+        "title": "Bölüm 44",
+        "video_url": "https://cfvideo.netshort.com/oEIMVmgex0BHUFeo179BEltfQfg6MXNAVV8XbP?a=0&auth_key=1792648924-85f42dcebbba4decb77f3e250a166049-0-325e41af64abfccfc2afc80370ada638&br=814&bt=814&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=9e168f52a914416b9751fba6539683b3&er=0&l=20261012060055651C58DC725BA1F41E3B&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=am9uNHk5cjs2ZTozMzZoNEApZTs8OGRpODw5NzRkODs0PGdzZl9pMmQ0czNhMi1kXjVzczAwMzAzXy40Xy4xNi9jM2I6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=hP1bO3jIme2pJ1-04Xkn128gdhujjDvYBRDpE5TF7C8k~czMgTiER~ZvYjSUARXAdupO4IRqdwgALU5O8Qe94jnkZ-jKCqnsVcqI~91rYgi2v~--y1GAUFVSdgtB-jBfcgDWKSqfaiL~tJ7ZQFEpDiQUsl0ePOcs8HU0VX6FGqFaErYig25xDJKRbJO4RHutJCxB2neejhuZgKT6OyyB3wshDmisBJTMYqvjekpXtCgRGx81OLBBKwMfg2SiycLOabp4djRMgTxPKtDdXAR3fZMgEwgXMm5GUo0X3vu315Eo9wi-brfhrPRsUlh0oZmq1d55req2J7Cf5yh31y7yRg__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 45,
+        "title": "Bölüm 45",
+        "video_url": "https://video.netshort.com/okVPAMrUfGIESVQHeP6FeL7f8Bgs9EKUbHm6NQ?a=0&auth_key=1792648929-80121f1d2fc6437380785350a2852e9b-0-0549e2d76c29fa75ba60ec57e4b31b3c&br=806&bt=806&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=4d095fbb29f5406993733f601f368f54&er=0&l=20261012060055CADA7B77CDE93AA1D524&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M29uNHk5cjo2ZTozMzZoNEApODs2NDk2Ojw5N2k1ZTgzN2dzZl9pMmRrczNhMi1kXjVzczFjM2MtYzAwNi0yNl9jNmE6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 46,
+        "title": "Bölüm 46",
+        "video_url": "https://video.netshort.com/oMEEVE6Qb8fAVfPfMRRmDH6cEpbDUFFfgA8Bks?a=0&auth_key=1792648898-66f9fcf23c2749748a40d5c70ecbe841-0-1b2ca4b86d69def78e286f3e043ec2e9&br=827&bt=827&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=9937a1c6e34f43268983f5d34c916f85&er=0&l=2026101206005506223E8606E0CF824841&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajx4M3c5cjo2ZTozMzZoNEApOzk8N2dpOzs1NzdoZmQ2PGc1bWctMmRzczNhMi1kXjVzczJjLmAwMjA2MzBjMDMuNDY6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 47,
+        "title": "Bölüm 47",
+        "video_url": "https://video.netshort.com/okGtppEEABVVWRmfEPFgMSHsK6efwUfADFHbQ6?a=0&auth_key=1792648914-ccbaaa8bc5354a0b8e37354ddbe1eeb9-0-7978e4030c513f748bd15e9d294b7727&br=935&bt=935&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=08783b6d16744b269fd6e5bafd75be4d&er=0&l=20261012060055BF4FC998EA85DDA00109&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzx4M3c5cjg2ZTozMzZoNEApN2U6aWVoZzw1Nzo0OTY6M2cybWctMmRrczNhMi1kXjVzc2FiMmFeMjNjM18xM2FfNTU6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 48,
+        "title": "Bölüm 48",
+        "video_url": "https://cfvideo.netshort.com/oEQeAgAqgDf7PFIOnHFfBbVQDUJVWFdmEdflME?a=0&auth_key=1792648944-e264c097c0cc4df0bedbcf618b2a1a51-0-e65e8536a404570e128d200230df7a34&br=793&bt=793&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=398aa2546a524fdb98202c56bad82951&er=0&l=20261012060055CDC833F63B4B9B9D8310&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3BuNHk5cjs2ZTozMzZoNEApODVnZTg1NTxnNzg5OGQ7NmctZl9pMmQ0czNhMi1kXjVzcy42NV4zYC01X2MvXjEvXjY6Yw%3D%3D&vl=&vr=&Expires=1792667373&Signature=bEAb1IUOUrfrMmId2uhzBCY9ND-pYqRFGim581CHbPnlU74L0jbFyFLbn157woYD4H0q~5CQkiL4TAyZKpKJ3OkUYGCLTqw7JFvmjYGA~2lFYjpifsizZ0pzGMLycG7BGPKi4GfuMb~PRMXPX3000SpVeijmvjdwn46lEYHXcI79C9RbSUazXxai9eprI6crfWT5CvIl~4fPrPNUdB5tlD7WSRliCO5euEfJVRHdXEuSV1Rti-o0nb~dwHKMZ2qJRfJv2aczMyUHDPxgGXPX5wZ822BotNx68HkRipWAmKMKtCVlmq9R6-8w5y-w~VQnB9gCjW1u2ZOBOqle~q1eNA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 49,
+        "title": "Bölüm 49",
+        "video_url": "https://video.netshort.com/oAfqZNNvqvBz3Mmi7PifFAL5AvGAEqC5DhQw7f?a=0&auth_key=1792648913-e960e64b503449be9120702089011355-0-6963c413a5061a9b6ab7024efe8433d1&br=886&bt=886&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=7de74930ad214fd697b44b5cd97fdde7&er=0&l=202610120600558C4EE509E8E4E7E9EB09&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajR2anM5cjU2ZTozMzZoNEApaGc6Zzg3ZTxnNzVkNjdoOmdrbzNxMmRzczNhMi1kXjVzczRhYzZgXzE0M2MuYS02NGE6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      }
+    ]
+  },
+  {
+    "id": "anka-kaniyla-tahta",
+    "title": "Anka Kanıyla Tahta",
+    "slug": "anka-kaniyla-tahta",
+    "description": "Doğumda değiştirilen Prenses Ella, rıhtımlarda büyür. Annesinin tacı Arena’da onu tanır; Şövalye Seth’le sahte prensesin...NetShort'ta Anka Kanıyla Tahta 'i ücretsiz izleyin. Daha fazla popüler dizi keşfedin.",
+    "cover": "https://awscover.netshort.com/tos-vod-mya-v-da59d5a2040f5f77/imageG/production/2110910397774028801/1792292364535-3087057783242053-3%E6%AF%944jpg~tplv-vod-cs:651:868.webp",
+    "banner": "https://awscover.netshort.com/tos-vod-mya-v-da59d5a2040f5f77/imageG/production/2110910397774028801/1792292364535-3087057783242053-3%E6%AF%944jpg~tplv-vod-cs:651:868.webp",
+    "category": "Fantastik",
+    "tags": [
+      "Altyazılı",
+      "HD",
+      "Popüler"
+    ],
+    "rating": "9.8",
+    "views": "85.4K",
+    "total_episodes": 40,
+    "featured": false,
+    "episodes": [
+      {
+        "episode": 1,
+        "title": "Bölüm 1",
+        "video_url": "https://video.netshort.com/oI4HXIWnBxCiai6jHdFX06ADREn6Q05AtPQ5P?a=0&auth_key=1792999518-8a01beea72eb44ef983de6aaac4c2e59-0-e3890862b6246fa253216aa2f5aedf4c&br=1062&bt=1062&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=13497fe1879240b7aa4f6a27716cd7d2&er=0&l=20261016072215741FE2314903E8B63098&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3NpaHI5cnd2ZTozMzZoNEApZ2c5OjU5N2RlNzw7aDo3NGcuaWQxMmQ0YjVhMi1kXjVzcy80YC40XmNeNC0vNC5jNjA6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 2,
+        "title": "Bölüm 2",
+        "video_url": "https://video.netshort.com/owCvNvDx0PcfdOnuRin8wlUEQIfFAqqFAEqf39?a=0&auth_key=1792999495-c842ef45ef9649749877ec7cc7fc4277-0-bf9a4d9f1ce3f73b55141bbe1252f251&br=759&bt=759&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=cc7651cb955847c7bf84c524635eba15&er=0&l=202610160722158DE56F2490E40CAFE0AB&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3dyaXk5cm92ZTozMzZoNEApNGU4OTVmO2VmNzg8Zjg6ZmcxXzJlMmQ0YjVhMi1kXjVzczJeYjAxMjFjNDQ1Ml8uM2A6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 3,
+        "title": "Bölüm 3",
+        "video_url": "https://cfvideo.netshort.com/oQRrjetUbRjf2gvegfAAoPGV8d4LIBh4FVz6xo?a=0&auth_key=1792999496-f9019ced78d1435196bd977aafd903f0-0-378e0bd39f892743863de0454256071b&br=788&bt=788&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=b3ffc0026034429fb994268f3e8be506&er=0&l=202610160722157FBBA528757970A0EB3F&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3JpaHI5cm52ZTozMzZoNEApM2g7Njs1PGU8NzY5M2ZpZWdzaWQxMmQ0YjVhMi1kXjVzczMyX2JjMzE2Yy8xLS8tYzA6Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=t~RbpmOsoGH~Li2AZqaNr74Xaz1Zq6exA8yRWjIPMTsNrK4C5LoLqENCz1z5ch9WNs54NWQCJ0rCCfwEDeDjpeVyQAyIh7yGieIP21iBWuEgsIJ~3hfXj34MdUijLRFHzGaKvbImO5hrPdggK1jyeZnhTSciX2SdL9Va~2K2F8UIheRGrii3YgZz8tummT3IBEsoOMFPLsMjjJj2VNO9QcOGykx2i85cNnYRGBhpnpg8n0DNUOcfNDrNlrl6-zzUCgoema1GS6S1ipPoq4zF8OWvMAbR7oXIW20aM9Mvj-NaOFYAL3gGA5~pJreTrxuQEGspve-RZevgE4fhUAE0qw__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 4,
+        "title": "Bölüm 4",
+        "video_url": "https://cfvideo.netshort.com/oEX5SreVofuXB0rAQey4dbHFgeH8RJ4VULcVAM?a=0&auth_key=1792999451-69ebbb784e014f64865048df584b77e9-0-769cae60e9e40bed2800e57a33406db3&br=768&bt=768&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=dc4c46edd7b240edb5ff9f0ae9acedca&er=0&l=202610160722156599DEF2FE090E993643&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=andyaXk5cmd2ZTozMzZoNEApZmhkaDM8aWVoN2VnaDc3Z2cwXzJlMmRjYjVhMi1kXjVzc15hYDZeY2MyYS0vNGEzYGA6Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=duV4BcfvxTT8RK1kjBzneddGd7R5YHdYI54MujYclJSe1~SPpGWvxvwCDXGF8Hbrsph6JvD13kT4~qB~f8Pz5-ZR2dBxFf-bj-OjDbEz~kSZss1MkxkEf7yQAaZfL6bY7lz~1bu7AhkpuSARuP9Je~yrOW7XszSDe-IBYBQtn356oh7TTbE8GJ-IPLNP7iV0ECah5M25aEMeFsSoSyWzvcDKumd-BaX1J8Bvdpd~dSRngn6NMtmx1z4TT8tgBNv0KUl9Cay6ExmFszz77sdpaQwCHm9uFV1HpirjGIrtwcGq-St~jCCrUFEjVwBbu4Xozhc-BkIKxPwglOf-2-bCoQ__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 5,
+        "title": "Bölüm 5",
+        "video_url": "https://cfvideo.netshort.com/o0JDxOBIBEnz5R4Ov6iQs9GB4Afk1JAAiwK61a?a=0&auth_key=1792999441-3f2427324631431d95938704b826cd3b-0-b61784ad7aafc67609e4d99edc1745d2&br=708&bt=708&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=e57e5599a1464a7e9429e09225bf9104&er=0&l=202610160722154875970F0BCF954C2AB9&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anJpaHI5cjN2ZTozMzZoNEApMzxlNTxoNTw6NzdkPDg6aGdwaWQxMmRzYjVhMi1kXjVzczEuYzIvLTYxYl4zLjYyYjI6Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=BMfhvpEYorZtL8uCmP-H4~aqM3TUwgK73JI83KUGFhhXuygG5bFyYlwGyWk80r5-3UmmH4w8M88N-5ptPvS9eEVqspC9hAWmrOvKmaMlicn7869y51W7iI86FNC8VFuwIKgeb01z08whxIt44XqBOo6jxLvtPY87ZLdNzorXtePUKeV4JUoVAVKaYO2ARAntvm6lziPmB31nY0-u55S~YATP3Tao4v0HUqkyuGwy~-484I~R~zCls5LQFl8rzayU5pV016ijjonaQqSStGRACKY9a1oA7Vuupc8w7SFcInANk5iZNRlFDrgieVfYyCqIGiV9gzxJi3dVO0hpMyvusw__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 6,
+        "title": "Bölüm 6",
+        "video_url": "https://ns-aws-cdn.netshort.com/oQALRYyefx4MGLeYgPM2yf8vozCXRxQrrAeIXb?a=0&auth_key=1792999438-cf3362b4e6df4fc8b3fb125be6b651b6-0-946e78e4ea2c6b43160c3c84f827cb4d&br=608&bt=608&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=6&eid=9603f1e4482a488b84951004bda0c049&er=0&l=20261016072215AC54A11A932BDDB089C5&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anZyaXk5cnl2ZTozMzZoNEApN2ZkZTM0PDs7NzU3aGkzPGdzXzJlMmRzYTVhMi1kXjVzczYtLWExLTIxXzVeNTEuMDM6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 7,
+        "title": "Bölüm 7",
+        "video_url": "https://cfvideo.netshort.com/oM8x3QRJqnA6i9uRCfFEqdDVq0fNSdTEAifFwc?a=0&auth_key=1792999501-7d07e3ce8f7e4dfc99b38a0544710452-0-584feb55d191e89387f60cc888e85885&br=856&bt=856&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=9d6bd191eb6f452689ae7051e9c7241e&er=0&l=20261016072215BA255E272C906FAB1CD2&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=andyaXk5cm92ZTozMzZoNEApNDVmaDg6ZDs1NzloPGc5PGcxXzJlMmRjYjVhMi1kXjVzc2IxNDYuLWI2MzJjXy4uX2E6Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=AQ~Ak4X32zWZhPL8ImalcHyI5Q5cicRIgn5ys6fhydz5aBduiURwJ1rB9Vvy0wGo0bpKVmEbBTMiRf10lo0DRmxEUgNVwlIbngsYpCACOF762P8aI8EZ9wACE1PXnzJwtjW67d2iNbkVeAKWKynd6UIYnoD3~RvvVyXBg8P68HF510UKXkEB5J3vx5p8fUvnANSjqa26NGmgyJXFhh~x6w9TGLzrE42kAVs97PzwX7RyKhtSl2J8Tix7km1dBvVyV6MeBDBeR3x~Je8NX61mIsLR83j2HpfRpnCyVPSzjBO3RSiD8x-nHxJpJ~nj7eUevgkreJgZyAxdYV9UP9JtBQ__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 8,
+        "title": "Bölüm 8",
+        "video_url": "https://cfvideo.netshort.com/o8e6eggMVFjoDo5XQnd4WfAAUBej8opVTbIvm1?a=0&auth_key=1792999512-49e4227cb3f441629393f67cfc5a6b68-0-adf0816e176b625add86d1754cb798b2&br=915&bt=915&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=c082f48e211941f09ae8db9a24905ad3&er=0&l=2026101607221590173B0B9F3E4664E809&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amp4M3c5cnB2ZTozMzZoNEApZzg8NTxnaDxpNzQ1O2k7ZmdzcGctMmRrYjVhMi1kXjVzczBeLTFeXzVeLS42LmIxLy06Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=SwmY3iZpPTX3TdUvCfVp0TjtP0xYdI8Dpop9LFyuJryShs-eYUDbU83s2DOS6P2XASz1M~VaDBGIHIpYdrANrxMf5-62EhINWx66wu7Tm-MbnF1oJykJocn3TcoKGCDwqksGb3vrW22KCz~DXW~KUE0SSzwgKBtqX16pY78xLaJirD9OIOl3-MpfdIP93i5NixIJzd~9twjtglx5ywPhUEfRnPP8lyUn5M-7cnbDxUCgMqRlMku~HwIJ~M3HppssLJVC4khfKwckM8AvP58bGl31lRmuxfsfjnt17eQP7o-w8O4kxR1wE-dLGENARNETdc6LWIwwZ8Ogklstjkb0mw__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 9,
+        "title": "Bölüm 9",
+        "video_url": "https://cfvideo.netshort.com/oUPRvkVoefApn7PpAGbVo5FUxIBgLUfrj4fR8g?a=0&auth_key=1792999508-1511d21a0895468682669b3e3a62a386-0-d5ff1a6974be618b6b98f3cd7600f82d&br=760&bt=760&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=4aaf7191818340bdb6adce9d6416d6ec&er=0&l=20261016072215E7623D0E54452ACAFD44&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anNpaHI5cnd2ZTozMzZoNEApaGc0OTxmZGVlNzs7PDpkN2cvaWQxMmRzYjVhMi1kXjVzc2AzMzFhYmEzYS0wLi4uY146Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=pgvPHHLLDR8mPGiX2c9ptehHsUqsmC11FM0gS5TyF1OtC4Rer6~jV5w5LQP1zE1VEPOw02OluzouT1fVTOCfaayhrDFoNS1-UmrRDyTFynapYkQ-VjFrbrwZbUlxs8Xmq6MnS6JLc1bTdeOBtI2qmqGT2TTjvEZWoZLLIJFsF2ya1R4ll3m-oIPezLgJKTE-ZNfH3NCZzrF7Tgx2k6jQw47Krk7aWlrCgUyDG-tl2KJaijQIgePP3kXoxupP-Qi6Zr~p1K~YOvgHI~390bvViA~e8axfEXoPpxsYR0zjT5rTM1j6Ct-3-eqR1vUcI6ma-ORaIs8cB4OpaamJWgQGJQ__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 10,
+        "title": "Bölüm 10",
+        "video_url": "https://cfvideo.netshort.com/oAcAwFDnNqAhRE6yvREAEdCfxQuq46If0qfARn?a=0&auth_key=1792999440-0742673fd72f4c58817cb32f0be6f5e1-0-8af343bf44378ffb77fb0b16f158255d&br=698&bt=698&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=b66dc6cfd4214f4285e69a85b25cae54&er=0&l=20261016072215F54C3717018870229D18&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2t4M3c5cnZ2ZTozMzZoNEApOGQ4ZTs8aDs3NzVnZmY5ZWctcGctMmRrYjVhMi1kXjVzczFiYC8yXjMyL2MuMWMzYTM6Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=i4DXFkF4Y~P7j~vXWzxSktu3O-Wi5~c-m8uho794oGF~q2vS4tr2QMt7tLGmGqjLfYtUGdvxa-tZug3maVx7wdmYJ4wr4CU4oH3O-E6C3UU5BqxRTdM4MLK4hDQWbmYycuC9w4xtjtX81H7VX9AulPc1uFnQk13RhWihwcqiWqKFj7wOzY~Uw2O45cLprFWXgUTuQT0tsElW8rZKO94uz3hBYqMSM0GDGB7SelJXVP9d1sZdtxyyiHmoQFqCir5vo2k9BbPDGRgLRf-WLeY38lLPrAVTnVJejef15mRj9va0GZfAO84mwzqmuTwq-NdCDDZxgF3zjW9BZZabfkaPQw__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 11,
+        "title": "Bölüm 11",
+        "video_url": "https://video.netshort.com/okzEdxKyAqfqwr0C8R7DfAvNcWfFQCcqIdqqEF?a=0&auth_key=1792999437-f5aeabf015a946aaa225420f5d9d9d99-0-8bd563efb586fe49560d152b87df2000&br=649&bt=649&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=0a42aca630a44e94a015b20946916889&er=0&l=20261016072215C9063872A7CC4CBEAB25&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anZuNHk5cjh2ZTozMzZoNEApOzk8NzNlNGQ8N2Q2ZGQ3M2draV9pMmRrYjVhMi1kXjVzczY1LjM2LzItMWIxLTNgL146Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 12,
+        "title": "Bölüm 12",
+        "video_url": "https://video.netshort.com/o4TOAsiB6IfA64mQx1OR147EyEiV6GvaDKArLK?a=0&auth_key=1792999407-540ff2c9bb184413bd8523fc37a81590-0-12274930da53b61af383a2966918e2d2&br=563&bt=563&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=9f42d03ea23e43bebcaf222ba9af4e66&er=0&l=202610160722159DCE9ADC3E64954E79A0&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anJpaHI5cjh2ZTozMzZoNEApOTdkZDU1ZGVlNzZkNmc3PGdxaWQxMmRjYjVhMi1kXjVzczNiYzZfL2NgYjBiL2ItL2M6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 13,
+        "title": "Bölüm 13",
+        "video_url": "https://video.netshort.com/oEfzq90zcq85AqEXxuFFiqwDCTHG0ENRcfwfQA?a=0&auth_key=1792999431-9e2d38e0191b47dbb604217b7bbbd1f4-0-8383d6e4178190898bc8075c3f973dbd&br=660&bt=660&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=e4b48e7766074035a94d90244a16e877&er=0&l=202610160722152EE57DD8C15CEFBB2E4F&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3dyaXk5cmZ2ZTozMzZoNEApOmg0NzU8N2Q2NzM5OjtlaGcwXzJlMmRzYjVhMi1kXjVzczQ1M14xLWE2Mi00MzRiMTE6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 14,
+        "title": "Bölüm 14",
+        "video_url": "https://cfvideo.netshort.com/oAuEqk0AAfoxAkq8EFc0q7EHRD60fVfQNQCcPw?a=0&auth_key=1792999419-d7d6a00d30ed433bbafedd7ea0a668d7-0-ff70c2b1cb1102459998cc0a974b3237&br=749&bt=749&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=2180b277b850481ea0010f5cf4d94682&er=0&l=2026101607221525721795D65930CCFA17&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2p4M3c5cmd2ZTozMzZoNEApOzdnaTgzM2Q0NzhlOmU7NWdycGctMmQ0YjVhMi1kXjVzcy8zNjFgYy4tYjUtNTQvLS46Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=ZF9K1lIryEft~8tceI2E1Gry1hAuQmhkMYj9z0rpUCYGXC~OPh-vLLdpWem9JWKHMxy3rKlOPJQiH4EvxO77w-W3T~X5SCyGuZui7mDWhgqoCG6HIhRlTLi~1IS~Lsuduag15eHah3nc2JX05SCLYwGcE~qPu40icsXAxmdQdTcCIEpsXudlFQaWjpxxjt5LfURy-vp6OTxz-w1q-jmCorA1C04ZGDyLdwywKglnp9JqDjFS7jTb7MZU5RGht-b3zNsTgBJ~gI9ZLshooVQxF~4YuU93EM2h9EZtn64FPwMC10FLk8A-QU6Gcffdgm3uHcw9uP0D~GVVTyLG0YE5gA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 15,
+        "title": "Bölüm 15",
+        "video_url": "https://cfvideo.netshort.com/oIzEuxF0AifqwF0C9RQDfAENcxfFQdcqH32qE8?a=0&auth_key=1792999432-8e5bb03f7335404f9ffa30cb5287aedc-0-d14069e6a29260f2902c1e928bc14f5f&br=633&bt=633&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=6417908846324b25aa7d83f279bbb84d&er=0&l=20261016072215DEDEF7310EACBA1C320D&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3dyaXk5cmZ2ZTozMzZoNEApN2VlOmk7OmQ1NzY3Ozw0OWcvXzJlMmRjYjVhMi1kXjVzc2E1XzYvMGFeMl8vMzUtNDE6Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=VAOKhNBZ9FXyCp8bgkzO8Ai69kV3nDRl--djsyikwSlGV28tJoFc~eJxuvWce1rHe7f-fdwd-SZ~mn2CwAVwIhfyWT2qZq0~6fCjtHO-xrFPRm-xl~6d4m6hj6q57zYbc30oWJFAKI6PO98M234Ld9WpiiOy6vqUkT0AtjcWeD3oUMaSm2NyILRM6rigZRwRDQ4~fV-Mp~Vk4eCgs39xLa1QUTbt84tCb~zBnGAPFjvd73Wfv12xki42LKCTDkgUK2dwfun-KVA3FJuUnc4mUPM9Xms4qrN9G57nBy92xrr8O7oBrpMaXPqIOaPc9SBRmWJbYK1FlEqAkjXy4xxIyg__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 16,
+        "title": "Bölüm 16",
+        "video_url": "https://video.netshort.com/o0wDFLcpEDAQE1FqqA9fuxcficfNCzq0RAAi8F?a=0&auth_key=1792999468-1d1e96d8070a4885a7e55d5ddb5f009d-0-ad1b8fd660dae30695d79916c2eb7d2c&br=720&bt=720&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=9c544ef4bc3d4512873491640855d124&er=0&l=20261016072215BC00FABFE445BFB3762B&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=andyaXk5cmZ2ZTozMzZoNEApNWc4Mzk8Njs0NzZlaTc4PGcvXzJlMmRzYjVhMi1kXjVzczEuMjUxLjE0LzJhYDFiMWA6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 17,
+        "title": "Bölüm 17",
+        "video_url": "https://cfvideo.netshort.com/og9RNcDYqAwFqXAfxC0FijcEEuDQiEfFwqfi08?a=0&auth_key=1792999406-2bd42d785ade41e9a8207b79b2643a6d-0-2b619a674415e02e08ba731be4570953&br=627&bt=627&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=aed6999ecf834e78816a988e5832025d&er=0&l=202610160722150F0BA4C48104C4CE81AA&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=andyaXk5cmZ2ZTozMzZoNEApODM2ODs8OTs6NztmPDxnZGcuXzJlMmQ0YjVhMi1kXjVzc2EvLzViNV4uNWIwY2I2M2I6Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=IFvJ~Llzn1~DeI1wl5EfavX0TEOKueONpKt0cESnF5bhxabpvQcnW4eGF96XFlRf4KQeqYqsAziOy8DDKPHTyrM9HtXMEcdzpss-EdsXsuspwidgK4--WxCXdhSPVEn8ajgcW0W7TnCe8uU6LbmsZ26DtNkYJD044ogHPsp-A0pGXQPe3EH5d~-YG8CmUpaRQcwvAN6C3WUs7PWYCYxIvND81EHvoUXcN1B28UgDlrm5xD9ikEQHHE68SSjNISjx8NHk6Su-AMEGlx7qFw~gZ52G17F6DSn0b7nyvPzAtndHxHrLGWQ-F0pAW9cruJxxpXYWqOK2n~mdwgDo5Uf8mQ__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 18,
+        "title": "Bölüm 18",
+        "video_url": "https://video.netshort.com/o0WZgehJGBfVLbfUpRIx4EA1oFgIA2cV0GbT5f?a=0&auth_key=1792999481-9d796525443e4745b441549735022db6-0-22be6aeeeb1fce8c485c88e024f855f2&br=631&bt=631&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=5bba8312b0a745b593bdabb9443b004c&er=0&l=20261016072215735748A099D22BA21D85&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amp4M3c5cmd2ZTozMzZoNEApNzM2N2VkZTxlN2RlNDtlOGdxcGctMmQ0YjVhMi1kXjVzc2AtXzE2X2EwMjI0LS8wXl86Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 19,
+        "title": "Bölüm 19",
+        "video_url": "https://video.netshort.com/o85jjfLM4ggmcIIVGoLeBFVy5jfk36AFbIGfU7?a=0&auth_key=1792999401-a29f85bd0c1842a6ac8fc19b4755149b-0-87d24d342677e13558af92134e3356d7&br=535&bt=535&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=cd5c3cbb759b40058643c623dda191c0&er=0&l=20261016072215BA2606394DE6DFC5EBC1&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anZyaXk5cnl2ZTozMzZoNEApZjxkZzVmNzszNzw6ZTY4ZmdyXzJlMmRjYTVhMi1kXjVzcy0uLmEwMzAzMi1fMl9gYGE6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 20,
+        "title": "Bölüm 20",
+        "video_url": "https://video.netshort.com/o4A7vx4asizKI1OQA1iB4zf6E4jXKOD6AsRD6G?a=0&auth_key=1792999477-2265185218244063803f97ae82964ac7-0-e02724872573a5cc95095cbb775a26e9&br=629&bt=629&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=0cc66eb2f8c24578b1c18d3615a1161a&er=0&l=202610160722153C49B653F479E7ADAC84&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3JpaHI5cjR2ZTozMzZoNEApNDRkNDY7ZmU6N2ZpZTlmM2dxaWQxMmRzYjVhMi1kXjVzc14zLjIzYS4uNTIvNS9iM2A6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 21,
+        "title": "Bölüm 21",
+        "video_url": "https://video.netshort.com/oUx1AafsqEvOHFOAPGxNRvQhBKi57AB31A3Gbi?a=0&auth_key=1792999399-c3d22eae25124925bf1dcea5ca5a3553-0-dbf184358bbd5c518558c20e62620aa9&br=698&bt=698&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=25ebe3a6a2624365a24288f3530b700b&er=0&l=2026101607221561800DFBC4CFFCD9ADD7&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajp2anM5cnl2ZTozMzZoNEApMzozOGk7N2Q5NzlkZGhoNWctcjNxMmRrYTVhMi1kXjVzc18tXzAwNS8vMjAvLzMwXzI6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 22,
+        "title": "Bölüm 22",
+        "video_url": "https://cfvideo.netshort.com/oYzUEe4RLVxbGkRIgcfIf3FgxBoLA2T5V64FJf?a=0&auth_key=1792999431-ef1f3902c3e4467eaf061cef51bd7e64-0-e542dae88066e5cd7947f2a79c6c94f7&br=739&bt=739&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=bd094904fa8c4fe0b60d36ede9c7b4ef&er=0&l=202610160722159FFC2E606FEA31CD7D27&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3dyaXk5cjl2ZTozMzZoNEApaGVmaGg2M2VoNztpMzczZWcuXzJlMmRzYjVhMi1kXjVzc2MxNDZhM2EzLWNgXjE2NmE6Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=AdKKJGBqDgaZSxLoPa8SiFQSH0WIij4SXUFcZxZW~EAMy6ojgSsVNq8PfEvTn7jiklMUo5Z55NqBr38eziJCLlVAPTJTB-W17Iwa5aTS8z2Xc-7rW5wa4Ei4ECl2yTjy0iKy8kdkNbKrXqj04xPsKtLUX04vJx2FZLSs8fjesVqHoIKoBSA~Ml~V8h6cC9ZWvvShS~mNZh6cEnXIYJgGUZ7ZQH1zMhc5GHhTohWp5QV2UV5~N6boyAjeRl2T6e7Ac9rJbirhnR~MHLAx3he~pRQByjIz2e4reYGEZ3KUEP0nsCyN3LsSdZCnFJ3ERKumr~lu91I~Uhvq29KseiGjCQ__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 23,
+        "title": "Bölüm 23",
+        "video_url": "https://cfvideo.netshort.com/ooqKDlDiAFfcEuC0wQEw8xqMAfc5fNdRqF1zq8?a=0&auth_key=1792999474-f4db48a911a143c198ce6022b2b28888-0-f6170b20bfb0ab2ac8a3916d86ae0b34&br=765&bt=765&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=edf3cf2ec9004631bd644dfc5d6c0860&er=0&l=202610160722155B761DEDEEB14BAF4536&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3ZuNHk5cjt2ZTozMzZoNEApOTM5OGk3OWU2NzNmNWZpaGdsaV9pMmRrYjVhMi1kXjVzcy01YGFgYTFhLjMtNmJjMGE6Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=lmnLdrRr-AKETIoswQRVrwxNQ2OVrsVK5y8SMV4UcF0l8PJgGg2SkeXM0QXD-FiC0WBcgKiw3X42Y0VjR1hXovdHH98PaO~K9L3yDHABpkCziVIFepBj39Uap6pPxX32BTIa1hKnjs5c59dLXeUZF58oSGUP1hpDIttSiR6BIgEv7DSmX9Ra6YJ0L5kgQrQYWHotDGiMvJsVwBUuAAtzkuTEp~KgqD-3w-k26eKDK5Jm4DzrO1niO05qe61inOe0wzBi92nQ1iQMQ-jd5if5IDU~IKjjH60xEi3jx21CpT4C6Pb5iJqvv8yUOfflT7mL-AQ17O0p6NUtyWeXOzCmnw__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 24,
+        "title": "Bölüm 24",
+        "video_url": "https://video.netshort.com/ocz7jPlHHBIA4XJ513dRPBAQi6tiaExHWFHHA?a=0&auth_key=1792999437-67c5096310254d66b720ba4d7885e9ca-0-8bcae0624b5c9139ecb66bc0ebbf870d&br=762&bt=762&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=70f9617f67af43ecab7de21e1044e287&er=0&l=202610160722159D131714F76AB3BB8F03&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzp2anM5cjp2ZTozMzZoNEApO2g3NDRoOmRoN2Q5OjlpOmcxcjNxMmQ0YjVhMi1kXjVzczQvMS1iL2FfYDBjNGMuNi06Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 25,
+        "title": "Bölüm 25",
+        "video_url": "https://video.netshort.com/oIWcx4ysGIfyGRn4feLgg6brOFeEVNBAI1VDUo?a=0&auth_key=1792999408-4da78a3d7c294d55a35495dda73e3896-0-4ab60a007bd9cb06176fe5802799aaf3&br=755&bt=755&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=33838744dbba46dd8b3dd371b187937b&er=0&l=20261016072215C7A32A66862747B8FCEE&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajp2anM5cjh2ZTozMzZoNEApOjw7ZTpnNjtnN2VnNzs7NmcucjNxMmRjYjVhMi1kXjVzc18wNC4uMGFfYTNeXzE0MDA6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 26,
+        "title": "Bölüm 26",
+        "video_url": "https://video.netshort.com/oINPhAZff68EQQzq6cwFEcu0ACEf3NuRKqDxqA?a=0&auth_key=1792999493-ec046350f041446a800a4e4987a6a1c9-0-95f030d0508b1a8544bc9cf33df79531&br=725&bt=725&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=de9350b083514d29bef70bc9376afa7c&er=0&l=20261016072215F6F988163EF146C063D2&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2p4M3c5cjl2ZTozMzZoNEApOmk5NmYzaWU1Nzg7ZTg8Z2dxcGctMmRjYjVhMi1kXjVzc2BeXjQ2XzRiNmEuMC0tMGI6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 27,
+        "title": "Bölüm 27",
+        "video_url": "https://cfvideo.netshort.com/oE30wAWEDuTccCx9qEfyfsQXFFi8HqAqmfANTR?a=0&auth_key=1792999411-08921a0c8d2c4ab0a2808870e6fff0a9-0-f2376b1e2a857cdb5e906cb752a24e82&br=803&bt=803&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=8184a256b75549debd9f615722656f81&er=0&l=20261016072215CDC833F63B4B9BC29621&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3dyaXk5cjh2ZTozMzZoNEApOzk5NTg5PGVnNzhlOGQ7O2ctXzJlMmRrYjVhMi1kXjVzcy5jMi80LmNhYjYyNDMvMS46Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=HN8WH59IBTqSAZgZktVUbiXVg4Bh29n~U0l-J2avlN7qdHVGwcUI94yWZRu8FkT2NLrfVvvnmu4V9deyCWHkm9aXxvKBWRgo6DN8huyV8~LgCkDCC-~KApruGjsEII2r8p4AyY-e6huj7NnX~ej-sHMiqxUmnVua5yqe9DNAe6jNykpe0gPpmqgzpefPRa9Wo0GR40cSzv92Y8Fv5cCGRfp6oXT3fPDRkJvthMXxec51OW8W6ez0cvxnsxueLLLm-TdiaK-nhftUsN7b-IWt9NBz9JhSPzc6QVy3NYVhwMfjprxoNeV~YunzJGnRQSrsG1LmRmJ1lF5lflCS4wTuSA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 28,
+        "title": "Bölüm 28",
+        "video_url": "https://video.netshort.com/ooR16PDXAFfcIDC04gEwfxqUAwctfNHRq0yPqx?a=0&auth_key=1792999433-d62e5e88717749ab938c26e373933738-0-0bdd0c4c2d71aeae0e9db11591d80ae7&br=884&bt=884&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=d695b507142947da8c4b0bc4ceeb614a&er=0&l=20261016072215E5109DA24B8DF4CADD50&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3JpaHI5cjh2ZTozMzZoNEApNzloZmYzNztnNzU0M2U8Z2dyaWQxMmRzYjVhMi1kXjVzc14uX2IxX19gXjQ2MTQyMjM6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 29,
+        "title": "Bölüm 29",
+        "video_url": "https://video.netshort.com/o0EB1aQ5W3NO1AG7naOAWPivizszRHOAAKfiGx?a=0&auth_key=1792999481-1b83c196b4a44b07a9d67f72c4035e34-0-d695441a040c3c88c1e833376591e432&br=817&bt=817&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=cc291f4769264acc8f2caf6fd57597e0&er=0&l=2026101607221536805B12CBE98CA82F58&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=Mzp2anM5cjl2ZTozMzZoNEApaDw6ZzlkNTtmNzU5NzQ1ZmcwcjNxMmRzYjVhMi1kXjVzcy00MjJjY2BjYF4zNjRjNmA6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 30,
+        "title": "Bölüm 30",
+        "video_url": "https://video.netshort.com/oIaR6D4Hj6MIFtIAXJvARxk09iHXiiQBD4WE6?a=0&auth_key=1792999405-5ddb31a537b04c8eb3b867429d463450-0-4f3fb660a52da4813a6caddea6079791&br=958&bt=958&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=4bc6b7422f15438ba2bbf3280b05b3a8&er=0&l=2026101607221591AD7B8B34B2930C5751&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anJpaHI5cmZ2ZTozMzZoNEApZGUzMzVpZWQ7NzQ1N2VmN2dyaWQxMmRrYjVhMi1kXjVzczUwMl81MF8vXzAyYy80M186Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 31,
+        "title": "Bölüm 31",
+        "video_url": "https://cfvideo.netshort.com/o0qUE84jrVcbMesRA0eQfpFgjBoXAcAVVz5oYe?a=0&auth_key=1792999459-a1d5188c2ec240a08a34412af4c76ee8-0-b912b6efc869101e7e52fb829298030d&br=734&bt=734&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=db8ebc66645343189dddb58cc00c2c8e&er=0&l=20261016072215CDC87E8FEE4AAFA38920&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anZuNHk5cmd2ZTozMzZoNEApOzUzZjtlZzw0Nzg5OWU7Z2dsaV9pMmQ0YjVhMi1kXjVzc2JgYC1gMmFhNTAwMTNgYl86Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=ndNUP8GeA5dzfydbxnjzwrJQMmHVLOeULi0X~kTGy8PVcpJArBoF4LLEzk3fiWqMe80PN3Su4H189GDRDCfQceqGR2kXL-DZqfeJGa1ExOoMpZKc8~zblUo40aFMLaTcqN4bv0krm2MoYmm62n6whL~lUajbSdBbcQOkrcZS0C-Y90sLhPJPh7t0CqdAuf7~ayma9VNui7lZsFNR0B9hUJ8U3rZPww5yHYGIQaWrZi~fELgLpnOdWEpFYb08dLKOVVbe3wIEW0glI~crmzREVUa-TGLr7G9M5sO0Q~fUyVYO~t0-oAbQ2sKac1M2up6Rd73cstxw1Fp4vCY6TGw9Gg__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 32,
+        "title": "Bölüm 32",
+        "video_url": "https://cfvideo.netshort.com/oQA2Rquq3CcKNqNE6fEfHFEAcxDNQ0Q4Af900w?a=0&auth_key=1792999439-79bd3ee07a7a4c6fa12cf47e6471a589-0-51ea2335bd5cd8488ba2e894fec776a4&br=858&bt=858&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=cd5b72928ce644cfb61eda53cb5dc7e0&er=0&l=20261016072215E3F6BEE66E98D1CDA15A&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=amp4M3c5cmd2ZTozMzZoNEApaGY4ZjhnNGVmN2g7PDo4ZmdycGctMmQ0YjVhMi1kXjVzcy00YV8wXmIzYzEzYC8vX2E6Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=aGndW~OBor5Jut89frPrFL68XT957aQWC7T3YWxaGg0WtK6LAt0s4RJIpnSlMQM8nZD-tmzzgY-KC3Sg23zGxzrABvBHP2jgyXtYEZWpD~zfBVfMKDMmLpZ-NtjXkkZodkm4ZozRSK8IX2pCovre7vGZQL35r0j6eLYVY0orHeTinbmeqTbIbbms0qJmqeTcD~Jysbt1z~wAa1yguFL5P6biSXsaFW0NKCTyrhPCI-Ezxf9lW-c5uaSdgmHfh0Ie0LzjykqwdJAq3AQiAqhjUHrzkt1nkqmbxk1yAuHoFRyk6GCSXCIWtUEx921qaX59aBxseUkO5vIbpoP867Vqcg__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 33,
+        "title": "Bölüm 33",
+        "video_url": "https://video.netshort.com/oYA8IqcCiFdEqsFNS9EQKhfwuxqfKxfRQj0A4D?a=0&auth_key=1792999438-040fd7e6de654aeea5aa3c7e4a2fb2b9-0-100fda535976aff79ad6c87998f2dbeb&br=661&bt=661&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=2e2ee6f4eb814677a918063bb8c31fd7&er=0&l=20261016072215D83EAFCAE2E570AAC11B&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3dyaXk5cnZ2ZTozMzZoNEApZzRmZTYzNGQ6NztoaWg1NWcyXzJlMmRjYjVhMi1kXjVzczRjMDVfMzU2NDMuXzEzYmI6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 34,
+        "title": "Bölüm 34",
+        "video_url": "https://cfvideo.netshort.com/oc8qbDeA1OF4BDmfUVfRFgV8xTbKofGPEEdFQY?a=0&auth_key=1792999497-c5bfd2e5522a4bafa0dccd5c185585d6-0-ce48bd0176f1ae5ea4fc4b20666a496b&br=730&bt=730&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=b90255aa76de4d068c2f893272ad069b&er=0&l=20261016072215517136DBBF6CE1C72C22&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anZuNHk5cjx2ZTozMzZoNEApPDNkOjY7NTszN2c6ZDgzZWduaV9pMmRrYzVhMi1kXjVzc18zYS8vNmNgM2FiM14yLzY6Yw%3D%3D&vl=&vr=&Expires=1792657620&Signature=2JJHPeLnSk0DH1V7f2K5-sVGyBjIJr2hd9bu93VjwMQQ7TZPC-YSVkpi7ipHp93bmHXFvKdBIrkDxCDYLGArQa9KUNlFKgc~WKcoJLGeN~U0eqFzrKKHzqf0NBuW48rZI65EXwRUi5cxMXOQ89s1~h6GuhMa4QeBLePKhjAmaNwUygUytXzmspnQJbSG9-yzq9n~zaqE-jPu9t6XY3KJfoXcJOkruziVooliGKQOoqTWLhIdbwkLzYD3knaRFHIvIN6UXV~dtsHihqzH1tyqYWR9L42dUJ7W2tnoSjr~SApiXXlbJv7jy88QR~7p3DDUvXbaN7RquC24uCnCVvQigA__&Key-Pair-Id=K15WUQYEZKHKVU",
+        "duration": "01:30"
+      },
+      {
+        "episode": 35,
+        "title": "Bölüm 35",
+        "video_url": "https://video.netshort.com/oIixnT7iK3tPHla6AWJFV5vH5nEBQHARa3jAX?a=0&auth_key=1792999452-23b8e7368a4f45bcbf8ebd273c7eeb90-0-51ebb13394e819e67c226a01c100d997&br=747&bt=747&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=e13e8144e9ee4a95a3bf3df0b6d704c5&er=0&l=202610160722150BE439159967144EB01A&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=ajp2anM5cm92ZTozMzZoNEApZjNnZWk2ZWQ8N2hoNzs2aGcxcjNxMmRrYjVhMi1kXjVzczIxNDMtYWMwMl5iNjEuYi46Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 36,
+        "title": "Bölüm 36",
+        "video_url": "https://video.netshort.com/oMfNIBfLcAd0HbQVAwUoh6E4gexzGewFg3rVJR?a=0&auth_key=1792999484-b186a754c8e84d53b30d1e45017ac11a-0-5f3f64b7c04cd3ed80b8172e3514fc19&br=740&bt=740&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=8067e9c04455426b8837af2edced7139&er=0&l=20261016072215CE9EE9C3E12029B9778A&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M2p4M3c5cnB2ZTozMzZoNEApNjpoZzVkNjs5Nzg3Zmg5O2dzcGctMmRjYjVhMi1kXjVzczYuYWBiYzQ1Xy8yMS02NC06Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 37,
+        "title": "Bölüm 37",
+        "video_url": "https://video.netshort.com/osQEKi4QGODA1vxfRuBa7O4Z65nB1AiysIkAP6?a=0&auth_key=1792999497-856d7b51a1a848f3a18704d9258f55f6-0-d4a5d15d6f98e64e0d27cc9e1680b10d&br=846&bt=846&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=a5192a90bdc84265aff905eecd2b06dc&er=0&l=20261016072215B758928FEF01AED23D13&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anNpaHI5cnN2ZTozMzZoNEApZzM1ZmgzaWQ5N2ZlPDU0ZGctaWQxMmRjYjVhMi1kXjVzc2AzX2FiMjZjMi81YS1eNjI6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 38,
+        "title": "Bölüm 38",
+        "video_url": "https://video.netshort.com/ocDRO16IiIAOviXT6QsA9KAxuuOaAAB41E4fG5?a=0&auth_key=1792999493-66ce7fd6840e45b9a1a1e32f2a54080b-0-4e040e333ab7787d1697365eed091c7a&br=780&bt=780&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=d219e3722d2e41f5a858bb52f464eec0&er=0&l=202610160722154FCE94399FD590C95A77&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3NpaHI5cnF2ZTozMzZoNEApZmg5aThlOGRpNzU1Omg0Z2ctaWQxMmRjYjVhMi1kXjVzcy1iMTEvXzU1Mi5iYS8wNi86Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 39,
+        "title": "Bölüm 39",
+        "video_url": "https://video.netshort.com/oID06EwQdEx0cFjqxw8fjHO3m1SfCNqRRqAcfA?a=0&auth_key=1792999506-29a7c7886c1e4b70813b6d640a0f37bd-0-dcb72cee4d19e5956f6306595163b4ae&br=919&bt=919&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=66b30d04a44a4364837beca0f0f49b69&er=0&l=20261016072217E7623D0E54452ACAFD50&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=anJpaHI5cnF2ZTozMzZoNEApOTxpaWRoOjs5NzdkMzNlOWdzaWQxMmQ0YjVhMi1kXjVzczZfMS0tYF8wMTBeMTFhMDM6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      },
+      {
+        "episode": 40,
+        "title": "Bölüm 40",
+        "video_url": "https://video.netshort.com/o0AA3dqERF8DXCdxqmw4cfEnFqfNbQ0f3yKqTA?a=0&auth_key=1792999551-4fcbef4c64cd4f1dacf0f1a22a313def-0-64ce9e96dfa41ebeb6f6fa74a4c0eb77&br=762&bt=762&cd=0%7C0%7C0&ch=0&cr=0&cs=0&cv=1&dr=0&ds=3&eid=4843f113853e48e1b8a58569aac4ea17&er=0&l=20261016072217CDC833F63B4B9BC29641&lr=&mime_type=video_mp4&net=0&pl=0&qs=0&rc=M3ZuNHk5cnN2ZTozMzZoNEApNGhmZDk7ZGVoNzY7NGk3N2dtaV9pMmRrYjVhMi1kXjVzczReMV42MjI1LjViMjAuMDU6Yw%3D%3D&vl=&vr=",
+        "duration": "01:30"
+      }
+    ]
+  },
+  {
     "id": "ejderha-lordu",
     "title": "[Dublajlı] Ejderha Lordu'nun Kaderindeki Gelin",
     "slug": "dublajli-ejderha-lordu-nun-kaderindeki-gelin",
@@ -7,7 +581,11 @@
     "cover": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&auto=format&fit=crop&q=80",
     "banner": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&auto=format&fit=crop&q=80",
     "category": "Fantastik",
-    "tags": ["Dublajlı", "Trend", "1080p"],
+    "tags": [
+      "Dublajlı",
+      "Trend",
+      "1080p"
+    ],
     "rating": "9.9",
     "views": "245.8K",
     "total_episodes": 12,
@@ -46,40 +624,6 @@
     ]
   },
   {
-    "id": "esim-kral-mi",
-    "title": "Eşim Gizli Milyarder mi?",
-    "slug": "esim-gizli-milyarder-mi",
-    "description": "Herkes onun işsiz ve fakir biri olduğunu düşünüyordu. Ailesi onu sürekli aşağılıyordu. Ancak şehirdeki en büyük holdingin gizemli CEO'sunun kimliği ortaya çıktığında tüm sırlar açığa çıkacaktı.",
-    "cover": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=500&auto=format&fit=crop&q=80",
-    "banner": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&auto=format&fit=crop&q=80",
-    "category": "Milyarder",
-    "tags": ["Dublajlı", "Popüler", "HD"],
-    "rating": "9.7",
-    "views": "189.2K",
-    "total_episodes": 15,
-    "featured": true,
-    "episodes": [
-      {
-        "episode": 1,
-        "title": "Bölüm 1 - Aşağılanan Damat",
-        "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-        "duration": "01:35"
-      },
-      {
-        "episode": 2,
-        "title": "Bölüm 2 - Sürpriz Yatırımcı",
-        "video_url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-        "duration": "01:42"
-      },
-      {
-        "episode": 3,
-        "title": "Bölüm 3 - Maske Düşüyor",
-        "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "duration": "01:28"
-      }
-    ]
-  },
-  {
     "id": "alfa-sozlesmeli-evlilik",
     "title": "Alfa'yla Sözleşmeli Evlilik",
     "slug": "alfa-yla-sozlesmeli-evlilik",
@@ -87,7 +631,10 @@
     "cover": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop&q=80",
     "banner": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1200&auto=format&fit=crop&q=80",
     "category": "Kurtadam",
-    "tags": ["Romantik", "Dublajlı"],
+    "tags": [
+      "Romantik",
+      "Dublajlı"
+    ],
     "rating": "9.8",
     "views": "312.4K",
     "total_episodes": 10,
@@ -108,34 +655,6 @@
     ]
   },
   {
-    "id": "anka-kaniyla-tahta",
-    "title": "Anka Kanıyla Tahta",
-    "slug": "anka-kaniyla-tahta",
-    "description": "İhanete uğrayarak uçurumdan atılan sürgün prenses, efsanevi anka kuşunun kanıyla yeniden canlanır. İmparatorluğu sarsacak intikam yürüyüşü başlar.",
-    "cover": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&auto=format&fit=crop&q=80",
-    "banner": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200&auto=format&fit=crop&q=80",
-    "category": "İntikam",
-    "tags": ["Altyazılı", "Tarihi", "Trend"],
-    "rating": "9.6",
-    "views": "154.0K",
-    "total_episodes": 20,
-    "featured": false,
-    "episodes": [
-      {
-        "episode": 1,
-        "title": "Bölüm 1 - Küllerden Doğuş",
-        "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        "duration": "01:40"
-      },
-      {
-        "episode": 2,
-        "title": "Bölüm 2 - Başkente Dönüş",
-        "video_url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-        "duration": "01:35"
-      }
-    ]
-  },
-  {
     "id": "olumcul-ilham-mafya",
     "title": "Ölümcül İlham: Mafya Babasının Seçtiği",
     "slug": "olumcul-ilham-mafya-babasinin-sectigi",
@@ -143,7 +662,11 @@
     "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&auto=format&fit=crop&q=80",
     "banner": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=1200&auto=format&fit=crop&q=80",
     "category": "Mafya",
-    "tags": ["Gerilim", "Altyazılı", "1080p"],
+    "tags": [
+      "Gerilim",
+      "Altyazılı",
+      "1080p"
+    ],
     "rating": "9.5",
     "views": "98.7K",
     "total_episodes": 8,
@@ -165,7 +688,10 @@
     "cover": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=500&auto=format&fit=crop&q=80",
     "banner": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1200&auto=format&fit=crop&q=80",
     "category": "Aksiyon",
-    "tags": ["Seviye Atlama", "Dublajlı"],
+    "tags": [
+      "Seviye Atlama",
+      "Dublajlı"
+    ],
     "rating": "9.9",
     "views": "420.1K",
     "total_episodes": 24,

@@ -4,11 +4,13 @@ import re
 from urllib.parse import urljoin, quote
 
 import requests
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+
+import scraper
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_FILE = os.path.join(BASE_DIR, "data", "series.json")
@@ -58,6 +60,10 @@ class SeriesModel(BaseModel):
     total_episodes: int = 1
     featured: bool = False
     episodes: list[EpisodeModel] = []
+
+
+class ScrapeRequest(BaseModel):
+    url_or_slug: str
 
 
 # ==========================================
@@ -117,9 +123,13 @@ async def get_single_series(series_id: str):
 @app.post("/api/series")
 async def create_series(data: SeriesModel):
     series = load_series()
-    for s in series:
+    # If exists, update it, otherwise prepend
+    for i, s in enumerate(series):
         if s.get("id") == data.id:
-            raise HTTPException(status_code=400, detail="Bu ID ile bir dizi zaten var")
+            series[i] = data.dict()
+            save_series(series)
+            return {"success": True, "series": series[i], "updated": True}
+
     new_item = data.dict()
     if not new_item.get("banner"):
         new_item["banner"] = new_item["cover"]
@@ -139,22 +149,6 @@ async def delete_series(series_id: str):
     return {"success": True, "message": "Dizi silindi"}
 
 
-@app.post("/api/series/{series_id}/episodes")
-async def add_episode(series_id: str, ep: EpisodeModel):
-    series = load_series()
-    found = False
-    for s in series:
-        if s.get("id") == series_id or s.get("slug") == series_id:
-            s["episodes"].append(ep.dict())
-            s["total_episodes"] = len(s["episodes"])
-            found = True
-            break
-    if not found:
-        raise HTTPException(status_code=404, detail="Dizi bulunamadı")
-    save_series(series)
-    return {"success": True, "episodes": s["episodes"]}
-
-
 @app.get("/api/categories")
 async def get_categories():
     series = load_series()
@@ -163,6 +157,83 @@ async def get_categories():
         if s.get("category"):
             cats.add(s["category"])
     return list(cats)
+
+
+# ==========================================
+# Automated Scraper Endpoints
+# ==========================================
+@app.post("/api/scrape")
+def scrape_series_endpoint(req: ScrapeRequest):
+    try:
+        scraped_data = scraper.scrape_single_series(req.url_or_slug)
+        if not scraped_data.get("episodes"):
+            raise HTTPException(status_code=400, detail="Bölümler çözülemedi")
+
+        series = load_series()
+        # Update if exists, else insert at top
+        updated = False
+        for i, s in enumerate(series):
+            if s.get("id") == scraped_data["id"]:
+                series[i] = scraped_data
+                updated = True
+                break
+        if not updated:
+            series.insert(0, scraped_data)
+
+        save_series(series)
+        return {
+            "success": True,
+            "message": f"'{scraped_data['title']}' başarıyla çekildi ({scraped_data['total_episodes']} bölüm)",
+            "series": scraped_data,
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Çekme hatası: {str(e)}")
+
+
+@app.get("/api/scrape/available")
+def get_available_to_scrape():
+    slugs = scraper.get_popular_series_slugs()
+    series = load_series()
+    existing_ids = set(s.get("id") for s in series)
+
+    items = []
+    for s in slugs[:40]:
+        title = s.replace("-", " ").title()
+        items.append({
+            "slug": s,
+            "title": title,
+            "url": f"https://dramadizilerim.com/dizi/{s}",
+            "already_imported": s in existing_ids,
+        })
+    return items
+
+
+def batch_scrape_worker(limit: int = 5):
+    slugs = scraper.get_popular_series_slugs()
+    series = load_series()
+    existing_ids = set(s.get("id") for s in series)
+
+    count = 0
+    for slug in slugs:
+        if slug in existing_ids:
+            continue
+        try:
+            data = scraper.scrape_single_series(slug)
+            if data and data.get("episodes"):
+                series = load_series()
+                series.insert(0, data)
+                save_series(series)
+                count += 1
+                if count >= limit:
+                    break
+        except Exception as e:
+            print(f"Batch scrape error on {slug}:", e)
+
+
+@app.post("/api/scrape/batch")
+def batch_scrape_endpoint(background_tasks: BackgroundTasks, limit: int = 5):
+    background_tasks.add_task(batch_scrape_worker, limit)
+    return {"success": True, "message": f"{limit} adet dizi arka planda otomatik çekilmeye başlandı."}
 
 
 # ==========================================
@@ -183,7 +254,6 @@ def video_proxy(url: str = Query(..., description="Target M3U8 or video URL")):
         resp = requests.get(url, headers=headers, stream=True, timeout=15)
         content_type = resp.headers.get("content-type", "")
 
-        # If it's an HLS M3U8 playlist, rewrite relative chunk URLs to route via proxy
         if "mpegurl" in content_type or "m3u8" in url or resp.text.startswith("#EXTM3U"):
             content = resp.text
             base_url = url.rsplit("/", 1)[0] + "/"
@@ -212,7 +282,6 @@ def video_proxy(url: str = Query(..., description="Target M3U8 or video URL")):
                 },
             )
 
-        # For binary video files & TS chunks
         def stream_generator():
             try:
                 for chunk in resp.iter_content(chunk_size=65536):

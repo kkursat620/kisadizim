@@ -3,12 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yönetim Paneli - KısaDizim</title>
+  <title>Yönetim & Otomatik Dizi Çekici - KısaDizim</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/css/style.css">
+  <style>
+    .scrape-box {
+      background: linear-gradient(135deg, rgba(255, 42, 95, 0.15), rgba(19, 21, 32, 0.9));
+      border: 1px solid var(--primary);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(255, 42, 95, 0.2);
+    }
+    .badge-imported {
+      background: #2ed573;
+      color: #000;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+  </style>
 </head>
 <body>
 
@@ -18,7 +36,7 @@
       <div class="brand-icon">
         <i class="fas fa-play"></i>
       </div>
-      <div>Kısa<span class="brand-accent">Dizim</span> <small style="font-size: 0.8rem; opacity: 0.7; font-weight: 400;">Yönetim</small></div>
+      <div>Kısa<span class="brand-accent">Dizim</span> <small style="font-size: 0.8rem; opacity: 0.7; font-weight: 400;">Yönetim & Bot</small></div>
     </a>
 
     <div class="nav-links">
@@ -30,83 +48,66 @@
 
   <main class="main-container" style="max-width: 980px;">
 
-    <div class="section-header">
-      <h1 class="section-title">
-        <i class="fas fa-film"></i> Dizi Ekleme & Yönetim Paneli
-      </h1>
-    </div>
+    <!-- 1. OTOMATIK DIZI ÇEKICI (BOT) CARD -->
+    <div class="scrape-box">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px;">
+          <i class="fas fa-robot" style="color: var(--primary);"></i> Otomatik Dizi Çekici (Bot)
+        </h2>
+        <span class="badge badge-primary">Otomatik Scraper Aktif</span>
+      </div>
+      
+      <p style="color: #d1d5db; font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px;">
+        Tek tek bölüm veya link eklemenize gerek yok! <b>dramadizilerim.com</b> üzerindeki herhangi bir dizinin linkini yapıştırın; botumuz afişi, konusu, kategorisi ve <b>tüm bölümlerini (30-50 bölüm)</b> 4 saniyede otomatik çekip sitenize eklesin.
+      </p>
 
-    <!-- ADD SERIES FORM CARD -->
-    <div class="admin-card">
-      <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 20px; color: #fff;">
-        <i class="fas fa-plus-circle" style="color: var(--primary);"></i> Yeni Dizi Ekle
-      </h2>
-
-      <form id="addSeriesForm">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <div class="form-group">
-            <label class="form-label">Dizi Adı *</label>
-            <input type="text" id="inpTitle" class="form-control" placeholder="Örn: [Dublajlı] Ejderha Lordu" required>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Benzersiz ID / Slug *</label>
-            <input type="text" id="inpId" class="form-control" placeholder="Örn: ejderha-lordu" required>
-          </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <div class="form-group">
-            <label class="form-label">Kategori *</label>
-            <select id="inpCategory" class="form-control">
-              <option value="Romantik">Romantik</option>
-              <option value="Milyarder">Milyarder</option>
-              <option value="Kurtadam">Kurtadam / Alfa</option>
-              <option value="İntikam">İntikam</option>
-              <option value="Mafya">Mafya</option>
-              <option value="Aksiyon">Aksiyon</option>
-              <option value="Fantastik">Fantastik</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Tür / Dil Etiketi</label>
-            <select id="inpTag" class="form-control">
-              <option value="Dublajlı">Türkçe Dublaj</option>
-              <option value="Altyazılı">Altyazılı</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Afiş / Kapak Resmi URL (Dikey 9:16 veya 2:3) *</label>
-          <input type="url" id="inpCover" class="form-control" placeholder="https://..." required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Dizi Konusu / Açıklaması *</label>
-          <textarea id="inpDesc" class="form-control" rows="3" placeholder="Dizinin heyecanlı konusu..." required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Bölüm Video Linkleri (Her satıra bir adet .m3u8 veya .mp4 URL'si yazın) *</label>
-          <textarea id="inpEpisodes" class="form-control" rows="5" placeholder="https://sunucu.com/bolum1.m3u8&#10;https://sunucu.com/bolum2.m3u8&#10;https://sunucu.com/bolum3.mp4" required></textarea>
-          <small style="color: var(--text-muted); font-size: 0.78rem; display: block; margin-top: 4px;">
-            Her satır sırasıyla Bölüm 1, Bölüm 2, Bölüm 3 olacaktır.
-          </small>
-        </div>
-
-        <button type="submit" class="btn-cta" style="margin-top: 10px;">
-          <i class="fas fa-save"></i> Diziyi Kaydet ve Yayınla
+      <form id="autoScrapeForm" style="display: flex; gap: 12px; margin-bottom: 18px;">
+        <input 
+          type="text" 
+          id="scrapeUrlInput" 
+          class="form-control" 
+          placeholder="Örn: https://dramadizilerim.com/dizi/anka-kaniyla-tahta veya anka-kaniyla-tahta" 
+          style="flex: 1; padding: 12px 18px; font-size: 0.95rem;" 
+          required
+        >
+        <button type="submit" id="btnStartScrape" class="btn-cta" style="white-space: nowrap; padding: 12px 24px;">
+          <i class="fas fa-bolt"></i> Otomatik Çek ve Ekle
         </button>
       </form>
+
+      <!-- Status indicator -->
+      <div id="scrapeStatus" style="display: none; padding: 12px; border-radius: var(--radius-sm); font-size: 0.9rem; align-items: center; gap: 10px;"></div>
+
+      <div style="margin-top: 14px; display: flex; gap: 12px;">
+        <button id="btnBatchScrape" class="btn-secondary" style="font-size: 0.85rem; padding: 8px 16px;">
+          <i class="fas fa-download"></i> Popüler 5 Diziyi Otomatik İçe Aktar
+        </button>
+        <button id="btnLoadAvailable" class="btn-secondary" style="font-size: 0.85rem; padding: 8px 16px;">
+          <i class="fas fa-list-check"></i> Trend Dizi Listesini Göster
+        </button>
+      </div>
+
+      <!-- Trend Diziler Listesi -->
+      <div id="availableListWrap" style="display: none; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px;">
+        <h4 style="font-size: 1rem; margin-bottom: 12px; color: #fff;">
+          <i class="fas fa-fire" style="color: var(--accent-gold);"></i> Çekilebilir Trend Diziler:
+        </h4>
+        <div id="availableItems" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-height: 280px; overflow-y: auto;">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
     </div>
 
-    <!-- CURRENT SERIES LIST -->
+    <!-- 2. MEVCUT DIZILER LISTESI -->
     <div class="admin-card">
-      <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 20px; color: #fff;">
-        <i class="fas fa-list" style="color: var(--accent-gold);"></i> Mevcut Diziler (<span id="existingCount">0</span>)
-      </h2>
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; color: #fff;">
+          <i class="fas fa-list" style="color: var(--accent-gold);"></i> Sitenizdeki Diziler (<span id="existingCount">0</span>)
+        </h2>
+        <button onclick="loadAdminSeries()" class="nav-btn" style="padding: 6px 12px;">
+          <i class="fas fa-sync-alt"></i> Yenile
+        </button>
+      </div>
 
       <div id="adminSeriesList" style="display: flex; flex-direction: column; gap: 12px;">
         <!-- Rendered by JS -->
@@ -118,17 +119,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       loadAdminSeries();
-
-      // Auto slug from title
-      document.getElementById("inpTitle").addEventListener("input", (e) => {
-        const slug = e.target.value.toLowerCase()
-          .replace(/[^a-z0-9ğüşıöç ]/gi, "")
-          .trim()
-          .replace(/\s+/g, "-");
-        document.getElementById("inpId").value = slug;
-      });
-
-      document.getElementById("addSeriesForm").addEventListener("submit", handleAddSeries);
+      setupScraperUI();
     });
 
     async function loadAdminSeries() {
@@ -150,14 +141,14 @@
               <div>
                 <b style="font-size: 0.95rem; color: #fff;">${s.title}</b>
                 <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
-                  <span>${s.category}</span> • <span>${s.episodes ? s.episodes.length : 0} Bölüm</span> • <span>Puan: ${s.rating || "9.8"}</span>
+                  <span style="color: var(--primary);">${s.category}</span> • <span>${s.total_episodes || (s.episodes ? s.episodes.length : 0)} Bölüm</span> • <span>Puan: ${s.rating || "9.8"}</span>
                 </div>
               </div>
             </div>
 
             <div style="display: flex; gap: 10px;">
               <a href="/dizi?id=${s.id}" class="nav-btn" target="_blank" style="padding: 6px 12px;">
-                <i class="fas fa-external-link-alt"></i> Görüntüle
+                <i class="fas fa-external-link-alt"></i> Gör
               </a>
               <button onclick="deleteSeries('${s.id}')" class="nav-btn" style="color: #ff4757; border-color: rgba(255,71,87,0.3); padding: 6px 12px;">
                 <i class="fas fa-trash"></i> Sil
@@ -170,66 +161,91 @@
       }
     }
 
-    async function handleAddSeries(e) {
-      e.preventDefault();
+    function setupScraperUI() {
+      const form = document.getElementById("autoScrapeForm");
+      const status = document.getElementById("scrapeStatus");
+      const btnScrape = document.getElementById("btnStartScrape");
 
-      const title = document.getElementById("inpTitle").value.trim();
-      const id = document.getElementById("inpId").value.trim();
-      const category = document.getElementById("inpCategory").value;
-      const tag = document.getElementById("inpTag").value;
-      const cover = document.getElementById("inpCover").value.trim();
-      const desc = document.getElementById("inpDesc").value.trim();
-      const epLines = document.getElementById("inpEpisodes").value.split("\n")
-        .map(l => l.trim())
-        .filter(l => l.length > 0);
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const inputVal = document.getElementById("scrapeUrlInput").value.trim();
+        if (!inputVal) return;
 
-      if (epLines.length === 0) {
-        alert("Lütfen en az bir bölüm video linki girin.");
-        return;
-      }
+        btnScrape.disabled = true;
+        btnScrape.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Çekiliyor...`;
+        status.style.display = "flex";
+        status.style.background = "rgba(255, 180, 0, 0.2)";
+        status.style.color = "#ffb400";
+        status.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Dizi taranıyor ve tüm video akışları çözülüyor, lütfen bekleyin...`;
 
-      const episodes = epLines.map((url, idx) => ({
-        episode: idx + 1,
-        title: `Bölüm ${idx + 1}`,
-        video_url: url,
-        duration: "01:30"
-      }));
+        try {
+          const res = await fetch("/api/scrape", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url_or_slug: inputVal })
+          });
 
-      const payload = {
-        id: id,
-        title: title,
-        slug: id,
-        description: desc,
-        cover: cover,
-        banner: cover,
-        category: category,
-        tags: [tag, "HD"],
-        rating: "9.8",
-        views: "1.2K",
-        total_episodes: episodes.length,
-        featured: false,
-        episodes: episodes
+          const data = await res.json();
+          if (res.ok && data.success) {
+            status.style.background = "rgba(46, 213, 115, 0.2)";
+            status.style.color = "#2ed573";
+            status.innerHTML = `<i class="fas fa-check-circle"></i> <b>${data.message}</b>`;
+            document.getElementById("scrapeUrlInput").value = "";
+            loadAdminSeries();
+          } else {
+            status.style.background = "rgba(255, 71, 87, 0.2)";
+            status.style.color = "#ff4757";
+            status.innerHTML = `<i class="fas fa-exclamation-triangle"></i> Hata: ${data.detail || "Çekilemedi"}`;
+          }
+        } catch (err) {
+          status.style.background = "rgba(255, 71, 87, 0.2)";
+          status.style.color = "#ff4757";
+          status.innerHTML = `<i class="fas fa-exclamation-triangle"></i> Bağlantı hatası oluştu.`;
+        } finally {
+          btnScrape.disabled = false;
+          btnScrape.innerHTML = `<i class="fas fa-bolt"></i> Otomatik Çek ve Ekle`;
+        }
+      });
+
+      // Batch scrape 5 series
+      document.getElementById("btnBatchScrape").onclick = async () => {
+        if (!confirm("Popüler 5 dizi arka planda otomatik çekilip sitenize eklenecek. Onaylıyor musunuz?")) return;
+        try {
+          const res = await fetch("/api/scrape/batch?limit=5", { method: "POST" });
+          const data = await res.json();
+          alert(data.message);
+          setTimeout(() => loadAdminSeries(), 6000);
+        } catch(e) {
+          alert("Hata oluştu.");
+        }
       };
 
-      try {
-        const res = await fetch("/api/series", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        if (!res.ok) {
-          const errData = await res.json();
-          alert("Hata: " + (errData.detail || "Dizi kaydedilemedi"));
-          return;
+      // Load available list
+      document.getElementById("btnLoadAvailable").onclick = async () => {
+        const wrap = document.getElementById("availableListWrap");
+        const listContainer = document.getElementById("availableItems");
+        wrap.style.display = wrap.style.display === "none" ? "block" : "none";
+        if (wrap.style.display === "block") {
+          listContainer.innerHTML = `<div style="grid-column: 1/-1; color: var(--text-muted);"><i class="fas fa-spinner fa-spin"></i> Trend diziler listeleniyor...</div>`;
+          const res = await fetch("/api/scrape/available");
+          const items = await res.json();
+          listContainer.innerHTML = items.map(it => `
+            <div style="background: #0f1017; padding: 10px; border-radius: 6px; display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; border: 1px solid var(--border-color);">
+              <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 250px;" title="${it.title}">
+                ${it.title}
+              </span>
+              <div>
+                ${it.already_imported ? '<span class="badge-imported">Ekli</span>' : `<button onclick="quickScrape('${it.slug}')" class="nav-btn primary" style="padding: 4px 10px; font-size: 0.75rem;"><i class="fas fa-download"></i> Çek</button>`}
+              </div>
+            </div>
+          `).join("");
         }
+      };
+    }
 
-        alert("Tebrikler! Dizi başarıyla eklendi.");
-        document.getElementById("addSeriesForm").reset();
-        loadAdminSeries();
-      } catch (err) {
-        alert("Bağlantı hatası oluştu.");
-      }
+    async function quickScrape(slug) {
+      document.getElementById("scrapeUrlInput").value = slug;
+      document.getElementById("btnStartScrape").click();
     }
 
     async function deleteSeries(id) {
