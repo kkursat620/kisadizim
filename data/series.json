@@ -1,0 +1,188 @@
+[
+  {
+    "id": "ejderha-lordu",
+    "title": "[Dublajlı] Ejderha Lordu'nun Kaderindeki Gelin",
+    "slug": "dublajli-ejderha-lordu-nun-kaderindeki-gelin",
+    "description": "Kocam Altın Ejderha’ydı. Ben de öyleydim. Ama ben küçük bir Buz Mavisi Ejderha doğurdum. Veliaht Prens Drakon öfkeye kapılıp çocuğumu katletti ve beni zindanlara attı. Gözlerimi yeniden açtığımda reşit olma törenimin yapıldığı güne dönmüştüm...",
+    "cover": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&auto=format&fit=crop&q=80",
+    "banner": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&auto=format&fit=crop&q=80",
+    "category": "Fantastik",
+    "tags": ["Dublajlı", "Trend", "1080p"],
+    "rating": "9.9",
+    "views": "245.8K",
+    "total_episodes": 12,
+    "featured": true,
+    "episodes": [
+      {
+        "episode": 1,
+        "title": "Bölüm 1 - Kaderin Başlangıcı",
+        "video_url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+        "duration": "01:45"
+      },
+      {
+        "episode": 2,
+        "title": "Bölüm 2 - İkinci Hayat",
+        "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "duration": "01:30"
+      },
+      {
+        "episode": 3,
+        "title": "Bölüm 3 - Ejderha Sarayı",
+        "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+        "duration": "01:50"
+      },
+      {
+        "episode": 4,
+        "title": "Bölüm 4 - Soğuk Karşılaşma",
+        "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "duration": "01:25"
+      },
+      {
+        "episode": 5,
+        "title": "Bölüm 5 - Gerçeğin Yüzü",
+        "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        "duration": "01:40"
+      }
+    ]
+  },
+  {
+    "id": "esim-kral-mi",
+    "title": "Eşim Gizli Milyarder mi?",
+    "slug": "esim-gizli-milyarder-mi",
+    "description": "Herkes onun işsiz ve fakir biri olduğunu düşünüyordu. Ailesi onu sürekli aşağılıyordu. Ancak şehirdeki en büyük holdingin gizemli CEO'sunun kimliği ortaya çıktığında tüm sırlar açığa çıkacaktı.",
+    "cover": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=500&auto=format&fit=crop&q=80",
+    "banner": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&auto=format&fit=crop&q=80",
+    "category": "Milyarder",
+    "tags": ["Dublajlı", "Popüler", "HD"],
+    "rating": "9.7",
+    "views": "189.2K",
+    "total_episodes": 15,
+    "featured": true,
+    "episodes": [
+      {
+        "episode": 1,
+        "title": "Bölüm 1 - Aşağılanan Damat",
+        "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "duration": "01:35"
+      },
+      {
+        "episode": 2,
+        "title": "Bölüm 2 - Sürpriz Yatırımcı",
+        "video_url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+        "duration": "01:42"
+      },
+      {
+        "episode": 3,
+        "title": "Bölüm 3 - Maske Düşüyor",
+        "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "duration": "01:28"
+      }
+    ]
+  },
+  {
+    "id": "alfa-sozlesmeli-evlilik",
+    "title": "Alfa'yla Sözleşmeli Evlilik",
+    "slug": "alfa-yla-sozlesmeli-evlilik",
+    "description": "Sürünün en güçlü Alfa'sı, ailesinin baskısından kurtulmak için bir insanla sahte evlilik sözleşmesi imzalar. Ancak dolunayın gelişiyle birlikte hisler ve içgüdüler kontrolden çıkar...",
+    "cover": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop&q=80",
+    "banner": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1200&auto=format&fit=crop&q=80",
+    "category": "Kurtadam",
+    "tags": ["Romantik", "Dublajlı"],
+    "rating": "9.8",
+    "views": "312.4K",
+    "total_episodes": 10,
+    "featured": false,
+    "episodes": [
+      {
+        "episode": 1,
+        "title": "Bölüm 1 - Sözleşme",
+        "video_url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+        "duration": "01:50"
+      },
+      {
+        "episode": 2,
+        "title": "Bölüm 2 - İlk Dolunay",
+        "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+        "duration": "01:30"
+      }
+    ]
+  },
+  {
+    "id": "anka-kaniyla-tahta",
+    "title": "Anka Kanıyla Tahta",
+    "slug": "anka-kaniyla-tahta",
+    "description": "İhanete uğrayarak uçurumdan atılan sürgün prenses, efsanevi anka kuşunun kanıyla yeniden canlanır. İmparatorluğu sarsacak intikam yürüyüşü başlar.",
+    "cover": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&auto=format&fit=crop&q=80",
+    "banner": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200&auto=format&fit=crop&q=80",
+    "category": "İntikam",
+    "tags": ["Altyazılı", "Tarihi", "Trend"],
+    "rating": "9.6",
+    "views": "154.0K",
+    "total_episodes": 20,
+    "featured": false,
+    "episodes": [
+      {
+        "episode": 1,
+        "title": "Bölüm 1 - Küllerden Doğuş",
+        "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "duration": "01:40"
+      },
+      {
+        "episode": 2,
+        "title": "Bölüm 2 - Başkente Dönüş",
+        "video_url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+        "duration": "01:35"
+      }
+    ]
+  },
+  {
+    "id": "olumcul-ilham-mafya",
+    "title": "Ölümcül İlham: Mafya Babasının Seçtiği",
+    "slug": "olumcul-ilham-mafya-babasinin-sectigi",
+    "description": "Genç bir ressam, istemeden şehrin en tehlikeli yeraltı liderinin sırrına tanıklık eder. Hayatta kalmasının tek bir şartı vardır: Onun kişisel ressamı olmak.",
+    "cover": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500&auto=format&fit=crop&q=80",
+    "banner": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=1200&auto=format&fit=crop&q=80",
+    "category": "Mafya",
+    "tags": ["Gerilim", "Altyazılı", "1080p"],
+    "rating": "9.5",
+    "views": "98.7K",
+    "total_episodes": 8,
+    "featured": false,
+    "episodes": [
+      {
+        "episode": 1,
+        "title": "Bölüm 1 - Yanlış Gece",
+        "video_url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+        "duration": "01:25"
+      }
+    ]
+  },
+  {
+    "id": "f-rutbeden-tahta",
+    "title": "F Rütbeden Zirveye: Gölge Hükümdar",
+    "slug": "f-rutbeden-tahta",
+    "description": "Zindan kapılarının dünyaya açıldığı bir çağda, en zayıf F rütbeli avcı ölümcül bir tuzakta terk edilir. Ancak ölümün kıyısında gizli bir seviye atlama sistemi uyanır.",
+    "cover": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=500&auto=format&fit=crop&q=80",
+    "banner": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1200&auto=format&fit=crop&q=80",
+    "category": "Aksiyon",
+    "tags": ["Seviye Atlama", "Dublajlı"],
+    "rating": "9.9",
+    "views": "420.1K",
+    "total_episodes": 24,
+    "featured": true,
+    "episodes": [
+      {
+        "episode": 1,
+        "title": "Bölüm 1 - Çifte Zindan",
+        "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "duration": "01:55"
+      },
+      {
+        "episode": 2,
+        "title": "Bölüm 2 - Uyanış",
+        "video_url": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+        "duration": "01:45"
+      }
+    ]
+  }
+]

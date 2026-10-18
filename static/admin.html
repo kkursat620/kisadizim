@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yönetim Paneli - KısaDizim</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-play"></i>
+      </div>
+      <div>Kısa<span class="brand-accent">Dizim</span> <small style="font-size: 0.8rem; opacity: 0.7; font-weight: 400;">Yönetim</small></div>
+    </a>
+
+    <div class="nav-links">
+      <a href="/" class="nav-btn">
+        <i class="fas fa-eye"></i> Siteyi Görüntüle
+      </a>
+    </div>
+  </header>
+
+  <main class="main-container" style="max-width: 980px;">
+
+    <div class="section-header">
+      <h1 class="section-title">
+        <i class="fas fa-film"></i> Dizi Ekleme & Yönetim Paneli
+      </h1>
+    </div>
+
+    <!-- ADD SERIES FORM CARD -->
+    <div class="admin-card">
+      <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 20px; color: #fff;">
+        <i class="fas fa-plus-circle" style="color: var(--primary);"></i> Yeni Dizi Ekle
+      </h2>
+
+      <form id="addSeriesForm">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Dizi Adı *</label>
+            <input type="text" id="inpTitle" class="form-control" placeholder="Örn: [Dublajlı] Ejderha Lordu" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Benzersiz ID / Slug *</label>
+            <input type="text" id="inpId" class="form-control" placeholder="Örn: ejderha-lordu" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Kategori *</label>
+            <select id="inpCategory" class="form-control">
+              <option value="Romantik">Romantik</option>
+              <option value="Milyarder">Milyarder</option>
+              <option value="Kurtadam">Kurtadam / Alfa</option>
+              <option value="İntikam">İntikam</option>
+              <option value="Mafya">Mafya</option>
+              <option value="Aksiyon">Aksiyon</option>
+              <option value="Fantastik">Fantastik</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tür / Dil Etiketi</label>
+            <select id="inpTag" class="form-control">
+              <option value="Dublajlı">Türkçe Dublaj</option>
+              <option value="Altyazılı">Altyazılı</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Afiş / Kapak Resmi URL (Dikey 9:16 veya 2:3) *</label>
+          <input type="url" id="inpCover" class="form-control" placeholder="https://..." required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Dizi Konusu / Açıklaması *</label>
+          <textarea id="inpDesc" class="form-control" rows="3" placeholder="Dizinin heyecanlı konusu..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Bölüm Video Linkleri (Her satıra bir adet .m3u8 veya .mp4 URL'si yazın) *</label>
+          <textarea id="inpEpisodes" class="form-control" rows="5" placeholder="https://sunucu.com/bolum1.m3u8&#10;https://sunucu.com/bolum2.m3u8&#10;https://sunucu.com/bolum3.mp4" required></textarea>
+          <small style="color: var(--text-muted); font-size: 0.78rem; display: block; margin-top: 4px;">
+            Her satır sırasıyla Bölüm 1, Bölüm 2, Bölüm 3 olacaktır.
+          </small>
+        </div>
+
+        <button type="submit" class="btn-cta" style="margin-top: 10px;">
+          <i class="fas fa-save"></i> Diziyi Kaydet ve Yayınla
+        </button>
+      </form>
+    </div>
+
+    <!-- CURRENT SERIES LIST -->
+    <div class="admin-card">
+      <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 20px; color: #fff;">
+        <i class="fas fa-list" style="color: var(--accent-gold);"></i> Mevcut Diziler (<span id="existingCount">0</span>)
+      </h2>
+
+      <div id="adminSeriesList" style="display: flex; flex-direction: column; gap: 12px;">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loadAdminSeries();
+
+      // Auto slug from title
+      document.getElementById("inpTitle").addEventListener("input", (e) => {
+        const slug = e.target.value.toLowerCase()
+          .replace(/[^a-z0-9ğüşıöç ]/gi, "")
+          .trim()
+          .replace(/\s+/g, "-");
+        document.getElementById("inpId").value = slug;
+      });
+
+      document.getElementById("addSeriesForm").addEventListener("submit", handleAddSeries);
+    });
+
+    async function loadAdminSeries() {
+      try {
+        const res = await fetch("/api/series");
+        const list = await res.json();
+        document.getElementById("existingCount").textContent = list.length;
+
+        const container = document.getElementById("adminSeriesList");
+        if (list.length === 0) {
+          container.innerHTML = `<p style="color: var(--text-muted);">Henüz ekli dizi yok.</p>`;
+          return;
+        }
+
+        container.innerHTML = list.map(s => `
+          <div style="display: flex; align-items: center; justify-content: space-between; background: #0b0c13; padding: 12px 18px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <img src="${s.cover}" style="width: 45px; height: 60px; object-fit: cover; border-radius: 4px;">
+              <div>
+                <b style="font-size: 0.95rem; color: #fff;">${s.title}</b>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
+                  <span>${s.category}</span> • <span>${s.episodes ? s.episodes.length : 0} Bölüm</span> • <span>Puan: ${s.rating || "9.8"}</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+              <a href="/dizi?id=${s.id}" class="nav-btn" target="_blank" style="padding: 6px 12px;">
+                <i class="fas fa-external-link-alt"></i> Görüntüle
+              </a>
+              <button onclick="deleteSeries('${s.id}')" class="nav-btn" style="color: #ff4757; border-color: rgba(255,71,87,0.3); padding: 6px 12px;">
+                <i class="fas fa-trash"></i> Sil
+              </button>
+            </div>
+          </div>
+        `).join("");
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function handleAddSeries(e) {
+      e.preventDefault();
+
+      const title = document.getElementById("inpTitle").value.trim();
+      const id = document.getElementById("inpId").value.trim();
+      const category = document.getElementById("inpCategory").value;
+      const tag = document.getElementById("inpTag").value;
+      const cover = document.getElementById("inpCover").value.trim();
+      const desc = document.getElementById("inpDesc").value.trim();
+      const epLines = document.getElementById("inpEpisodes").value.split("\n")
+        .map(l => l.trim())
+        .filter(l => l.length > 0);
+
+      if (epLines.length === 0) {
+        alert("Lütfen en az bir bölüm video linki girin.");
+        return;
+      }
+
+      const episodes = epLines.map((url, idx) => ({
+        episode: idx + 1,
+        title: `Bölüm ${idx + 1}`,
+        video_url: url,
+        duration: "01:30"
+      }));
+
+      const payload = {
+        id: id,
+        title: title,
+        slug: id,
+        description: desc,
+        cover: cover,
+        banner: cover,
+        category: category,
+        tags: [tag, "HD"],
+        rating: "9.8",
+        views: "1.2K",
+        total_episodes: episodes.length,
+        featured: false,
+        episodes: episodes
+      };
+
+      try {
+        const res = await fetch("/api/series", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) {
+          const errData = await res.json();
+          alert("Hata: " + (errData.detail || "Dizi kaydedilemedi"));
+          return;
+        }
+
+        alert("Tebrikler! Dizi başarıyla eklendi.");
+        document.getElementById("addSeriesForm").reset();
+        loadAdminSeries();
+      } catch (err) {
+        alert("Bağlantı hatası oluştu.");
+      }
+    }
+
+    async function deleteSeries(id) {
+      if (!confirm("Bu diziyi silmek istediğinizden emin misiniz?")) return;
+      try {
+        const res = await fetch(`/api/series/${id}`, { method: "DELETE" });
+        if (res.ok) {
+          loadAdminSeries();
+        } else {
+          alert("Silinirken hata oluştu.");
+        }
+      } catch (err) {
+        alert("Bağlantı hatası.");
+      }
+    }
+  </script>
+</body>
+</html>
