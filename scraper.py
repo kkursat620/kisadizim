@@ -2,7 +2,7 @@ import concurrent.futures
 import json
 import os
 import re
-from urllib.parse import unquote, urlparse
+from urllib.parse import unquote
 import requests
 
 HEADERS = {
@@ -10,21 +10,34 @@ HEADERS = {
     "Referer": "https://dramadizilerim.com/",
 }
 
-def extract_stream_from_embed(embed_url):
+def extract_stream_and_sub(embed_url):
     try:
         clean_url = embed_url.replace("&amp;", "&")
         resp = requests.get(clean_url, headers=HEADERS, timeout=10)
+
+        # 1. Video URL
         src_match = re.search(r'let source = "([^"]+)"', resp.text)
+        stream = None
         if src_match:
             stream = src_match.group(1)
-            # If it's a proxy link like hls_proxy.php?url=...
             if "hls_proxy.php?url=" in stream:
                 inner_url = stream.split("hls_proxy.php?url=")[1].split("&")[0]
                 stream = unquote(inner_url)
-            return stream
-    except Exception as e:
+
+        # 2. Turkish Subtitle URL
+        sub_url = ""
+        cap_match = re.search(r'window\._captionUrl\s*=\s*"([^"]+)"', resp.text)
+        if cap_match and cap_match.group(1):
+            sub_raw = cap_match.group(1).replace("&amp;", "&")
+            if sub_raw.startswith("http"):
+                sub_url = sub_raw
+            else:
+                sub_url = f"https://dramadizilerim.com/{sub_raw.lstrip('/')}"
+
+        return stream, sub_url
+    except Exception:
         pass
-    return None
+    return None, ""
 
 def scrape_single_series(url_or_slug):
     slug = url_or_slug.strip().rstrip("/").split("/")[-1]
@@ -36,7 +49,6 @@ def scrape_single_series(url_or_slug):
     if resp.status_code != 200:
         raise Exception(f"Dizi sayfası açılamadı ({resp.status_code})")
 
-    # Extract Metadata from Schema
     title = slug.replace("-", " ").title()
     desc = "Harika bir dikey mini dizi."
     cover = ""
@@ -60,19 +72,16 @@ def scrape_single_series(url_or_slug):
         except:
             pass
 
-    # Clean cover URL if it was routed through dramadizilerim image_proxy
     if "image_proxy.php?url=" in cover:
         try:
             cover = unquote(cover.split("image_proxy.php?url=")[1].split("&")[0])
         except:
             pass
 
-    # Extract Category / Genre if present in HTML
     cat_match = re.search(r'<a href="[^"]*/kategori/([^"/]+)"', resp.text)
     if cat_match:
         category = cat_match.group(1).capitalize()
     else:
-        # Deduce from title/desc
         text_lower = (title + " " + desc).lower()
         if "alfa" in text_lower or "kurt" in text_lower:
             category = "Kurtadam"
@@ -85,41 +94,50 @@ def scrape_single_series(url_or_slug):
         elif "ejderha" in text_lower or "büyü" in text_lower:
             category = "Fantastik"
 
-    # Extract Watch Page to get all episode embeds
     print(f"[*] Bölümler taranıyor: {izle_url}")
     watch_resp = requests.get(izle_url, headers=HEADERS, timeout=15)
     embed_urls = re.findall(r'(?:iframe src="|data-src=")(https://dramadizilerim\.com/embed\.php[^"]+)', watch_resp.text)
 
-    # Fallback to single episode if none found in regex
     if not embed_urls:
         single_m = re.search(r'embed\.php\?[^"\'>\s]+', watch_resp.text)
         if single_m:
             embed_urls = ["https://dramadizilerim.com/" + single_m.group(0)]
 
-    print(f"[+] {len(embed_urls)} adet bölüm tespit edildi. Video akışları paralel olarak çözülüyor...")
+    print(f"[+] {len(embed_urls)} adet bölüm tespit edildi. Video ve Türkçe altyazılar paralel çözülüyor...")
 
     episodes = []
-    # Fast multi-threaded stream extraction
+    has_subtitles = False
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
         future_to_ep = {
-            executor.submit(extract_stream_from_embed, url): idx + 1
+            executor.submit(extract_stream_and_sub, url): idx + 1
             for idx, url in enumerate(embed_urls)
         }
         for future in concurrent.futures.as_completed(future_to_ep):
             ep_num = future_to_ep[future]
-            stream = future.result()
+            stream, sub = future.result()
             if stream:
+                if sub:
+                    has_subtitles = True
                 episodes.append({
                     "episode": ep_num,
                     "title": f"Bölüm {ep_num}",
                     "video_url": stream,
+                    "subtitle_url": sub,
                     "duration": "01:30"
                 })
 
-    # Sort episodes by episode number
     episodes.sort(key=lambda x: x["episode"])
 
     is_dub = "dublaj" in title.lower() or "dublaj" in desc.lower()
+
+    tags = ["HD", "Popüler"]
+    if is_dub:
+        tags.insert(0, "Dublajlı")
+    elif has_subtitles:
+        tags.insert(0, "Türkçe Altyazılı")
+    else:
+        tags.insert(0, "Altyazılı")
 
     series_data = {
         "id": slug,
@@ -129,7 +147,7 @@ def scrape_single_series(url_or_slug):
         "cover": cover or "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&auto=format&fit=crop&q=80",
         "banner": cover or "",
         "category": category,
-        "tags": ["Dublajlı" if is_dub else "Altyazılı", "HD", "Popüler"],
+        "tags": tags,
         "rating": rating,
         "views": views,
         "total_episodes": len(episodes),
@@ -140,7 +158,6 @@ def scrape_single_series(url_or_slug):
     return series_data
 
 def get_popular_series_slugs():
-    """Fetches trending drama slugs from dramadizilerim.com sitemap and homepage"""
     slugs = []
     try:
         resp = requests.get("https://dramadizilerim.com/sitemap.xml", headers=HEADERS, timeout=10)

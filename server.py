@@ -43,6 +43,7 @@ class EpisodeModel(BaseModel):
     episode: int
     title: str
     video_url: str
+    subtitle_url: str = ""
     duration: str = "01:30"
 
 
@@ -123,7 +124,6 @@ async def get_single_series(series_id: str):
 @app.post("/api/series")
 async def create_series(data: SeriesModel):
     series = load_series()
-    # If exists, update it, otherwise prepend
     for i, s in enumerate(series):
         if s.get("id") == data.id:
             series[i] = data.dict()
@@ -170,7 +170,6 @@ def scrape_series_endpoint(req: ScrapeRequest):
             raise HTTPException(status_code=400, detail="Bölümler çözülemedi")
 
         series = load_series()
-        # Update if exists, else insert at top
         updated = False
         for i, s in enumerate(series):
             if s.get("id") == scraped_data["id"]:
@@ -183,7 +182,7 @@ def scrape_series_endpoint(req: ScrapeRequest):
         save_series(series)
         return {
             "success": True,
-            "message": f"'{scraped_data['title']}' başarıyla çekildi ({scraped_data['total_episodes']} bölüm)",
+            "message": f"'{scraped_data['title']}' başarıyla çekildi ({scraped_data['total_episodes']} bölüm, Türkçe altyazılar aktif)",
             "series": scraped_data,
         }
     except Exception as e:
@@ -233,14 +232,14 @@ def batch_scrape_worker(limit: int = 5):
 @app.post("/api/scrape/batch")
 def batch_scrape_endpoint(background_tasks: BackgroundTasks, limit: int = 5):
     background_tasks.add_task(batch_scrape_worker, limit)
-    return {"success": True, "message": f"{limit} adet dizi arka planda otomatik çekilmeye başlandı."}
+    return {"success": True, "message": f"{limit} adet dizi Türkçe altyazılarıyla birlikte arka planda çekilmeye başlandı."}
 
 
 # ==========================================
-# Streaming CORS Reverse Proxy for Video / M3U8
+# Streaming CORS Reverse Proxy for Video & Subtitles
 # ==========================================
 @app.get("/api/proxy")
-def video_proxy(url: str = Query(..., description="Target M3U8 or video URL")):
+def video_proxy(url: str = Query(..., description="Target M3U8, Video or VTT Subtitle URL")):
     if not url.startswith("http://") and not url.startswith("https://"):
         raise HTTPException(status_code=400, detail="Geçersiz URL şeması")
 
@@ -254,6 +253,20 @@ def video_proxy(url: str = Query(..., description="Target M3U8 or video URL")):
         resp = requests.get(url, headers=headers, stream=True, timeout=15)
         content_type = resp.headers.get("content-type", "")
 
+        # Subtitle VTT Proxy
+        if "text/vtt" in content_type or "vtt" in url or "caption.php" in url or "srt" in url:
+            return Response(
+                content=resp.content,
+                media_type="text/vtt; charset=utf-8",
+                headers={
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET, OPTIONS",
+                    "Access-Control-Allow-Headers": "*",
+                    "Cache-Control": "public, max-age=86400",
+                },
+            )
+
+        # HLS M3U8 Playlist
         if "mpegurl" in content_type or "m3u8" in url or resp.text.startswith("#EXTM3U"):
             content = resp.text
             base_url = url.rsplit("/", 1)[0] + "/"
@@ -282,6 +295,7 @@ def video_proxy(url: str = Query(..., description="Target M3U8 or video URL")):
                 },
             )
 
+        # Binary Video Stream & TS Segments
         def stream_generator():
             try:
                 for chunk in resp.iter_content(chunk_size=65536):
