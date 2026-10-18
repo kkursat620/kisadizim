@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KısaDizim v2.0 - AI Bot & Yönetim Merkezi</title>
+  <title>KısaDizim - Güvenli Yönetici Paneli</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,186 +12,248 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <a href="/" class="nav-brand">
-      <div class="brand-icon">
-        <i class="fas fa-play"></i>
+  <!-- ==========================================
+       1. LOGIN LOCK SCREEN (GİRİŞ EKRANI)
+       ========================================== -->
+  <div id="loginScreen" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: var(--bg-card); border: 1px solid var(--border-glow); box-shadow: 0 16px 40px rgba(0,0,0,0.8); border-radius: var(--radius-lg); padding: 40px; width: 100%; max-width: 420px; text-align: center;">
+      <div class="brand-icon" style="margin: 0 auto 16px; width: 54px; height: 54px; font-size: 1.5rem;">
+        <i class="fas fa-shield-halved"></i>
       </div>
-      <div>Kısa<span class="brand-accent">Dizim</span> <small style="font-size: 0.8rem; opacity: 0.7; font-weight: 400;">v2.0 AI Bot</small></div>
-    </a>
+      <h1 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 6px;">Yönetici Girişi</h1>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 24px;">Bot ve sistem yönetimine erişmek için şifrenizi girin.</p>
 
-    <div class="nav-links">
-      <a href="/" class="nav-btn">
-        <i class="fas fa-eye"></i> Siteyi Görüntüle
-      </a>
-    </div>
-  </header>
-
-  <main class="main-container" style="max-width: 1040px;">
-
-    <!-- ==========================================
-         1. AI OTO-PİLOT (Arka Planda Otomatik Yeni Dizi Takipçisi)
-         ========================================== -->
-    <div class="admin-card card-glowing" style="background: linear-gradient(135deg, rgba(0, 230, 118, 0.1), rgba(17, 19, 28, 0.95)); border-color: rgba(0, 230, 118, 0.4);">
-      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 16px;">
-        <div>
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff;">
-              <i class="fas fa-brain" style="color: var(--accent-green);"></i> 7/24 AI Oto-Pilot (Yeni Dizi Nöbetçisi)
-            </h2>
-            <span id="pilotStatusBadge" class="badge" style="background: var(--accent-green); color: #000;">
-              ● AKTİF
-            </span>
-          </div>
-          <p style="color: #cbd5e1; font-size: 0.88rem; margin-top: 4px;">
-            Arka planda <b>dramadizilerim.com</b> sitesini sürekli nöbetçi gibi tarar; yeni bir dizi yüklendiği anda <b>hiçbir işlem yapmanıza gerek kalmadan</b> tüm bölümleri ve Türkçe altyazılarıyla sitenize otomatik ekler.
-          </p>
+      <form id="adminLoginForm">
+        <div style="position: relative; margin-bottom: 20px;">
+          <input 
+            type="password" 
+            id="adminPasswordInput" 
+            class="form-control" 
+            placeholder="Yönetici Şifresi" 
+            style="padding: 12px 16px; font-size: 1rem; text-align: center; letter-spacing: 2px;" 
+            required 
+            autofocus
+          >
         </div>
-
-        <div style="display: flex; align-items: center; gap: 14px;">
-          <label class="switch-toggle" title="Oto-Pilotu Aç / Kapat">
-            <input type="checkbox" id="pilotSwitch" checked>
-            <span class="slider-switch"></span>
-          </label>
-        </div>
-      </div>
-
-      <!-- Stats Bar -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px;">
-        <div style="background: rgba(0,0,0,0.5); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-          <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Son Kontrol Zamanı</div>
-          <div id="pilotLastCheck" style="font-weight: 700; font-size: 0.95rem; color: #fff; margin-top: 4px;">Kontrol ediliyor...</div>
-        </div>
-        <div style="background: rgba(0,0,0,0.5); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-          <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Oto-Pilot İle Eklenen</div>
-          <div id="pilotAddedCount" style="font-weight: 700; font-size: 0.95rem; color: var(--accent-green); margin-top: 4px;">0 Dizi</div>
-        </div>
-        <div style="background: rgba(0,0,0,0.5); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
-          <div>
-            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Kontrol Sıklığı</div>
-            <div style="font-weight: 700; font-size: 0.95rem; color: #fff; margin-top: 4px;">Her 10 Dakika</div>
-          </div>
-          <i class="fas fa-clock" style="color: var(--accent-cyan); font-size: 1.2rem;"></i>
-        </div>
-      </div>
-
-      <!-- Live Terminal Log -->
-      <div class="bot-terminal" id="pilotTerminal">
-        <div>[00:00:00] [AI Oto-Pilot] Sistem hazırlandı. Nöbetçi servisi aktif.</div>
-      </div>
-    </div>
-
-
-    <!-- ==========================================
-         2. TÜM SİTEYİ ÇEK & EŞİTLE (Batch Sync Engine)
-         ========================================== -->
-    <div class="admin-card card-glowing" style="background: linear-gradient(135deg, rgba(255, 42, 95, 0.12), rgba(17, 19, 28, 0.95)); border-color: var(--border-glow);">
-      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
-        <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px;">
-          <i class="fas fa-cloud-arrow-down" style="color: var(--primary);"></i> Toplu Dizi Çekici & Klonlayıcı
-        </h2>
-        <span id="syncStatusBadge" class="badge badge-glass">HAZIRDA BEKLİYOR</span>
-      </div>
-
-      <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
-        dramadizilerim.com sitesindeki onlarca diziyi tek tıkla arka planda sitenize indirin. Bot, dizilerin afişlerini, konularını ve tüm bölümlerini Türkçe altyazılarıyla birlikte sırayla çeker.
-      </p>
-
-      <!-- Quick Action Buttons -->
-      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
-        <button onclick="startBatchSync(20)" class="btn-cta" style="font-size: 0.9rem; padding: 10px 20px;">
-          <i class="fas fa-bolt"></i> Son 20 Diziyi Çek
-        </button>
-        <button onclick="startBatchSync(50)" class="btn-cta" style="background: linear-gradient(135deg, #7928ca, #ff0080); font-size: 0.9rem; padding: 10px 20px;">
-          <i class="fas fa-fire"></i> Popüler 50 Diziyi Çek
-        </button>
-        <button onclick="startBatchSync(100)" class="btn-secondary" style="font-size: 0.9rem; padding: 10px 20px;">
-          <i class="fas fa-layer-group"></i> 100 Dizi Çek
-        </button>
-        <button onclick="startBatchSync(0)" class="btn-secondary" style="border-color: var(--primary); font-size: 0.9rem; padding: 10px 20px;">
-          <i class="fas fa-globe"></i> TÜM YENİ DİZİLERİ EŞİTLE
-        </button>
-        <button onclick="stopBatchSync()" id="btnStopSync" class="nav-btn" style="color: #ff4757; border-color: rgba(255, 71, 87, 0.4); display: none;">
-          <i class="fas fa-stop-circle"></i> Durdur
-        </button>
-      </div>
-
-      <!-- Live Progress Bar -->
-      <div id="syncProgressContainer" style="display: none;">
-        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #fff; margin-bottom: 6px;">
-          <span id="syncCurrentTitle">Diziler hazırlanıyor...</span>
-          <span id="syncProgressPercent">0% (0/0)</span>
-        </div>
-        <div class="progress-bar-wrap">
-          <div id="syncProgressBar" class="progress-bar-inner"></div>
-        </div>
-      </div>
-
-      <!-- Live Batch Log -->
-      <div class="bot-terminal" id="syncTerminal" style="color: #a7f3d0; border-color: rgba(46, 213, 115, 0.25);">
-        <div>[00:00:00] Toplu çekim için yukarıdaki butonlardan birine tıklayın.</div>
-      </div>
-    </div>
-
-
-    <!-- ==========================================
-         3. TEK DİZİ LİNKİ İLE ÇEKME
-         ========================================== -->
-    <div class="admin-card">
-      <h2 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 14px;">
-        <i class="fas fa-link" style="color: var(--accent-cyan);"></i> Tek Dizi Linkiyle Hızlı Çekme
-      </h2>
-      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px;">
-        Özel olarak istediğiniz belirli bir dizi varsa linkini buraya yapıştırıp 4 saniyede çekebilirsiniz:
-      </p>
-
-      <form id="singleScrapeForm" style="display: flex; gap: 12px;">
-        <input 
-          type="text" 
-          id="singleScrapeInput" 
-          class="form-control" 
-          placeholder="Örn: https://dramadizilerim.com/dizi/esim-kral-mi veya esim-kral-mi" 
-          style="flex: 1;" 
-          required
-        >
-        <button type="submit" id="btnSingleScrape" class="btn-cta" style="white-space: nowrap;">
-          <i class="fas fa-download"></i> Hemen Çek
+        <button type="submit" class="btn-cta" style="width: 100%; justify-content: center; padding: 12px;">
+          <i class="fas fa-lock-open"></i> Panele Giriş Yap
         </button>
       </form>
-      <div id="singleScrapeStatus" style="display: none; margin-top: 12px; padding: 10px; border-radius: var(--radius-sm); font-size: 0.88rem;"></div>
+      <div id="loginError" style="display: none; margin-top: 14px; color: #ff4757; font-size: 0.85rem; font-weight: 600;"></div>
     </div>
+  </div>
 
 
-    <!-- ==========================================
-         4. MEVCUT DİZİLER VE YÖNETİM
-         ========================================== -->
-    <div class="admin-card">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-        <h2 style="font-size: 1.25rem; font-weight: 700; color: #fff;">
-          <i class="fas fa-film" style="color: var(--accent-gold);"></i> Sitenizdeki Diziler (<span id="existingCount">0</span>)
-        </h2>
-        <button onclick="loadAdminSeries()" class="nav-btn" style="padding: 6px 14px;">
-          <i class="fas fa-sync-alt"></i> Listeyi Yenile
+  <!-- ==========================================
+       2. AUTHENTICATED ADMIN DASHBOARD (PANELE GİRİLDİĞİNDE)
+       ========================================== -->
+  <div id="dashboardScreen" style="display: none;">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <a href="/" class="nav-brand">
+        <div class="brand-icon">
+          <i class="fas fa-play"></i>
+        </div>
+        <div>Kısa<span class="brand-accent">Dizim</span> <small style="font-size: 0.8rem; opacity: 0.7; font-weight: 400;">Yönetim & Bot</small></div>
+      </a>
+
+      <div class="nav-links">
+        <a href="/" class="nav-btn" target="_blank">
+          <i class="fas fa-eye"></i> Siteyi Gör
+        </a>
+        <button onclick="logoutAdmin()" class="nav-btn" style="color: #ff4757; border-color: rgba(255, 71, 87, 0.3);">
+          <i class="fas fa-sign-out-alt"></i> Çıkış
         </button>
       </div>
+    </header>
 
-      <div id="adminSeriesList" style="display: flex; flex-direction: column; gap: 12px;">
-        <!-- Rendered by JS -->
+    <main class="main-container" style="max-width: 1040px;">
+
+      <!-- 1. AI OTO-PİLOT (Arka Planda Otomatik Yeni Dizi Takipçisi) -->
+      <div class="admin-card card-glowing" style="background: linear-gradient(135deg, rgba(0, 230, 118, 0.1), rgba(17, 19, 28, 0.95)); border-color: rgba(0, 230, 118, 0.4);">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 16px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff;">
+                <i class="fas fa-brain" style="color: var(--accent-green);"></i> 7/24 AI Oto-Pilot (Yeni Dizi Nöbetçisi)
+              </h2>
+              <span id="pilotStatusBadge" class="badge" style="background: var(--accent-green); color: #000;">
+                ● AKTİF
+              </span>
+            </div>
+            <p style="color: #cbd5e1; font-size: 0.88rem; margin-top: 4px;">
+              Arka planda <b>dramadizilerim.com</b> sitesini sürekli nöbetçi gibi tarar; yeni bir dizi yüklendiği anda <b>hiçbir işlem yapmanıza gerek kalmadan</b> tüm bölümleri ve Türkçe altyazılarıyla sitenize otomatik ekler.
+            </p>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <label class="switch-toggle" title="Oto-Pilotu Aç / Kapat">
+              <input type="checkbox" id="pilotSwitch" checked>
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px;">
+          <div style="background: rgba(0,0,0,0.5); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Son Kontrol Zamanı</div>
+            <div id="pilotLastCheck" style="font-weight: 700; font-size: 0.95rem; color: #fff; margin-top: 4px;">Kontrol ediliyor...</div>
+          </div>
+          <div style="background: rgba(0,0,0,0.5); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Oto-Pilot İle Eklenen</div>
+            <div id="pilotAddedCount" style="font-weight: 700; font-size: 0.95rem; color: var(--accent-green); margin-top: 4px;">0 Dizi</div>
+          </div>
+          <div style="background: rgba(0,0,0,0.5); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Kontrol Sıklığı</div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: #fff; margin-top: 4px;">Her 10 Dakika</div>
+            </div>
+            <i class="fas fa-clock" style="color: var(--accent-cyan); font-size: 1.2rem;"></i>
+          </div>
+        </div>
+
+        <div class="bot-terminal" id="pilotTerminal">
+          <div>[00:00:00] [AI Oto-Pilot] Sistem hazırlandı. Nöbetçi servisi aktif.</div>
+        </div>
       </div>
-    </div>
 
-  </main>
+
+      <!-- 2. TÜM SİTEYİ ÇEK & EŞİTLE (Batch Sync Engine) -->
+      <div class="admin-card card-glowing" style="background: linear-gradient(135deg, rgba(255, 42, 95, 0.12), rgba(17, 19, 28, 0.95)); border-color: var(--border-glow);">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+          <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-cloud-arrow-down" style="color: var(--primary);"></i> Toplu Dizi Çekici & Klonlayıcı
+          </h2>
+          <span id="syncStatusBadge" class="badge badge-glass">HAZIRDA BEKLİYOR</span>
+        </div>
+
+        <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+          dramadizilerim.com sitesindeki onlarca diziyi tek tıkla arka planda sitenize indirin. Bot, dizilerin afişlerini, konularını ve tüm bölümlerini Türkçe altyazılarıyla birlikte sırayla çeker.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+          <button onclick="startBatchSync(20)" class="btn-cta" style="font-size: 0.9rem; padding: 10px 20px;">
+            <i class="fas fa-bolt"></i> Son 20 Diziyi Çek
+          </button>
+          <button onclick="startBatchSync(50)" class="btn-cta" style="background: linear-gradient(135deg, #7928ca, #ff0080); font-size: 0.9rem; padding: 10px 20px;">
+            <i class="fas fa-fire"></i> Popüler 50 Diziyi Çek
+          </button>
+          <button onclick="startBatchSync(100)" class="btn-secondary" style="font-size: 0.9rem; padding: 10px 20px;">
+            <i class="fas fa-layer-group"></i> 100 Dizi Çek
+          </button>
+          <button onclick="startBatchSync(0)" class="btn-secondary" style="border-color: var(--primary); font-size: 0.9rem; padding: 10px 20px;">
+            <i class="fas fa-globe"></i> TÜM YENİ DİZİLERİ EŞİTLE
+          </button>
+          <button onclick="stopBatchSync()" id="btnStopSync" class="nav-btn" style="color: #ff4757; border-color: rgba(255, 71, 87, 0.4); display: none;">
+            <i class="fas fa-stop-circle"></i> Durdur
+          </button>
+        </div>
+
+        <div id="syncProgressContainer" style="display: none;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #fff; margin-bottom: 6px;">
+            <span id="syncCurrentTitle">Diziler hazırlanıyor...</span>
+            <span id="syncProgressPercent">0% (0/0)</span>
+          </div>
+          <div class="progress-bar-wrap">
+            <div id="syncProgressBar" class="progress-bar-inner"></div>
+          </div>
+        </div>
+
+        <div class="bot-terminal" id="syncTerminal" style="color: #a7f3d0; border-color: rgba(46, 213, 115, 0.25);">
+          <div>[00:00:00] Toplu çekim için yukarıdaki butonlardan birine tıklayın.</div>
+        </div>
+      </div>
+
+
+      <!-- 3. TEK DİZİ LİNKİ İLE ÇEKME -->
+      <div class="admin-card">
+        <h2 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 14px;">
+          <i class="fas fa-link" style="color: var(--accent-cyan);"></i> Tek Dizi Linkiyle Hızlı Çekme
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px;">
+          Özel olarak istediğiniz belirli bir dizi varsa linkini buraya yapıştırıp 4 saniyede çekebilirsiniz:
+        </p>
+
+        <form id="singleScrapeForm" style="display: flex; gap: 12px;">
+          <input 
+            type="text" 
+            id="singleScrapeInput" 
+            class="form-control" 
+            placeholder="Örn: https://dramadizilerim.com/dizi/esim-kral-mi veya esim-kral-mi" 
+            style="flex: 1;" 
+            required
+          >
+          <button type="submit" id="btnSingleScrape" class="btn-cta" style="white-space: nowrap;">
+            <i class="fas fa-download"></i> Hemen Çek
+          </button>
+        </form>
+        <div id="singleScrapeStatus" style="display: none; margin-top: 12px; padding: 10px; border-radius: var(--radius-sm); font-size: 0.88rem;"></div>
+      </div>
+
+
+      <!-- 4. MEVCUT DİZİLER VE YÖNETİM -->
+      <div class="admin-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+          <h2 style="font-size: 1.25rem; font-weight: 700; color: #fff;">
+            <i class="fas fa-film" style="color: var(--accent-gold);"></i> Sitenizdeki Diziler (<span id="existingCount">0</span>)
+          </h2>
+          <button onclick="loadAdminSeries()" class="nav-btn" style="padding: 6px 14px;">
+            <i class="fas fa-sync-alt"></i> Listeyi Yenile
+          </button>
+        </div>
+
+        <div id="adminSeriesList" style="display: flex; flex-direction: column; gap: 12px;">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+    </main>
+  </div>
 
   <script>
+    // ŞİFRE KONTROLÜ (Default: admin123)
+    const ADMIN_PASS = "admin123";
+
+    function checkAuth() {
+      const isAuth = sessionStorage.getItem("kisadizim_admin_auth");
+      if (isAuth === "true") {
+        document.getElementById("loginScreen").style.display = "none";
+        document.getElementById("dashboardScreen").style.display = "block";
+        initDashboard();
+      } else {
+        document.getElementById("loginScreen").style.display = "flex";
+        document.getElementById("dashboardScreen").style.display = "none";
+      }
+    }
+
+    document.getElementById("adminLoginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const entered = document.getElementById("adminPasswordInput").value.trim();
+      const err = document.getElementById("loginError");
+      if (entered === ADMIN_PASS) {
+        sessionStorage.setItem("kisadizim_admin_auth", "true");
+        err.style.display = "none";
+        checkAuth();
+      } else {
+        err.textContent = "Hatalı şifre! Lütfen tekrar deneyin.";
+        err.style.display = "block";
+      }
+    });
+
+    function logoutAdmin() {
+      sessionStorage.removeItem("kisadizim_admin_auth");
+      checkAuth();
+    }
+
     let pollInterval = null;
 
-    document.addEventListener("DOMContentLoaded", () => {
+    function initDashboard() {
       loadAdminSeries();
       setupSingleScraper();
       setupAutopilot();
       startStatusPolling();
-    });
+    }
 
     async function loadAdminSeries() {
       try {
@@ -237,9 +299,6 @@
       }
     }
 
-    // ==========================================
-    // 1. AI OTO-PİLOT CONTROLS
-    // ==========================================
     function setupAutopilot() {
       const sw = document.getElementById("pilotSwitch");
       sw.addEventListener("change", async () => {
@@ -285,9 +344,6 @@
       } catch(e) {}
     }
 
-    // ==========================================
-    // 2. BATCH SYNC CONTROLS
-    // ==========================================
     async function startBatchSync(limit) {
       const label = limit === 0 ? "Tüm yeni diziler" : `${limit} adet yeni dizi`;
       if (!confirm(`${label} arka planda sırayla çekilecek. Başlatılsın mı?`)) return;
@@ -310,9 +366,9 @@
     }
 
     function startStatusPolling() {
+      if (pollInterval) clearInterval(pollInterval);
       pollInterval = setInterval(async () => {
         try {
-          // Poll Sync Status
           const syncRes = await fetch("/api/sync/status");
           const sync = await syncRes.json();
 
@@ -340,16 +396,12 @@
             document.getElementById("syncTerminal").innerHTML = sync.logs.map(l => `<div>${l}</div>`).join("");
           }
 
-          // Also update Autopilot UI
           updateAutopilotUI();
 
         } catch(e) {}
-      }, 2000);
+      }, 2500);
     }
 
-    // ==========================================
-    // 3. SINGLE SCRAPE
-    // ==========================================
     function setupSingleScraper() {
       const form = document.getElementById("singleScrapeForm");
       const status = document.getElementById("singleScrapeStatus");
@@ -409,6 +461,9 @@
         alert("Bağlantı hatası.");
       }
     }
+
+    // Başlangıçta Auth Kontrolü
+    checkAuth();
   </script>
 </body>
 </html>
