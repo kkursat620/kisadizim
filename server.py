@@ -1,6 +1,8 @@
 import json
 import os
 import re
+import threading
+from contextlib import asynccontextmanager
 from urllib.parse import urljoin, quote
 
 import requests
@@ -16,7 +18,16 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_FILE = os.path.join(BASE_DIR, "data", "series.json")
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 
-app = FastAPI(title="KısaDizim API & Stream Service", version="1.0.0")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup: Start background AI Auto-pilot watcher thread
+    scraper.start_autopilot_thread()
+    yield
+    # Shutdown
+
+
+app = FastAPI(title="KısaDizim API & Stream Service", version="2.0.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -65,6 +76,11 @@ class SeriesModel(BaseModel):
 
 class ScrapeRequest(BaseModel):
     url_or_slug: str
+
+
+class AutopilotConfigModel(BaseModel):
+    enabled: bool
+    interval_minutes: int = 10
 
 
 # ==========================================
@@ -160,7 +176,7 @@ async def get_categories():
 
 
 # ==========================================
-# Automated Scraper Endpoints
+# Automated Scraper & Sync API
 # ==========================================
 @app.post("/api/scrape")
 def scrape_series_endpoint(req: ScrapeRequest):
@@ -189,50 +205,46 @@ def scrape_series_endpoint(req: ScrapeRequest):
         raise HTTPException(status_code=500, detail=f"Çekme hatası: {str(e)}")
 
 
-@app.get("/api/scrape/available")
-def get_available_to_scrape():
-    slugs = scraper.get_popular_series_slugs()
-    series = load_series()
-    existing_ids = set(s.get("id") for s in series)
+@app.post("/api/sync/start")
+def start_sync_endpoint(limit: int = 50, only_new: bool = True):
+    if scraper.sync_state["is_running"]:
+        return {"success": False, "message": "Eşitleme işlemi zaten çalışıyor."}
 
-    items = []
-    for s in slugs[:40]:
-        title = s.replace("-", " ").title()
-        items.append({
-            "slug": s,
-            "title": title,
-            "url": f"https://dramadizilerim.com/dizi/{s}",
-            "already_imported": s in existing_ids,
-        })
-    return items
+    t = threading.Thread(target=scraper.run_batch_sync, args=(limit, only_new), daemon=True)
+    t.start()
+    return {"success": True, "message": f"{limit if limit > 0 else 'Tüm'} dizi için toplu eşitleme başlatıldı."}
 
 
-def batch_scrape_worker(limit: int = 5):
-    slugs = scraper.get_popular_series_slugs()
-    series = load_series()
-    existing_ids = set(s.get("id") for s in series)
-
-    count = 0
-    for slug in slugs:
-        if slug in existing_ids:
-            continue
-        try:
-            data = scraper.scrape_single_series(slug)
-            if data and data.get("episodes"):
-                series = load_series()
-                series.insert(0, data)
-                save_series(series)
-                count += 1
-                if count >= limit:
-                    break
-        except Exception as e:
-            print(f"Batch scrape error on {slug}:", e)
+@app.post("/api/sync/stop")
+def stop_sync_endpoint():
+    scraper.stop_batch_sync()
+    return {"success": True, "message": "Durdurma talebi gönderildi."}
 
 
-@app.post("/api/scrape/batch")
-def batch_scrape_endpoint(background_tasks: BackgroundTasks, limit: int = 5):
-    background_tasks.add_task(batch_scrape_worker, limit)
-    return {"success": True, "message": f"{limit} adet dizi Türkçe altyazılarıyla birlikte arka planda çekilmeye başlandı."}
+@app.get("/api/sync/status")
+def get_sync_status_endpoint():
+    return scraper.sync_state
+
+
+# ==========================================
+# AI OTO-PILOT API (Arka Planda Otomatik Yeni Dizi Takipçisi)
+# ==========================================
+@app.get("/api/autopilot/status")
+def get_autopilot_status():
+    return scraper.autopilot_state
+
+
+@app.post("/api/autopilot/config")
+def set_autopilot_config(conf: AutopilotConfigModel):
+    scraper.autopilot_state["enabled"] = conf.enabled
+    scraper.autopilot_state["interval_minutes"] = max(2, conf.interval_minutes)
+    scraper.save_config()
+    status_str = "AKTİF" if conf.enabled else "KAPALI"
+    return {
+        "success": True,
+        "message": f"AI Oto-Pilot {status_str} yapıldı. Kontrol sıklığı: {scraper.autopilot_state['interval_minutes']} dakika.",
+        "config": scraper.autopilot_state
+    }
 
 
 # ==========================================
@@ -323,5 +335,5 @@ app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 if __name__ == "__main__":
     import uvicorn
 
-    print("🚀 KısaDizim sunucusu başlatılıyor: http://127.0.0.1:8000")
+    print("🚀 KısaDizim v2.0 başlatılıyor: http://127.0.0.1:8000")
     uvicorn.run(app, host="127.0.0.1", port=8000)

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KısaDizim - Dikey Mini Dizi & Kısa Dizi İzle (Full HD)</title>
+  <meta name="description" content="KısaDizim - En popüler dikey kısa dizileri, ReelShort, DramaBox ve GoodShort mini dizilerini Türkçe Dublaj ve Türkçe Altyazılı Full HD ücretsiz izleyin.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-play"></i>
+      </div>
+      <div>Kısa<span class="brand-accent">Dizim</span></div>
+    </a>
+
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="searchInput" class="search-input" placeholder="Dizi adı, tür veya oyuncu ara..." autocomplete="off">
+    </div>
+
+    <div class="nav-links">
+      <a href="/admin" class="nav-btn primary">
+        <i class="fas fa-robot"></i> AI Bot & Panel
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="main-container">
+
+    <!-- HERO FEATURED BANNER -->
+    <section id="heroSection" class="hero-banner" style="display: none;">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-badges">
+          <span class="badge badge-primary"><i class="fas fa-fire"></i> Trend #1</span>
+          <span class="badge badge-gold"><i class="fas fa-star"></i> 9.9</span>
+          <span class="badge badge-glass" id="heroCategory">Fantastik</span>
+          <span class="badge badge-cyan" id="heroTag">Türkçe Altyazılı</span>
+        </div>
+        <h1 class="hero-title" id="heroTitle">Yükleniyor...</h1>
+        <p class="hero-desc" id="heroDesc"></p>
+        <div class="hero-actions">
+          <a href="#" id="heroPlayBtn" class="btn-cta">
+            <i class="fas fa-play"></i> Hemen İzle
+          </a>
+          <a href="#" id="heroDetailBtn" class="btn-secondary">
+            <i class="fas fa-info-circle"></i> Bölümler & Bilgi
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORY FILTER PILLS -->
+    <div class="category-bar" id="categoryBar">
+      <button class="cat-pill active" data-cat="Tümü"><i class="fas fa-border-all"></i> Tümü</button>
+      <button class="cat-pill" data-cat="Romantik"><i class="fas fa-heart"></i> Romantik</button>
+      <button class="cat-pill" data-cat="Milyarder"><i class="fas fa-gem"></i> Milyarder</button>
+      <button class="cat-pill" data-cat="Kurtadam"><i class="fas fa-moon"></i> Kurtadam / Alfa</button>
+      <button class="cat-pill" data-cat="İntikam"><i class="fas fa-fire"></i> İntikam</button>
+      <button class="cat-pill" data-cat="Mafya"><i class="fas fa-skull"></i> Mafya</button>
+      <button class="cat-pill" data-cat="Aksiyon"><i class="fas fa-bolt"></i> Aksiyon</button>
+      <button class="cat-pill" data-cat="Fantastik"><i class="fas fa-dragon"></i> Fantastik</button>
+    </div>
+
+    <!-- DRAMA GRID -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fas fa-fire-flame-curved"></i> Popüler Kısa Diziler
+        </h2>
+        <span id="seriesCount" style="color: var(--text-muted); font-size: 0.9rem;">Yükleniyor...</span>
+      </div>
+
+      <div class="drama-grid" id="dramaGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="border-top: 1px solid var(--border-color); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.88rem; margin-top: 60px;">
+    <div style="font-weight: 800; font-size: 1.2rem; color: #fff; margin-bottom: 8px;">
+      Kısa<span class="brand-accent">Dizim</span>
+    </div>
+    <p>Türkiye'nin En Kapsamlı Dikey Mini Dizi İzleme Platformu</p>
+    <p style="margin-top: 8px; font-size: 0.78rem; opacity: 0.6;">Tüm içerikler otomatik yapay zeka botu tarafından 7/24 güncellenmektedir.</p>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
