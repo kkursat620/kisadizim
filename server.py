@@ -15,16 +15,29 @@ from pydantic import BaseModel
 import scraper
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_FILE = os.path.join(BASE_DIR, "data", "series.json")
 STATIC_DIR = os.path.join(BASE_DIR, "static")
+
+
+def get_data_file():
+    # If series.json is in root, use it; otherwise check data/series.json
+    root_json = os.path.join(BASE_DIR, "series.json")
+    if os.path.exists(root_json):
+        return root_json
+    return os.path.join(BASE_DIR, "data", "series.json")
+
+
+def get_html_file(filename):
+    # Check root directory first, then static/
+    root_file = os.path.join(BASE_DIR, filename)
+    if os.path.exists(root_file):
+        return root_file
+    return os.path.join(STATIC_DIR, filename)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: Start background AI Auto-pilot watcher thread
     scraper.start_autopilot_thread()
     yield
-    # Shutdown
 
 
 app = FastAPI(title="KısaDizim API & Stream Service", version="2.0.0", lifespan=lifespan)
@@ -39,14 +52,20 @@ app.add_middleware(
 
 
 def load_series():
-    if not os.path.exists(DATA_FILE):
+    data_file = get_data_file()
+    if not os.path.exists(data_file):
         return []
-    with open(DATA_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(data_file, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return []
 
 
 def save_series(data):
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
+    data_file = get_data_file()
+    os.makedirs(os.path.dirname(data_file), exist_ok=True)
+    with open(data_file, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
@@ -84,26 +103,59 @@ class AutopilotConfigModel(BaseModel):
 
 
 # ==========================================
-# Frontend Page Routes
+# Frontend Routes (Supports both root & static/)
 # ==========================================
 @app.get("/")
 async def index_page():
-    return FileResponse(os.path.join(STATIC_DIR, "index.html"))
+    return FileResponse(get_html_file("index.html"))
 
 
 @app.get("/dizi")
 async def dizi_page():
-    return FileResponse(os.path.join(STATIC_DIR, "dizi.html"))
+    return FileResponse(get_html_file("dizi.html"))
 
 
 @app.get("/izle")
 async def izle_page():
-    return FileResponse(os.path.join(STATIC_DIR, "izle.html"))
+    return FileResponse(get_html_file("izle.html"))
 
 
 @app.get("/admin")
 async def admin_page():
-    return FileResponse(os.path.join(STATIC_DIR, "admin.html"))
+    return FileResponse(get_html_file("admin.html"))
+
+
+# Dynamic fallback for static assets uploaded to root
+@app.get("/static/css/style.css")
+async def get_style_css():
+    root_css = os.path.join(BASE_DIR, "style.css")
+    if os.path.exists(root_css):
+        return FileResponse(root_css, media_type="text/css")
+    return FileResponse(os.path.join(STATIC_DIR, "css", "style.css"), media_type="text/css")
+
+
+@app.get("/static/js/app.js")
+async def get_app_js():
+    root_js = os.path.join(BASE_DIR, "app.js")
+    if os.path.exists(root_js):
+        return FileResponse(root_js, media_type="application/javascript")
+    return FileResponse(os.path.join(STATIC_DIR, "js", "app.js"), media_type="application/javascript")
+
+
+@app.get("/static/js/player.js")
+async def get_player_js():
+    root_js = os.path.join(BASE_DIR, "player.js")
+    if os.path.exists(root_js):
+        return FileResponse(root_js, media_type="application/javascript")
+    return FileResponse(os.path.join(STATIC_DIR, "js", "player.js"), media_type="application/javascript")
+
+
+@app.get("/static/js/dizi.js")
+async def get_dizi_js():
+    root_js = os.path.join(BASE_DIR, "dizi.js")
+    if os.path.exists(root_js):
+        return FileResponse(root_js, media_type="application/javascript")
+    return FileResponse(os.path.join(STATIC_DIR, "js", "dizi.js"), media_type="application/javascript")
 
 
 # ==========================================
@@ -227,7 +279,7 @@ def get_sync_status_endpoint():
 
 
 # ==========================================
-# AI OTO-PILOT API (Arka Planda Otomatik Yeni Dizi Takipçisi)
+# AI OTO-PILOT API
 # ==========================================
 @app.get("/api/autopilot/status")
 def get_autopilot_status():
@@ -265,7 +317,6 @@ def video_proxy(url: str = Query(..., description="Target M3U8, Video or VTT Sub
         resp = requests.get(url, headers=headers, stream=True, timeout=15)
         content_type = resp.headers.get("content-type", "")
 
-        # Subtitle VTT Proxy
         if "text/vtt" in content_type or "vtt" in url or "caption.php" in url or "srt" in url:
             return Response(
                 content=resp.content,
@@ -278,7 +329,6 @@ def video_proxy(url: str = Query(..., description="Target M3U8, Video or VTT Sub
                 },
             )
 
-        # HLS M3U8 Playlist
         if "mpegurl" in content_type or "m3u8" in url or resp.text.startswith("#EXTM3U"):
             content = resp.text
             base_url = url.rsplit("/", 1)[0] + "/"
@@ -307,7 +357,6 @@ def video_proxy(url: str = Query(..., description="Target M3U8, Video or VTT Sub
                 },
             )
 
-        # Binary Video Stream & TS Segments
         def stream_generator():
             try:
                 for chunk in resp.iter_content(chunk_size=65536):
@@ -329,8 +378,8 @@ def video_proxy(url: str = Query(..., description="Target M3U8, Video or VTT Sub
         raise HTTPException(status_code=500, detail=f"Proxy hatası: {str(e)}")
 
 
-# Mount static files
-app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+if os.path.exists(STATIC_DIR):
+    app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 if __name__ == "__main__":
     import uvicorn

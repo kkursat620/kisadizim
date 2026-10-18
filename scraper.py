@@ -80,18 +80,27 @@ def save_config():
         pass
 
 
+def get_data_file():
+    root_json = os.path.join(BASE_DIR, "series.json")
+    if os.path.exists(root_json):
+        return root_json
+    return os.path.join(BASE_DIR, "data", "series.json")
+
 def load_series():
-    if not os.path.exists(DATA_FILE):
+    data_file = get_data_file()
+    if not os.path.exists(data_file):
         return []
     try:
-        with open(DATA_FILE, "r", encoding="utf-8") as f:
+        with open(data_file, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception:
         return []
 
 
 def save_series(data):
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
+    data_file = get_data_file()
+    os.makedirs(os.path.dirname(data_file), exist_ok=True)
+    with open(data_file, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
