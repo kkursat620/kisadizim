@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from urllib.parse import urljoin, quote
 
 import requests
-from fastapi import FastAPI, HTTPException, Query, BackgroundTasks
+from fastapi import FastAPI, HTTPException, Query, BackgroundTasks, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
@@ -307,7 +307,7 @@ def set_autopilot_config(conf: AutopilotConfigModel):
 # Streaming CORS Reverse Proxy for Video & Subtitles
 # ==========================================
 @app.get("/api/proxy")
-def video_proxy(url: str = Query(..., description="Target M3U8, Video or VTT Subtitle URL")):
+def video_proxy(request: Request, url: str = Query(..., description="Target M3U8, Video or VTT Subtitle URL")):
     if not url.startswith("http://") and not url.startswith("https://"):
         raise HTTPException(status_code=400, detail="Geçersiz URL şeması")
 
@@ -316,6 +316,10 @@ def video_proxy(url: str = Query(..., description="Target M3U8, Video or VTT Sub
         "Accept": "*/*",
         "Referer": "https://dramadizilerim.com/",
     }
+
+    range_header = request.headers.get("range")
+    if range_header:
+        headers["Range"] = range_header
 
     try:
         resp = requests.get(url, headers=headers, stream=True, timeout=15)
@@ -363,19 +367,29 @@ def video_proxy(url: str = Query(..., description="Target M3U8, Video or VTT Sub
 
         def stream_generator():
             try:
-                for chunk in resp.iter_content(chunk_size=65536):
+                for chunk in resp.iter_content(chunk_size=131072):
                     if chunk:
                         yield chunk
             except Exception:
                 pass
 
+        resp_headers = {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Expose-Headers": "Content-Range, Content-Length, Accept-Ranges",
+            "Accept-Ranges": "bytes",
+            "Cache-Control": "public, max-age=3600",
+        }
+        if "Content-Range" in resp.headers:
+            resp_headers["Content-Range"] = resp.headers["Content-Range"]
+        if "Content-Length" in resp.headers:
+            resp_headers["Content-Length"] = resp.headers["Content-Length"]
+
         return StreamingResponse(
             stream_generator(),
-            media_type=content_type or "video/mp2t",
-            headers={
-                "Access-Control-Allow-Origin": "*",
-                "Cache-Control": "public, max-age=3600",
-            },
+            status_code=resp.status_code,
+            media_type=content_type or "video/mp4",
+            headers=resp_headers,
         )
 
     except Exception as e:

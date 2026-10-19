@@ -1,5 +1,5 @@
 /* ========================================================
-   KısaDizim v2.0 - Ultra Modern Dark Streaming Platform
+   DiziAlem (dizialem.com) v2.0 - Ultra Modern Dark Streaming Platform
    ======================================================== */
 
 :root {
@@ -1031,4 +1031,82 @@ input:checked + .slider-switch:before {
   .drawer-list { grid-template-columns: repeat(3, 1fr); }
   .navbar { padding: 12px 16px; }
   .search-container { display: none; }
+}
+
+/* ========================================================
+   VIDEO FAST-START LOADER & TAP TO PLAY OVERLAYS
+   ======================================================== */
+.video-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(8, 9, 13, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 25;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.loader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 42, 95, 0.2);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spinLoader 0.75s infinite linear;
+}
+
+@keyframes spinLoader {
+  to { transform: rotate(360deg); }
+}
+
+.loader-text {
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.tap-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 30;
+  cursor: pointer;
+}
+
+.tap-play-btn {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+  box-shadow: 0 0 30px rgba(255, 42, 95, 0.6);
+  animation: pulsePlay 1.8s infinite;
+}
+
+@keyframes pulsePlay {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 42, 95, 0.7); }
+  70% { transform: scale(1.08); box-shadow: 0 0 0 18px rgba(255, 42, 95, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 42, 95, 0); }
+}
+
+.tap-play-overlay span {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }

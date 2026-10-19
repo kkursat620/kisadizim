@@ -1,5 +1,5 @@
 // ==========================================
-// KısaDizim - Vertical Video Player JS
+// DiziAlem (dizialem.com) - Vertical Video Player JS
 // ==========================================
 
 let currentSeries = null;
@@ -49,10 +49,61 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPlayerInteractions();
   setupKeyboardControls();
   setupTouchSwipes();
+  setupBufferingEvents();
 });
 
+const videoLoader = document.getElementById("videoLoader");
+const tapPlayOverlay = document.getElementById("tapPlayOverlay");
+
+function showLoader(text) {
+  if (videoLoader) {
+    if (text) {
+      const txtEl = videoLoader.querySelector(".loader-text");
+      if (txtEl) txtEl.textContent = text;
+    }
+    videoLoader.style.display = "flex";
+  }
+}
+
+function hideLoader() {
+  if (videoLoader) videoLoader.style.display = "none";
+}
+
+function setupBufferingEvents() {
+  video.addEventListener("waiting", () => showLoader("Arabelleğe alınıyor..."));
+  video.addEventListener("canplay", () => hideLoader());
+  video.addEventListener("playing", () => {
+    hideLoader();
+    if (tapPlayOverlay) tapPlayOverlay.style.display = "none";
+  });
+  video.addEventListener("seeking", () => showLoader());
+  video.addEventListener("seeked", () => hideLoader());
+  video.addEventListener("error", () => {
+    hideLoader();
+    console.error("[Player] Video oynatma hatası:", video.error);
+  });
+}
+
 async function loadSeriesAndPlay(seriesId, epNum) {
+  // 1. ÖNCE ÖNBELLEKTEN ANINDA YÜKLE (0 milisaniye bekleme)
+  let foundInCache = false;
   try {
+    const cachedList = JSON.parse(localStorage.getItem("dizialem_series_cache") || "[]");
+    const found = cachedList.find((s) => s.id === seriesId || s.slug === seriesId);
+    if (found && found.episodes && found.episodes.length > 0) {
+      currentSeries = found;
+      currentEpNumber = epNum;
+      document.getElementById("playerSeriesTitle").textContent = currentSeries.title;
+      backBtn.onclick = () => (window.location.href = `/dizi?id=${currentSeries.id}`);
+      renderDrawerList();
+      playEpisode(currentEpNumber);
+      foundInCache = true;
+    }
+  } catch (e) {}
+
+  // 2. Sunucudan en güncel halini çek (arka planda veya önbellek yoksa)
+  try {
+    if (!foundInCache) showLoader("Dizi bilgileri alınıyor...");
     const res = await fetch(`/api/series/${seriesId}`);
     if (!res.ok) throw new Error("Dizi bulunamadı");
     currentSeries = await res.json();
@@ -62,11 +113,16 @@ async function loadSeriesAndPlay(seriesId, epNum) {
     backBtn.onclick = () => (window.location.href = `/dizi?id=${currentSeries.id}`);
 
     renderDrawerList();
-    playEpisode(currentEpNumber);
+    if (!foundInCache) {
+      playEpisode(currentEpNumber);
+    }
   } catch (err) {
-    console.error("Dizi oynatıcı hatası:", err);
-    alert("Dizi yüklenirken bir hata oluştu.");
-    window.location.href = "/";
+    if (!currentSeries) {
+      hideLoader();
+      console.error("Dizi oynatıcı hatası:", err);
+      alert("Dizi yüklenirken bir hata oluştu.");
+      window.location.href = "/";
+    }
   }
 }
 
@@ -82,9 +138,12 @@ function playEpisode(epNum) {
     return;
   }
 
+  showLoader("Bölüm başlatılıyor...");
+  if (tapPlayOverlay) tapPlayOverlay.style.display = "none";
+
   // Update URL state without page reload
   history.replaceState(null, "", `/izle?id=${currentSeries.id}&ep=${epNum}`);
-  document.title = `${currentSeries.title} - Bölüm ${epNum} | KısaDizim`;
+  document.title = `${currentSeries.title} - Bölüm ${epNum} | DiziAlem`;
 
   // Update UI Titles & Episode Nav Buttons
   document.getElementById("playerEpTitle").textContent = epData.title || `Bölüm ${epNum}`;
@@ -135,17 +194,43 @@ function playEpisode(epNum) {
     hlsInstance = null;
   }
 
+  function handleAutoplay(playPromise) {
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          hideLoader();
+          if (tapPlayOverlay) tapPlayOverlay.style.display = "none";
+          ensureSubtitlesActive();
+        })
+        .catch((err) => {
+          hideLoader();
+          console.log("[Player] Otomatik oynatma bekliyor, dokunma butonu gösteriliyor:", err);
+          if (tapPlayOverlay) {
+            tapPlayOverlay.style.display = "flex";
+            tapPlayOverlay.onclick = () => {
+              tapPlayOverlay.style.display = "none";
+              showLoader("Oynatılıyor...");
+              video.play().finally(() => hideLoader());
+            };
+          }
+        });
+    }
+  }
+
   if (streamUrl.includes(".m3u8")) {
     if (Hls.isSupported()) {
       hlsInstance = new Hls({
         enableWorker: true,
         lowLatencyMode: true,
+        backBufferLength: 20,
+        maxBufferLength: 10,
+        maxMaxBufferLength: 20,
+        maxBufferSize: 25 * 1000 * 1000,
       });
       hlsInstance.loadSource(streamUrl);
       hlsInstance.attachMedia(video);
       hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
-        video.play().catch((e) => console.log("Otomatik oynatma kullanıcı etkileşimi bekliyor"));
-        ensureSubtitlesActive();
+        handleAutoplay(video.play());
       });
       hlsInstance.on(Hls.Events.ERROR, (event, data) => {
         if (data.fatal) {
@@ -164,15 +249,31 @@ function playEpisode(epNum) {
       });
     } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
       video.src = streamUrl;
-      video.play().catch(() => {});
-      ensureSubtitlesActive();
+      handleAutoplay(video.play());
     }
   } else {
-    // MP4
+    // Doğrudan MP4 Hızlı Akış
     video.src = streamUrl;
-    video.play().catch(() => {});
-    ensureSubtitlesActive();
+    video.load();
+    handleAutoplay(video.play());
   }
+
+  // Bir sonraki bölümü arka planda önceden önbelleğe al (Prefetch Next Episode)
+  preloadNextEpisode(epNum);
+}
+
+function preloadNextEpisode(currentEp) {
+  try {
+    const episodes = currentSeries.episodes || [];
+    const nextEp = episodes.find((e) => e.episode === currentEp + 1);
+    if (nextEp && nextEp.video_url) {
+      const link = document.createElement("link");
+      link.rel = "prefetch";
+      link.href = nextEp.video_url;
+      link.as = "video";
+      document.head.appendChild(link);
+    }
+  } catch (e) {}
 }
 
 function ensureSubtitlesActive() {

@@ -25,7 +25,20 @@
       webkit-playsinline
       x5-playsinline
       autoplay
+      preload="auto"
     ></video>
+
+    <!-- FAST-START LOADING SPINNER -->
+    <div id="videoLoader" class="video-loader">
+      <div class="loader-spinner"></div>
+      <span class="loader-text">Dizi Yükleniyor...</span>
+    </div>
+
+    <!-- TAP TO PLAY OVERLAY (Mobil Otomatik Başlatma Engellendiğinde) -->
+    <div id="tapPlayOverlay" class="tap-play-overlay" style="display: none;">
+      <div class="tap-play-btn"><i class="fas fa-play"></i></div>
+      <span>İzlemek İçin Dokunun</span>
+    </div>
 
     <!-- DOUBLE TAP RIPPLE OVERLAYS -->
     <div id="seekLeft" class="seek-ripple left">

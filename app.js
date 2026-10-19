@@ -1,5 +1,5 @@
 // ==========================================
-// KısaDizim v2.0 - Homepage Application JS
+// DiziAlem (dizialem.com) v2.0 - Homepage Application JS
 // ==========================================
 
 let allSeries = [];
@@ -12,19 +12,35 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function initApp() {
+  // 1. ANINDA ÖNBELLEKTEN YÜKLE (0 milisaniye bekleme)
+  try {
+    const cached = localStorage.getItem("dizialem_series_cache");
+    if (cached) {
+      allSeries = JSON.parse(cached);
+      if (allSeries && allSeries.length > 0) {
+        renderHero(allSeries);
+        renderGrid(allSeries);
+      }
+    }
+  } catch (e) {}
+
+  // 2. Arka planda sunucudan güncelle
   try {
     const res = await fetch("/api/series");
     allSeries = await res.json();
+    localStorage.setItem("dizialem_series_cache", JSON.stringify(allSeries));
     renderHero(allSeries);
     renderGrid(allSeries);
   } catch (err) {
-    console.error("Diziler yüklenirken hata:", err);
-    document.getElementById("dramaGrid").innerHTML = `
-      <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-muted);">
-        <i class="fas fa-exclamation-triangle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 12px;"></i>
-        <p>Diziler yüklenemedi. Sunucunun çalıştığından emin olun.</p>
-      </div>
-    `;
+    if (!allSeries || allSeries.length === 0) {
+      console.error("Diziler yüklenirken hata:", err);
+      document.getElementById("dramaGrid").innerHTML = `
+        <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-muted);">
+          <i class="fas fa-exclamation-triangle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 12px;"></i>
+          <p>Diziler yüklenemedi. Sunucunun çalıştığından emin olun.</p>
+        </div>
+      `;
+    }
   }
 }
 
