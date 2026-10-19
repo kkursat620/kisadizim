@@ -40,7 +40,7 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title="KısaDizim API & Stream Service", version="2.0.0", lifespan=lifespan)
+app = FastAPI(title="DiziAlem API & Stream Service", version="2.0.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -388,5 +388,5 @@ if os.path.exists(STATIC_DIR):
 if __name__ == "__main__":
     import uvicorn
 
-    print("🚀 KısaDizim v2.0 başlatılıyor: http://127.0.0.1:8000")
+    print("🚀 DiziAlem (dizialem.com) v2.0 başlatılıyor: http://127.0.0.1:8000")
     uvicorn.run(app, host="127.0.0.1", port=8000)
