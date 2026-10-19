@@ -162,6 +162,38 @@ async def get_dizi_js():
     return FileResponse(os.path.join(STATIC_DIR, "js", "dizi.js"), media_type="application/javascript")
 
 
+# Dynamic Logo & Favicon Routes
+@app.get("/favicon.ico")
+@app.get("/favicon.png")
+@app.get("/static/img/favicon.png")
+@app.get("/static/favicon.png")
+async def get_favicon():
+    paths = [
+        os.path.join(STATIC_DIR, "img", "favicon.png"),
+        os.path.join(BASE_DIR, "favicon.png"),
+        os.path.join(STATIC_DIR, "favicon.png"),
+    ]
+    for p in paths:
+        if os.path.exists(p):
+            return FileResponse(p, media_type="image/png")
+    raise HTTPException(status_code=404, detail="Favicon bulunamadı")
+
+
+@app.get("/logo.png")
+@app.get("/static/img/logo.png")
+@app.get("/static/logo.png")
+async def get_logo():
+    paths = [
+        os.path.join(STATIC_DIR, "img", "logo.png"),
+        os.path.join(BASE_DIR, "logo.png"),
+        os.path.join(STATIC_DIR, "logo.png"),
+    ]
+    for p in paths:
+        if os.path.exists(p):
+            return FileResponse(p, media_type="image/png")
+    raise HTTPException(status_code=404, detail="Logo bulunamadı")
+
+
 # ==========================================
 # REST API Endpoints
 # ==========================================
