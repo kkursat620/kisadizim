@@ -106,21 +106,25 @@ class AutopilotConfigModel(BaseModel):
 # Frontend Routes (Supports both root & static/)
 # ==========================================
 @app.get("/")
+@app.get("/index.html")
 async def index_page():
     return FileResponse(get_html_file("index.html"))
 
 
 @app.get("/dizi")
+@app.get("/dizi.html")
 async def dizi_page():
     return FileResponse(get_html_file("dizi.html"))
 
 
 @app.get("/izle")
+@app.get("/izle.html")
 async def izle_page():
     return FileResponse(get_html_file("izle.html"))
 
 
 @app.get("/admin")
+@app.get("/admin.html")
 async def admin_page():
     return FileResponse(get_html_file("admin.html"))
 
