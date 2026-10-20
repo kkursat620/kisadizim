@@ -34,6 +34,8 @@ autopilot_state = {
     "interval_minutes": 10,
     "last_check": "Henüz kontrol edilmedi",
     "new_added_count": 0,
+    "new_series_count": 0,
+    "new_movies_count": 0,
     "logs": [],
 }
 
@@ -350,25 +352,43 @@ def autopilot_worker_loop():
                 current_db = load_series()
                 existing_ids = set(s.get("id") for s in current_db)
 
-                # Find newest slugs that don't exist in our DB
-                new_slugs = [s for s in slugs[:30] if s not in existing_ids]
+                # Tüm katalog içerisindeki henüz çekilmemiş dizileri bul (Her döngüde sırayla 15'er 15'er durmaksızın çeker)
+                new_slugs = [s for s in slugs if s not in existing_ids][:15]
 
                 if new_slugs:
                     log_autopilot(f"⚡ {len(new_slugs)} adet yeni dizi tespit edildi! Otomatik çekim başlatılıyor...")
                     for slug in new_slugs:
+                        if not autopilot_state["enabled"]:
+                            log_autopilot("AI Oto-Pilot durduruldu.")
+                            break
                         try:
                             log_autopilot(f"Yeni dizi çekiliyor: {slug}")
                             data = scrape_single_series(slug)
                             if data and data.get("episodes"):
                                 current_db = load_series()
+                                current_db = [s for s in current_db if s.get("id") != data["id"]]
                                 current_db.insert(0, data)
                                 save_series(current_db)
                                 autopilot_state["new_added_count"] += 1
-                                log_autopilot(f"✓ Otomatik Eklendi: {data['title']} ({len(data['episodes'])} bölüm)")
+                                autopilot_state["new_series_count"] = autopilot_state.get("new_series_count", 0) + 1
+                                log_autopilot(f"✓ Otomatik Dizi Eklendi: {data['title']} ({len(data['episodes'])} bölüm)")
+                            time.sleep(1)
                         except Exception as scrape_err:
-                            log_autopilot(f"Çekim hatası ({slug}): {scrape_err}")
+                            log_autopilot(f"Dizi çekim hatası ({slug}): {scrape_err}")
                 else:
-                    log_autopilot("Yeni dizi yok, tüm içerikler güncel.")
+                    log_autopilot("Diziler güncel.")
+
+                # 2. ADIM: filmmakinesi.to'daki yeni filmleri kontrol et ve otomatik çek
+                if autopilot_state["enabled"]:
+                    try:
+                        log_autopilot("filmmakinesi.to kontrol ediliyor: Yeni eklenen film var mı?")
+                        import movie_scraper
+                        added_movies = movie_scraper.check_and_scrape_new_movies(limit=10, logger_callback=log_autopilot)
+                        if added_movies > 0:
+                            autopilot_state["new_movies_count"] = autopilot_state.get("new_movies_count", 0) + added_movies
+                            autopilot_state["new_added_count"] += added_movies
+                    except Exception as movie_err:
+                        log_autopilot(f"Film oto-pilot hatası: {movie_err}")
 
             # Sleep for interval minutes
             interval_sec = max(60, autopilot_state["interval_minutes"] * 60)

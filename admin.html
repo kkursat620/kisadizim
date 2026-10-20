@@ -93,7 +93,7 @@
               </span>
             </div>
             <p style="color: #cbd5e1; font-size: 0.88rem; margin-top: 4px;">
-              Arka planda <b>dramadizilerim.com</b> sitesini sürekli nöbetçi gibi tarar; yeni bir dizi yüklendiği anda <b>hiçbir işlem yapmanıza gerek kalmadan</b> tüm bölümleri ve Türkçe altyazılarıyla sitenize otomatik ekler.
+              Arka planda hem <b>dramadizilerim.com</b> (dikey diziler) hem de <b>filmmakinesi.to</b> (Full HD filmler) sitelerini 7/24 nöbetçi gibi tarar; yeni bir dizi veya vizyon filmi yüklendiği anda <b>hiçbir işlem yapmanıza gerek kalmadan</b> sitenize otomatik ekler.
             </p>
           </div>
 
@@ -479,7 +479,9 @@
         }
 
         document.getElementById("pilotLastCheck").textContent = data.last_check || "Yeni başladı";
-        document.getElementById("pilotAddedCount").textContent = `${data.new_added_count} Yeni Dizi`;
+        const seriesCount = data.new_series_count || 0;
+        const moviesCount = data.new_movies_count || 0;
+        document.getElementById("pilotAddedCount").textContent = `${seriesCount} Dizi • ${moviesCount} Film`;
 
         if (data.logs && data.logs.length > 0) {
           document.getElementById("pilotTerminal").innerHTML = data.logs.map(l => `<div>${l}</div>`).join("");

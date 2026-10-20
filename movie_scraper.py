@@ -295,3 +295,48 @@ def sync_popular_movies(limit=40):
     save_movies(final_list)
     logger.info(f"Successfully synced {len(final_list)} movies.")
     return final_list
+
+
+def check_and_scrape_new_movies(limit=10, logger_callback=None):
+    """
+    Checks filmmakinesi.to homepage for newly added films not yet in local database,
+    and automatically scrapes them in the background.
+    """
+    session = create_session()
+    current_movies = load_movies()
+    existing_ids = set(m.get("id") or m.get("slug") for m in current_movies)
+    
+    film_paths = scrape_movie_list_from_page(BASE_URL, session)
+    new_candidates = []
+    for p in film_paths:
+        slug = p.strip('/').split('/')[-1]
+        if slug not in existing_ids:
+            new_candidates.append(p)
+
+    if not new_candidates:
+        if logger_callback:
+            logger_callback("filmmakinesi.to: Yeni vizyon filmi bulunamadı, filmler güncel.")
+        return 0
+
+    if logger_callback:
+        logger_callback(f"filmmakinesi.to: ⚡ {len(new_candidates)} yeni film tespit edildi! Otomatik çekim başlıyor...")
+
+    added = 0
+    for path in new_candidates[:limit]:
+        slug = path.strip('/').split('/')[-1]
+        try:
+            m_detail = scrape_movie_detail(path, session)
+            if m_detail and m_detail.get("embed_url"):
+                # Prepend to list
+                current_movies.insert(0, m_detail)
+                save_movies(current_movies)
+                added += 1
+                if logger_callback:
+                    logger_callback(f"✓ Otomatik Film Eklendi: {m_detail['title']} (IMDb: {m_detail['imdb']})")
+                time.sleep(1)
+        except Exception as e:
+            if logger_callback:
+                logger_callback(f"Film çekim hatası ({slug}): {e}")
+
+    return added
+
