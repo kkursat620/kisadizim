@@ -1,5 +1,5 @@
 // ==========================================
-// KısaDizim - Dizi Detail Page JS
+// DiziAlem (dizialem.com) - Dizi Detail Page JS
 // ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,12 +15,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function loadSeriesDetail(id) {
+  // 1. Önce önbellekten anında render et (0 gecikme)
+  try {
+    const cached = localStorage.getItem("dizialem_series_cache");
+    if (cached) {
+      const list = JSON.parse(cached);
+      const match = list.find((s) => s.id === id || s.slug === id);
+      if (match) {
+        renderSeriesData(match);
+      }
+    }
+  } catch (e) {}
+
+  // 2. Sunucudan en güncel veriyi çek
   try {
     const res = await fetch(`/api/series/${id}`);
     if (!res.ok) throw new Error("Dizi bulunamadı");
     const data = await res.json();
+    renderSeriesData(data);
+  } catch (err) {
+    console.error("Dizi yüklenemedi:", err);
+  }
+}
 
-    document.title = `${data.title} - KısaDizim`;
+function renderSeriesData(data) {
+  document.title = `${data.title} - DiziAlem`;
 
     const hero = document.getElementById("detailHero");
     hero.style.backgroundImage = `url('${data.banner || data.cover}')`;

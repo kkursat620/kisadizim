@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiziAlem - Full HD Film İzle (Türkçe Dublaj & Altyazılı)</title>
+  <meta name="description" content="DiziAlem (dizialem.com) - En yeni vizyon filmleri, 1080p Full HD kalitede Türkçe Dublaj ve Altyazılı seçenekleriyle kesintisiz film izleyin.">
+  <link rel="icon" type="image/png" href="/static/img/favicon.png">
+  <link rel="apple-touch-icon" href="/static/img/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css?v=2.3">
+</head>
+<body class="movies-body">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="/" class="nav-brand">
+      <img src="/static/img/logo.png" alt="DiziAlem" class="nav-logo-img" style="height: 42px; width: auto; max-height: 42px; display: block;">
+    </a>
+
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="movieSearchInput" class="search-input" placeholder="Film adı, oyuncu veya tür ara..." autocomplete="off">
+    </div>
+
+    <div class="nav-links">
+      <a href="/" class="nav-btn">
+        <i class="fas fa-tv"></i> Diziler
+      </a>
+      <a href="/filmler" class="nav-btn primary active-tab" style="background: linear-gradient(135deg, #ff2a5f, #ff5e3a); box-shadow: 0 4px 15px rgba(255, 42, 95, 0.4);">
+        <i class="fas fa-film"></i> Filmler
+      </a>
+      <a href="/DiziAlem.apk" class="nav-btn" style="border-color: rgba(0, 230, 118, 0.4); color: #00e676;">
+        <i class="fab fa-android"></i> Uygulama
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="main-container movies-container">
+
+    <!-- HERO FEATURED MOVIE -->
+    <section id="movieHeroSection" class="hero-banner movie-hero" style="display: none;">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-badges">
+          <span class="badge badge-primary"><i class="fas fa-fire"></i> Vizyonda & Trend</span>
+          <span class="badge badge-gold" id="movieHeroImdb"><i class="fas fa-star"></i> 8.5</span>
+          <span class="badge badge-cyan" id="movieHeroYear">2026</span>
+          <span class="badge badge-glass" id="movieHeroCategory">Aksiyon</span>
+        </div>
+        <h1 class="hero-title" id="movieHeroTitle">Film Yükleniyor...</h1>
+        <p class="hero-desc" id="movieHeroDesc"></p>
+        <div class="hero-actions">
+          <a href="#" id="movieHeroPlayBtn" class="btn-cta">
+            <i class="fas fa-play"></i> Hemen Filmi İzle
+          </a>
+          <span class="movie-quality-tag"><i class="fas fa-check-circle"></i> 1080p Ultra HD • Türkçe Dublaj</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2-COLUMN LAYOUT: MOVIES ON LEFT, GENRE SIDEBAR ON RIGHT -->
+    <div class="movies-layout">
+
+      <!-- LEFT COLUMN: MOVIE GRID -->
+      <section class="movies-main-col">
+        <div class="movies-toolbar">
+          <div class="movies-toolbar-left">
+            <h2 class="section-title" id="currentGenreTitle">
+              <i class="fas fa-film text-primary"></i> <span id="genreHeadingText">Tüm Filmler</span>
+              <span class="series-count" id="moviesCountBadge">(0 Film)</span>
+            </h2>
+          </div>
+
+          <div class="movies-toolbar-right">
+            <!-- Sort Filter -->
+            <div class="sort-select-wrapper">
+              <i class="fas fa-arrow-down-wide-short"></i>
+              <select id="movieSortSelect" class="sort-select">
+                <option value="popular">En Popüler</option>
+                <option value="imdb">En Yüksek IMDb</option>
+                <option value="year">En Yeni (Yıl)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Filter Tags -->
+        <div class="quick-filter-chips">
+          <button class="filter-chip active" data-filter="all">Tümü</button>
+          <button class="filter-chip" data-filter="imdb7">★ IMDb 7.0+</button>
+          <button class="filter-chip" data-filter="y2026">2026 Filmleri</button>
+          <button class="filter-chip" data-filter="dublaj">Türkçe Dublaj</button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="moviesLoading" class="loading-state">
+          <div class="spinner"></div>
+          <p>Filmler yükleniyor...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div id="moviesEmpty" class="empty-state" style="display: none;">
+          <i class="fas fa-film-slash empty-icon"></i>
+          <h3>Film Bulunamadı</h3>
+          <p>Aradığınız kriterlere uygun film bulunamadı. Filtreleri temizlemeyi deneyin.</p>
+          <button id="resetMovieFiltersBtn" class="btn-secondary" style="margin-top: 15px;">Filtreleri Temizle</button>
+        </div>
+
+        <!-- MOVIE CARDS GRID -->
+        <div class="movie-cards-grid" id="movieCardsGrid"></div>
+      </section>
+
+      <!-- RIGHT COLUMN: FILM TARZLARI (GENRES SIDEBAR) -->
+      <aside class="movies-sidebar">
+        <div class="sidebar-card sticky-sidebar">
+          <div class="sidebar-header">
+            <div class="sidebar-title">
+              <i class="fa-solid fa-layer-group text-primary"></i> Film Tarzları
+            </div>
+            <span class="sidebar-badge" id="sidebarTotalBadge">0</span>
+          </div>
+
+          <p class="sidebar-subtitle">Kategoriye göre filmleri keşfedin:</p>
+
+          <!-- Genre Search -->
+          <div class="genre-search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="genreFilterInput" placeholder="Tarz ara..." autocomplete="off">
+          </div>
+
+          <!-- Genre List -->
+          <ul class="genre-list" id="genreList">
+            <li class="genre-item active" data-genre="all">
+              <div class="genre-left">
+                <i class="fas fa-border-all genre-icon"></i>
+                <span class="genre-name">Tüm Filmler</span>
+              </div>
+              <span class="genre-count" id="countAll">0</span>
+            </li>
+            <!-- Dynamically populated from /api/movies/genres -->
+          </ul>
+
+          <!-- Sidebar Promo / App Box -->
+          <div class="sidebar-promo-box">
+            <div class="promo-icon"><i class="fab fa-android"></i></div>
+            <div class="promo-text">
+              <h4>DiziAlem Android</h4>
+              <p>Filmleri ve dizileri donmadan mobilde izleyin!</p>
+            </div>
+            <a href="/DiziAlem.apk" class="promo-download-btn">
+              <i class="fas fa-download"></i> APK İndir
+            </a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/static/img/logo.png" alt="DiziAlem" style="height: 38px; width: auto;">
+        <p>Türkiye'nin en zengin dikey kısa dizi ve Full HD film platformu.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/">Diziler</a>
+        <a href="/filmler">Filmler</a>
+        <a href="/DiziAlem.apk">Mobil Uygulama</a>
+        <a href="/admin">Yönetim</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 DiziAlem (dizialem.com). Tüm hakları saklıdır.
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/js/movies.js?v=2.1"></script>
+</body>
+</html>

@@ -13,6 +13,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 import scraper
+import movie_scraper
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, "static")
@@ -117,6 +118,18 @@ async def dizi_page():
     return FileResponse(get_html_file("dizi.html"))
 
 
+@app.get("/filmler")
+@app.get("/filmler.html")
+async def filmler_page():
+    return FileResponse(get_html_file("filmler.html"))
+
+
+@app.get("/film-izle")
+@app.get("/film-izle.html")
+async def film_izle_page():
+    return FileResponse(get_html_file("film_izle.html"))
+
+
 @app.get("/izle")
 @app.get("/izle.html")
 async def izle_page():
@@ -160,6 +173,22 @@ async def get_dizi_js():
     if os.path.exists(root_js):
         return FileResponse(root_js, media_type="application/javascript")
     return FileResponse(os.path.join(STATIC_DIR, "js", "dizi.js"), media_type="application/javascript")
+
+
+@app.get("/static/js/movies.js")
+async def get_movies_js():
+    root_js = os.path.join(BASE_DIR, "movies.js")
+    if os.path.exists(root_js):
+        return FileResponse(root_js, media_type="application/javascript")
+    return FileResponse(os.path.join(STATIC_DIR, "js", "movies.js"), media_type="application/javascript")
+
+
+@app.get("/static/js/film_izle.js")
+async def get_film_izle_js():
+    root_js = os.path.join(BASE_DIR, "film_izle.js")
+    if os.path.exists(root_js):
+        return FileResponse(root_js, media_type="application/javascript")
+    return FileResponse(os.path.join(STATIC_DIR, "js", "film_izle.js"), media_type="application/javascript")
 
 
 # Dynamic Logo & Favicon Routes
@@ -286,6 +315,115 @@ async def get_categories():
         if s.get("category"):
             cats.add(s["category"])
     return list(cats)
+
+
+# ==========================================
+# Film & Sinema API Endpoints
+# ==========================================
+@app.get("/api/movies")
+async def get_movies(
+    genre: str = None,
+    search: str = None,
+    year: str = None,
+    sort: str = "popular",
+    limit: int = 60,
+    offset: int = 0
+):
+    movies = movie_scraper.load_movies()
+    if genre and genre.lower() not in ["tümü", "all", ""]:
+        genre_lower = genre.lower()
+        movies = [
+            m for m in movies
+            if any(genre_lower == g.lower() for g in m.get("genres", []))
+            or genre_lower == m.get("category", "").lower()
+        ]
+    if search:
+        q = search.lower().strip()
+        movies = [
+            m for m in movies
+            if q in m.get("title", "").lower()
+            or q in m.get("description", "").lower()
+            or any(q in g.lower() for g in m.get("genres", []))
+        ]
+    if year:
+        movies = [m for m in movies if m.get("year") == year]
+
+    if sort == "imdb":
+        movies = sorted(movies, key=lambda x: float(x.get("imdb", 0) or 0), reverse=True)
+    elif sort == "year":
+        movies = sorted(movies, key=lambda x: x.get("year", ""), reverse=True)
+
+    total = len(movies)
+    sliced = movies[offset : offset + limit]
+    return {"total": total, "movies": sliced}
+
+
+@app.get("/api/movies/genres")
+async def get_movie_genres():
+    movies = movie_scraper.load_movies()
+    counts = {}
+    for m in movies:
+        for g in m.get("genres", []):
+            counts[g] = counts.get(g, 0) + 1
+        cat = m.get("category")
+        if cat and cat not in m.get("genres", []):
+            counts[cat] = counts.get(cat, 0) + 1
+
+    genres_list = []
+    for g_info in movie_scraper.GENRES:
+        cnt = counts.get(g_info["name"], 0)
+        genres_list.append({
+            "name": g_info["name"],
+            "slug": g_info["slug"],
+            "icon": g_info["icon"],
+            "count": cnt
+        })
+    return {"total_movies": len(movies), "genres": genres_list}
+
+
+@app.get("/api/movies/{movie_id}")
+async def get_single_movie(movie_id: str):
+    movies = movie_scraper.load_movies()
+    for m in movies:
+        if m.get("id") == movie_id or m.get("slug") == movie_id:
+            return m
+    try:
+        scraped = movie_scraper.scrape_movie_detail(movie_id)
+        if scraped:
+            movies.append(scraped)
+            movie_scraper.save_movies(movies)
+            return scraped
+    except Exception:
+        pass
+    raise HTTPException(status_code=404, detail="Film bulunamadı")
+
+
+@app.post("/api/movies/scrape")
+async def scrape_single_movie_endpoint(req: ScrapeRequest):
+    try:
+        m = movie_scraper.scrape_movie_detail(req.url_or_slug)
+        if not m:
+            raise HTTPException(status_code=400, detail="Film bilgileri çekilemedi")
+        movies = movie_scraper.load_movies()
+        updated = False
+        for i, existing in enumerate(movies):
+            if existing.get("id") == m["id"] or existing.get("slug") == m["slug"]:
+                movies[i] = m
+                updated = True
+                break
+        if not updated:
+            movies.insert(0, m)
+        movie_scraper.save_movies(movies)
+        return {"success": True, "movie": m}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/movies/sync")
+async def sync_movies_endpoint(background_tasks: BackgroundTasks, limit: int = 40):
+    background_tasks.add_task(movie_scraper.sync_popular_movies, limit)
+    return {"success": True, "message": f"{limit} film için arka planda eşitleme başlatıldı."}
+
 
 
 # ==========================================

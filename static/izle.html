@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Dizi İzle - KısaDizim</title>
+  <title>Dizi İzle - DiziAlem</title>
+  <link rel="icon" type="image/png" href="/static/img/favicon.png">
+  <link rel="apple-touch-icon" href="/static/img/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +27,20 @@
       webkit-playsinline
       x5-playsinline
       autoplay
+      preload="auto"
     ></video>
+
+    <!-- FAST-START LOADING SPINNER -->
+    <div id="videoLoader" class="video-loader">
+      <div class="loader-spinner"></div>
+      <span class="loader-text">Dizi Yükleniyor...</span>
+    </div>
+
+    <!-- TAP TO PLAY OVERLAY (Mobil Otomatik Başlatma Engellendiğinde) -->
+    <div id="tapPlayOverlay" class="tap-play-overlay" style="display: none;">
+      <div class="tap-play-btn"><i class="fas fa-play"></i></div>
+      <span>İzlemek İçin Dokunun</span>
+    </div>
 
     <!-- DOUBLE TAP RIPPLE OVERLAYS -->
     <div id="seekLeft" class="seek-ripple left">

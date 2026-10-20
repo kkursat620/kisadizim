@@ -1,5 +1,5 @@
 // ==========================================
-// KısaDizim - Homepage Application JS
+// DiziAlem (dizialem.com) v2.0 - Homepage Application JS
 // ==========================================
 
 let allSeries = [];
@@ -12,19 +12,42 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function initApp() {
+  // 1. ANINDA ÖNBELLEKTEN YÜKLE (0 milisaniye bekleme)
+  try {
+    const cached = localStorage.getItem("dizialem_series_cache");
+    if (cached) {
+      allSeries = JSON.parse(cached);
+      if (allSeries && allSeries.length > 0) {
+        renderHero(allSeries);
+        renderGrid(allSeries);
+      }
+    }
+  } catch (e) {}
+
+  // 2. Sunucudan en güncel tüm dizileri çek
   try {
     const res = await fetch("/api/series");
     allSeries = await res.json();
+    // Önce ekranı hemen güncelle (asla bloke olmaz)
     renderHero(allSeries);
     renderGrid(allSeries);
+
+    // Güvenli önbellek kaydı
+    try {
+      localStorage.setItem("dizialem_series_cache", JSON.stringify(allSeries));
+    } catch (storageErr) {
+      console.warn("Önbellek boyutu sınırı aşıldı, sadece canlı veri kullanılıyor.");
+    }
   } catch (err) {
-    console.error("Diziler yüklenirken hata:", err);
-    document.getElementById("dramaGrid").innerHTML = `
-      <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
-        <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: var(--primary); margin-bottom: 12px;"></i>
-        <p>Diziler yüklenemedi. Sunucunun çalıştığından emin olun.</p>
-      </div>
-    `;
+    if (!allSeries || allSeries.length === 0) {
+      console.error("Diziler yüklenirken hata:", err);
+      document.getElementById("dramaGrid").innerHTML = `
+        <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-muted);">
+          <i class="fas fa-exclamation-triangle" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 12px;"></i>
+          <p>Diziler yüklenemedi. Sunucunun çalıştığından emin olun.</p>
+        </div>
+      `;
+    }
   }
 }
 
@@ -39,6 +62,22 @@ function renderHero(seriesList) {
   document.getElementById("heroDesc").textContent = featured.description;
   document.getElementById("heroCategory").textContent = featured.category;
 
+  const heroTagEl = document.getElementById("heroTag");
+  if (heroTagEl) {
+    const isDub = featured.tags && featured.tags.includes("Dublajlı");
+    const isSub = featured.tags && featured.tags.includes("Türkçe Altyazılı");
+    if (isDub) {
+      heroTagEl.textContent = "Türkçe Dublaj";
+      heroTagEl.className = "badge badge-primary";
+    } else if (isSub) {
+      heroTagEl.textContent = "Türkçe Altyazılı";
+      heroTagEl.className = "badge badge-cyan";
+    } else {
+      heroTagEl.textContent = "Altyazılı";
+      heroTagEl.className = "badge badge-glass";
+    }
+  }
+
   const firstEp = featured.episodes && featured.episodes[0] ? featured.episodes[0].episode : 1;
   document.getElementById("heroPlayBtn").href = `/izle?id=${featured.id}&ep=${firstEp}`;
   document.getElementById("heroDetailBtn").href = `/dizi?id=${featured.id}`;
@@ -50,9 +89,10 @@ function renderGrid(seriesList) {
 
   if (!seriesList || seriesList.length === 0) {
     grid.innerHTML = `
-      <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-muted);">
-        <i class="fas fa-film" style="font-size: 2.5rem; opacity: 0.3; margin-bottom: 12px;"></i>
-        <p>Bu kategoride veya aramaya uygun dizi bulunamadı.</p>
+      <div style="grid-column: 1/-1; text-align: center; padding: 60px; color: var(--text-muted);">
+        <i class="fas fa-film" style="font-size: 3rem; opacity: 0.25; margin-bottom: 16px;"></i>
+        <p style="font-size: 1.1rem; color: #fff;">Bu kategoride veya aramaya uygun dizi bulunamadı.</p>
+        <p style="font-size: 0.85rem; margin-top: 6px;">Yönetim panelinden yeni dizi çekebilirsiniz.</p>
       </div>
     `;
     countEl.textContent = "0 Dizi";
@@ -65,14 +105,25 @@ function renderGrid(seriesList) {
     .map((s) => {
       const epCount = s.total_episodes || (s.episodes ? s.episodes.length : 0);
       const isDubbed = s.tags && s.tags.includes("Dublajlı");
+      const isSubbed = s.tags && s.tags.includes("Türkçe Altyazılı");
       const firstEp = s.episodes && s.episodes[0] ? s.episodes[0].episode : 1;
+
+      let badgeClass = "badge-glass";
+      let badgeLabel = "Altyazılı";
+      if (isDubbed) {
+        badgeClass = "badge-primary";
+        badgeLabel = "Türkçe Dublaj";
+      } else if (isSubbed) {
+        badgeClass = "badge-cyan";
+        badgeLabel = "Türkçe Altyazılı";
+      }
 
       return `
         <article class="drama-card">
           <div class="card-poster-wrap">
             <img src="${s.cover}" alt="${s.title}" class="card-poster" loading="lazy">
-            <span class="badge ${isDubbed ? "badge-primary" : "badge-glass"} badge-top-left">
-              ${isDubbed ? "Türkçe Dublaj" : "Altyazılı"}
+            <span class="badge ${badgeClass} badge-top-left">
+              ${badgeLabel}
             </span>
             <span class="badge badge-gold badge-top-right">
               <i class="fas fa-star"></i> ${s.rating || "9.8"}

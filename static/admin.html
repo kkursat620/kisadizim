@@ -3,124 +3,400 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yönetim & Otomatik Dizi Çekici - KısaDizim</title>
+  <title>DiziAlem - Güvenli Yönetici Paneli</title>
+  <link rel="icon" type="image/png" href="/static/img/favicon.png">
+  <link rel="apple-touch-icon" href="/static/img/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/css/style.css">
-  <style>
-    .scrape-box {
-      background: linear-gradient(135deg, rgba(255, 42, 95, 0.15), rgba(19, 21, 32, 0.9));
-      border: 1px solid var(--primary);
-      border-radius: var(--radius-lg);
-      padding: 26px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(255, 42, 95, 0.2);
-    }
-    .badge-imported {
-      background: #2ed573;
-      color: #000;
-      font-size: 0.72rem;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-weight: 700;
-    }
-  </style>
+  <link rel="stylesheet" href="/static/css/style.css?v=2.2">
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <a href="/" class="nav-brand">
-      <div class="brand-icon">
-        <i class="fas fa-play"></i>
-      </div>
-      <div>Kısa<span class="brand-accent">Dizim</span> <small style="font-size: 0.8rem; opacity: 0.7; font-weight: 400;">Yönetim & Bot</small></div>
-    </a>
+  <!-- ==========================================
+       1. LOGIN LOCK SCREEN (GİRİŞ EKRANI)
+       ========================================== -->
+  <div id="loginScreen" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: var(--bg-card); border: 1px solid var(--border-glow); box-shadow: 0 16px 40px rgba(0,0,0,0.8); border-radius: var(--radius-lg); padding: 40px; width: 100%; max-width: 420px; text-align: center;">
+      <img src="/static/img/logo.png" alt="DiziAlem" style="height: 48px; max-width: 200px; margin: 0 auto 16px; display: block; filter: drop-shadow(0 2px 10px rgba(255, 42, 95, 0.4));">
+      <h1 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 6px;">Yönetici Girişi</h1>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 24px;">Bot ve sistem yönetimine erişmek için şifrenizi girin.</p>
 
-    <div class="nav-links">
-      <a href="/" class="nav-btn">
-        <i class="fas fa-eye"></i> Siteyi Görüntüle
-      </a>
-    </div>
-  </header>
-
-  <main class="main-container" style="max-width: 980px;">
-
-    <!-- 1. OTOMATIK DIZI ÇEKICI (BOT) CARD -->
-    <div class="scrape-box">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
-        <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px;">
-          <i class="fas fa-robot" style="color: var(--primary);"></i> Otomatik Dizi Çekici (Bot)
-        </h2>
-        <span class="badge badge-primary">Otomatik Scraper Aktif</span>
-      </div>
-      
-      <p style="color: #d1d5db; font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px;">
-        Tek tek bölüm veya link eklemenize gerek yok! <b>dramadizilerim.com</b> üzerindeki herhangi bir dizinin linkini yapıştırın; botumuz afişi, konusu, kategorisi ve <b>tüm bölümlerini (30-50 bölüm)</b> 4 saniyede otomatik çekip sitenize eklesin.
-      </p>
-
-      <form id="autoScrapeForm" style="display: flex; gap: 12px; margin-bottom: 18px;">
-        <input 
-          type="text" 
-          id="scrapeUrlInput" 
-          class="form-control" 
-          placeholder="Örn: https://dramadizilerim.com/dizi/anka-kaniyla-tahta veya anka-kaniyla-tahta" 
-          style="flex: 1; padding: 12px 18px; font-size: 0.95rem;" 
-          required
-        >
-        <button type="submit" id="btnStartScrape" class="btn-cta" style="white-space: nowrap; padding: 12px 24px;">
-          <i class="fas fa-bolt"></i> Otomatik Çek ve Ekle
+      <form id="adminLoginForm">
+        <div style="position: relative; margin-bottom: 20px; display: flex; align-items: center;">
+          <input 
+            type="password" 
+            id="adminPasswordInput" 
+            class="form-control" 
+            placeholder="Yönetici Şifresi" 
+            autocapitalize="none"
+            autocorrect="off"
+            spellcheck="false"
+            autocomplete="current-password"
+            style="padding: 12px 45px 12px 16px; font-size: 1rem; text-align: center; letter-spacing: 2px;" 
+            required 
+            autofocus
+          >
+          <button 
+            type="button" 
+            id="btnTogglePassword" 
+            style="position: absolute; right: 12px; color: var(--text-muted); padding: 8px; font-size: 1.1rem;" 
+            title="Şifreyi Göster/Gizle"
+          >
+            <i class="fas fa-eye" id="eyeIcon"></i>
+          </button>
+        </div>
+        <button type="submit" class="btn-cta" style="width: 100%; justify-content: center; padding: 13px; font-size: 1rem;">
+          <i class="fas fa-lock-open"></i> Panele Giriş Yap
         </button>
       </form>
+      <div id="loginError" style="display: none; margin-top: 14px; color: #ff4757; font-size: 0.88rem; font-weight: 600;"></div>
+    </div>
+  </div>
 
-      <!-- Status indicator -->
-      <div id="scrapeStatus" style="display: none; padding: 12px; border-radius: var(--radius-sm); font-size: 0.9rem; align-items: center; gap: 10px;"></div>
 
-      <div style="margin-top: 14px; display: flex; gap: 12px;">
-        <button id="btnBatchScrape" class="btn-secondary" style="font-size: 0.85rem; padding: 8px 16px;">
-          <i class="fas fa-download"></i> Popüler 5 Diziyi Otomatik İçe Aktar
-        </button>
-        <button id="btnLoadAvailable" class="btn-secondary" style="font-size: 0.85rem; padding: 8px 16px;">
-          <i class="fas fa-list-check"></i> Trend Dizi Listesini Göster
+  <!-- ==========================================
+       2. AUTHENTICATED ADMIN DASHBOARD (PANELE GİRİLDİĞİNDE)
+       ========================================== -->
+  <div id="dashboardScreen" style="display: none;">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <a href="/" class="nav-brand">
+        <img src="/static/img/logo.png" alt="DiziAlem" class="nav-logo-img" style="height: 38px; width: auto; max-height: 38px; display: block;">
+        <small style="font-size: 0.8rem; opacity: 0.7; font-weight: 400; margin-left: 6px;">Yönetim & Bot</small>
+      </a>
+
+      <div class="nav-links">
+        <a href="/" class="nav-btn" target="_blank">
+          <i class="fas fa-eye"></i> Siteyi Gör
+        </a>
+        <button onclick="logoutAdmin()" class="nav-btn" style="color: #ff4757; border-color: rgba(255, 71, 87, 0.3);">
+          <i class="fas fa-sign-out-alt"></i> Çıkış
         </button>
       </div>
+    </header>
 
-      <!-- Trend Diziler Listesi -->
-      <div id="availableListWrap" style="display: none; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px;">
-        <h4 style="font-size: 1rem; margin-bottom: 12px; color: #fff;">
-          <i class="fas fa-fire" style="color: var(--accent-gold);"></i> Çekilebilir Trend Diziler:
-        </h4>
-        <div id="availableItems" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-height: 280px; overflow-y: auto;">
+    <main class="main-container" style="max-width: 1040px;">
+
+      <!-- 1. AI OTO-PİLOT (Arka Planda Otomatik Yeni Dizi Takipçisi) -->
+      <div class="admin-card card-glowing" style="background: linear-gradient(135deg, rgba(0, 230, 118, 0.1), rgba(17, 19, 28, 0.95)); border-color: rgba(0, 230, 118, 0.4);">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 16px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff;">
+                <i class="fas fa-brain" style="color: var(--accent-green);"></i> 7/24 AI Oto-Pilot (Yeni Dizi Nöbetçisi)
+              </h2>
+              <span id="pilotStatusBadge" class="badge" style="background: var(--accent-green); color: #000;">
+                ● AKTİF
+              </span>
+            </div>
+            <p style="color: #cbd5e1; font-size: 0.88rem; margin-top: 4px;">
+              Arka planda <b>dramadizilerim.com</b> sitesini sürekli nöbetçi gibi tarar; yeni bir dizi yüklendiği anda <b>hiçbir işlem yapmanıza gerek kalmadan</b> tüm bölümleri ve Türkçe altyazılarıyla sitenize otomatik ekler.
+            </p>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <label class="switch-toggle" title="Oto-Pilotu Aç / Kapat">
+              <input type="checkbox" id="pilotSwitch" checked>
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px;">
+          <div style="background: rgba(0,0,0,0.5); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Son Kontrol Zamanı</div>
+            <div id="pilotLastCheck" style="font-weight: 700; font-size: 0.95rem; color: #fff; margin-top: 4px;">Kontrol ediliyor...</div>
+          </div>
+          <div style="background: rgba(0,0,0,0.5); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Oto-Pilot İle Eklenen</div>
+            <div id="pilotAddedCount" style="font-weight: 700; font-size: 0.95rem; color: var(--accent-green); margin-top: 4px;">0 Dizi</div>
+          </div>
+          <div style="background: rgba(0,0,0,0.5); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Kontrol Sıklığı</div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: #fff; margin-top: 4px;">Her 10 Dakika</div>
+            </div>
+            <i class="fas fa-clock" style="color: var(--accent-cyan); font-size: 1.2rem;"></i>
+          </div>
+        </div>
+
+        <div class="bot-terminal" id="pilotTerminal">
+          <div>[00:00:00] [AI Oto-Pilot] Sistem hazırlandı. Nöbetçi servisi aktif.</div>
+        </div>
+      </div>
+
+
+      <!-- 2. TÜM SİTEYİ ÇEK & EŞİTLE (Batch Sync Engine) -->
+      <div class="admin-card card-glowing" style="background: linear-gradient(135deg, rgba(255, 42, 95, 0.12), rgba(17, 19, 28, 0.95)); border-color: var(--border-glow);">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+          <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-cloud-arrow-down" style="color: var(--primary);"></i> Toplu Dizi Çekici & Klonlayıcı
+          </h2>
+          <span id="syncStatusBadge" class="badge badge-glass">HAZIRDA BEKLİYOR</span>
+        </div>
+
+        <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+          dramadizilerim.com sitesindeki onlarca diziyi tek tıkla arka planda sitenize indirin. Bot, dizilerin afişlerini, konularını ve tüm bölümlerini Türkçe altyazılarıyla birlikte sırayla çeker.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+          <button onclick="startBatchSync(20)" class="btn-cta" style="font-size: 0.9rem; padding: 10px 20px;">
+            <i class="fas fa-bolt"></i> Son 20 Diziyi Çek
+          </button>
+          <button onclick="startBatchSync(50)" class="btn-cta" style="background: linear-gradient(135deg, #7928ca, #ff0080); font-size: 0.9rem; padding: 10px 20px;">
+            <i class="fas fa-fire"></i> Popüler 50 Diziyi Çek
+          </button>
+          <button onclick="startBatchSync(100)" class="btn-secondary" style="font-size: 0.9rem; padding: 10px 20px;">
+            <i class="fas fa-layer-group"></i> 100 Dizi Çek
+          </button>
+          <button onclick="startBatchSync(0)" class="btn-secondary" style="border-color: var(--primary); font-size: 0.9rem; padding: 10px 20px;">
+            <i class="fas fa-globe"></i> TÜM YENİ DİZİLERİ EŞİTLE
+          </button>
+          <button onclick="stopBatchSync()" id="btnStopSync" class="nav-btn" style="color: #ff4757; border-color: rgba(255, 71, 87, 0.4); display: none;">
+            <i class="fas fa-stop-circle"></i> Durdur
+          </button>
+        </div>
+
+        <div id="syncProgressContainer" style="display: none;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #fff; margin-bottom: 6px;">
+            <span id="syncCurrentTitle">Diziler hazırlanıyor...</span>
+            <span id="syncProgressPercent">0% (0/0)</span>
+          </div>
+          <div class="progress-bar-wrap">
+            <div id="syncProgressBar" class="progress-bar-inner"></div>
+          </div>
+        </div>
+
+        <div class="bot-terminal" id="syncTerminal" style="color: #a7f3d0; border-color: rgba(46, 213, 115, 0.25);">
+          <div>[00:00:00] Toplu çekim için yukarıdaki butonlardan birine tıklayın.</div>
+        </div>
+      </div>
+
+
+      <!-- 3. TEK DİZİ LİNKİ İLE ÇEKME -->
+      <div class="admin-card">
+        <h2 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 14px;">
+          <i class="fas fa-link" style="color: var(--accent-cyan);"></i> Tek Dizi Linkiyle Hızlı Çekme
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px;">
+          Özel olarak istediğiniz belirli bir dizi varsa linkini buraya yapıştırıp 4 saniyede çekebilirsiniz:
+        </p>
+
+        <form id="singleScrapeForm" style="display: flex; gap: 12px;">
+          <input 
+            type="text" 
+            id="singleScrapeInput" 
+            class="form-control" 
+            placeholder="Örn: https://dramadizilerim.com/dizi/esim-kral-mi veya esim-kral-mi" 
+            style="flex: 1;" 
+            required
+          >
+          <button type="submit" id="btnSingleScrape" class="btn-cta" style="white-space: nowrap;">
+            <i class="fas fa-download"></i> Hemen Çek
+          </button>
+        </form>
+        <div id="singleScrapeStatus" style="display: none; margin-top: 12px; padding: 10px; border-radius: var(--radius-sm); font-size: 0.88rem;"></div>
+      </div>
+
+
+      <!-- 3.5 FILM YONETIMI & FILMMAKINESI CEKIMI -->
+      <div class="admin-card" style="border-left: 4px solid var(--primary);">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+          <h2 style="font-size: 1.25rem; font-weight: 700; color: #fff;">
+            <i class="fas fa-clapperboard" style="color: var(--primary);"></i> Film Çekme & Eşitleme (Film Makinesi)
+          </h2>
+          <span style="background: rgba(255, 42, 95, 0.15); color: var(--primary); padding: 4px 12px; border-radius: 12px; font-weight: 700; font-size: 0.85rem;" id="adminMovieCountBadge">0 Film Mevcut</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px;">
+          https://filmmakinesi.to/ adresinden en popüler 1080p filmleri tek tıkla çekebilir veya özel bir film linki girebilirsiniz:
+        </p>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px;">
+          <button onclick="syncMoviesAdmin(40)" id="btnSyncMovies" class="btn-primary" style="font-size: 0.9rem; padding: 10px 20px;">
+            <i class="fas fa-rotate"></i> 40 Popüler Filmi Eşitle
+          </button>
+          <a href="/filmler" target="_blank" class="nav-btn" style="padding: 10px 18px; border-color: rgba(255, 42, 95, 0.4); color: #ff2a5f;">
+            <i class="fas fa-external-link-alt"></i> Filmler Sayfasını Gör
+          </a>
+        </div>
+
+        <form id="singleMovieForm" style="display: flex; gap: 12px;">
+          <input 
+            type="text" 
+            id="singleMovieInput" 
+            class="form-control" 
+            placeholder="Örn: https://filmmakinesi.to/film/orumcek-adam-yepyeni-bir-gun-2026-fm3/ veya film slug'ı" 
+            style="flex: 1;" 
+            required
+          >
+          <button type="submit" id="btnSingleMovie" class="btn-cta" style="white-space: nowrap;">
+            <i class="fas fa-download"></i> Filmi Çek
+          </button>
+        </form>
+        <div id="singleMovieStatus" style="display: none; margin-top: 12px; padding: 10px; border-radius: var(--radius-sm); font-size: 0.88rem;"></div>
+      </div>
+
+
+      <!-- 4. MEVCUT DİZİLER VE YÖNETİM -->
+      <div class="admin-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+          <h2 style="font-size: 1.25rem; font-weight: 700; color: #fff;">
+            <i class="fas fa-film" style="color: var(--accent-gold);"></i> Sitenizdeki Diziler (<span id="existingCount">0</span>)
+          </h2>
+          <button onclick="loadAdminSeries()" class="nav-btn" style="padding: 6px 14px;">
+            <i class="fas fa-sync-alt"></i> Listeyi Yenile
+          </button>
+        </div>
+
+        <div id="adminSeriesList" style="display: flex; flex-direction: column; gap: 12px;">
           <!-- Rendered by JS -->
         </div>
       </div>
-    </div>
 
-    <!-- 2. MEVCUT DIZILER LISTESI -->
-    <div class="admin-card">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-        <h2 style="font-size: 1.25rem; font-weight: 700; color: #fff;">
-          <i class="fas fa-list" style="color: var(--accent-gold);"></i> Sitenizdeki Diziler (<span id="existingCount">0</span>)
-        </h2>
-        <button onclick="loadAdminSeries()" class="nav-btn" style="padding: 6px 12px;">
-          <i class="fas fa-sync-alt"></i> Yenile
-        </button>
-      </div>
-
-      <div id="adminSeriesList" style="display: flex; flex-direction: column; gap: 12px;">
-        <!-- Rendered by JS -->
-      </div>
-    </div>
-
-  </main>
+    </main>
+  </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      loadAdminSeries();
-      setupScraperUI();
+    // ŞİFRE KONTROLÜ (Default: admin123)
+    const ADMIN_PASS = "admin123";
+
+    // Şifre Göster/Gizle Düğmesi
+    const toggleBtn = document.getElementById("btnTogglePassword");
+    const pwdInput = document.getElementById("adminPasswordInput");
+    const eyeIcon = document.getElementById("eyeIcon");
+    if (toggleBtn && pwdInput) {
+      toggleBtn.addEventListener("click", () => {
+        if (pwdInput.type === "password") {
+          pwdInput.type = "text";
+          if (eyeIcon) eyeIcon.classList.replace("fa-eye", "fa-eye-slash");
+        } else {
+          pwdInput.type = "password";
+          if (eyeIcon) eyeIcon.classList.replace("fa-eye-slash", "fa-eye");
+        }
+      });
+    }
+
+    function checkAuth() {
+      const isAuth = localStorage.getItem("dizialem_admin_auth") || localStorage.getItem("kisadizim_admin_auth") || 
+                     sessionStorage.getItem("dizialem_admin_auth") || sessionStorage.getItem("kisadizim_admin_auth");
+      if (isAuth === "true") {
+        document.getElementById("loginScreen").style.display = "none";
+        document.getElementById("dashboardScreen").style.display = "block";
+        initDashboard();
+      } else {
+        document.getElementById("loginScreen").style.display = "flex";
+        document.getElementById("dashboardScreen").style.display = "none";
+      }
+    }
+
+    document.getElementById("adminLoginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const entered = document.getElementById("adminPasswordInput").value.trim();
+      const err = document.getElementById("loginError");
+      if (entered.toLowerCase() === ADMIN_PASS.toLowerCase()) {
+        localStorage.setItem("dizialem_admin_auth", "true");
+        sessionStorage.setItem("dizialem_admin_auth", "true");
+        err.style.display = "none";
+        checkAuth();
+      } else {
+        err.textContent = "Hatalı şifre! Lütfen tekrar deneyin. (Varsayılan: admin123)";
+        err.style.display = "block";
+      }
     });
+
+    function logoutAdmin() {
+      localStorage.removeItem("dizialem_admin_auth");
+      localStorage.removeItem("kisadizim_admin_auth");
+      sessionStorage.removeItem("dizialem_admin_auth");
+      sessionStorage.removeItem("kisadizim_admin_auth");
+      checkAuth();
+    }
+
+    let pollInterval = null;
+
+    function initDashboard() {
+      loadAdminSeries();
+      loadMovieCountAdmin();
+      setupSingleScraper();
+      setupSingleMovieScraper();
+      setupAutopilot();
+      startStatusPolling();
+    }
+
+    async function loadMovieCountAdmin() {
+      try {
+        const res = await fetch("/api/movies?limit=1");
+        const data = await res.json();
+        document.getElementById("adminMovieCountBadge").textContent = `${data.total || 0} Film Mevcut`;
+      } catch(e) {}
+    }
+
+    async function syncMoviesAdmin(limit) {
+      const btn = document.getElementById("btnSyncMovies");
+      btn.disabled = true;
+      btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Eşitleniyor...`;
+      try {
+        const res = await fetch(`/api/movies/sync?limit=${limit}`, { method: "POST" });
+        const data = await res.json();
+        alert(data.message || "Eşitleme başlatıldı!");
+        setTimeout(loadMovieCountAdmin, 4000);
+      } catch(e) {
+        alert("Film eşitleme başlatılamadı.");
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fas fa-rotate"></i> 40 Popüler Filmi Eşitle`;
+      }
+    }
+
+    function setupSingleMovieScraper() {
+      const form = document.getElementById("singleMovieForm");
+      const status = document.getElementById("singleMovieStatus");
+      const btn = document.getElementById("btnSingleMovie");
+      if (!form) return;
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const val = document.getElementById("singleMovieInput").value.trim();
+        if (!val) return;
+
+        btn.disabled = true;
+        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Film Çekiliyor...`;
+        status.style.display = "block";
+        status.style.background = "rgba(255, 180, 0, 0.2)";
+        status.style.color = "#ffb400";
+        status.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Film bilgileri, video oynatıcı ve kapak görseli çekiliyor...`;
+
+        try {
+          const res = await fetch("/api/movies/scrape", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url_or_slug: val })
+          });
+          const data = await res.json();
+          if (res.ok && data.success) {
+            status.style.background = "rgba(46, 213, 115, 0.2)";
+            status.style.color = "#2ed573";
+            status.innerHTML = `<i class="fas fa-check-circle"></i> <b>'${data.movie.title}' başarıyla çekildi! (IMDb: ${data.movie.imdb})</b> <a href="/film-izle?id=${data.movie.id}" target="_blank" style="color: #fff; text-decoration: underline; margin-left: 10px;">Hemen İzle</a>`;
+            document.getElementById("singleMovieInput").value = "";
+            loadMovieCountAdmin();
+          } else {
+            status.style.background = "rgba(255, 71, 87, 0.2)";
+            status.style.color = "#ff4757";
+            status.innerHTML = `<i class="fas fa-exclamation-triangle"></i> Hata: ${data.detail || "Film çekilemedi"}`;
+          }
+        } catch(e) {
+          status.style.background = "rgba(255, 71, 87, 0.2)";
+          status.style.color = "#ff4757";
+          status.innerHTML = `<i class="fas fa-exclamation-triangle"></i> Bağlantı hatası oluştu.`;
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = `<i class="fas fa-download"></i> Filmi Çek`;
+        }
+      });
+    }
 
     async function loadAdminSeries() {
       try {
@@ -130,27 +406,32 @@
 
         const container = document.getElementById("adminSeriesList");
         if (list.length === 0) {
-          container.innerHTML = `<p style="color: var(--text-muted);">Henüz ekli dizi yok.</p>`;
+          container.innerHTML = `<p style="color: var(--text-muted); text-align: center; padding: 30px;">Henüz ekli dizi yok. Yukarıdan toplu veya tekli çekim yapabilirsiniz.</p>`;
           return;
         }
 
         container.innerHTML = list.map(s => `
           <div style="display: flex; align-items: center; justify-content: space-between; background: #0b0c13; padding: 12px 18px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
             <div style="display: flex; align-items: center; gap: 16px;">
-              <img src="${s.cover}" style="width: 45px; height: 60px; object-fit: cover; border-radius: 4px;">
+              <img src="${s.cover}" style="width: 48px; height: 64px; object-fit: cover; border-radius: 6px;">
               <div>
                 <b style="font-size: 0.95rem; color: #fff;">${s.title}</b>
-                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
-                  <span style="color: var(--primary);">${s.category}</span> • <span>${s.total_episodes || (s.episodes ? s.episodes.length : 0)} Bölüm</span> • <span>Puan: ${s.rating || "9.8"}</span>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; display: flex; gap: 8px;">
+                  <span style="color: var(--primary); font-weight: 700;">${s.category}</span>
+                  <span>•</span>
+                  <span>${s.total_episodes || (s.episodes ? s.episodes.length : 0)} Bölüm</span>
+                  <span>•</span>
+                  <span><i class="fas fa-star" style="color: var(--accent-gold);"></i> ${s.rating || "9.8"}</span>
+                  ${s.tags && s.tags.includes("Türkçe Altyazılı") ? '<span style="color: var(--accent-cyan); font-weight: 600;">(TR Altyazı)</span>' : ''}
                 </div>
               </div>
             </div>
 
             <div style="display: flex; gap: 10px;">
-              <a href="/dizi?id=${s.id}" class="nav-btn" target="_blank" style="padding: 6px 12px;">
+              <a href="/dizi?id=${s.id}" class="nav-btn" target="_blank" style="padding: 6px 14px;">
                 <i class="fas fa-external-link-alt"></i> Gör
               </a>
-              <button onclick="deleteSeries('${s.id}')" class="nav-btn" style="color: #ff4757; border-color: rgba(255,71,87,0.3); padding: 6px 12px;">
+              <button onclick="deleteSeries('${s.id}')" class="nav-btn" style="color: #ff4757; border-color: rgba(255,71,87,0.3); padding: 6px 14px;">
                 <i class="fas fa-trash"></i> Sil
               </button>
             </div>
@@ -161,91 +442,153 @@
       }
     }
 
-    function setupScraperUI() {
-      const form = document.getElementById("autoScrapeForm");
-      const status = document.getElementById("scrapeStatus");
-      const btnScrape = document.getElementById("btnStartScrape");
+    function setupAutopilot() {
+      const sw = document.getElementById("pilotSwitch");
+      sw.addEventListener("change", async () => {
+        try {
+          const res = await fetch("/api/autopilot/config", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ enabled: sw.checked, interval_minutes: 10 })
+          });
+          const data = await res.json();
+          alert(data.message);
+          updateAutopilotUI();
+        } catch(e) {
+          alert("Hata oluştu.");
+        }
+      });
+      updateAutopilotUI();
+    }
+
+    async function updateAutopilotUI() {
+      try {
+        const res = await fetch("/api/autopilot/status");
+        const data = await res.json();
+        
+        document.getElementById("pilotSwitch").checked = data.enabled;
+        const badge = document.getElementById("pilotStatusBadge");
+        if (data.enabled) {
+          badge.textContent = "● AKTİF (Nöbetçi)";
+          badge.style.background = "var(--accent-green)";
+          badge.style.color = "#000";
+        } else {
+          badge.textContent = "○ KAPALI";
+          badge.style.background = "#ff4757";
+          badge.style.color = "#fff";
+        }
+
+        document.getElementById("pilotLastCheck").textContent = data.last_check || "Yeni başladı";
+        document.getElementById("pilotAddedCount").textContent = `${data.new_added_count} Yeni Dizi`;
+
+        if (data.logs && data.logs.length > 0) {
+          document.getElementById("pilotTerminal").innerHTML = data.logs.map(l => `<div>${l}</div>`).join("");
+        }
+      } catch(e) {}
+    }
+
+    async function startBatchSync(limit) {
+      const label = limit === 0 ? "Tüm yeni diziler" : `${limit} adet yeni dizi`;
+      if (!confirm(`${label} arka planda sırayla çekilecek. Başlatılsın mı?`)) return;
+
+      try {
+        const res = await fetch(`/api/sync/start?limit=${limit}&only_new=true`, { method: "POST" });
+        const data = await res.json();
+        if (!data.success) {
+          alert(data.message);
+        }
+      } catch(e) {
+        alert("Bağlantı hatası.");
+      }
+    }
+
+    async function stopBatchSync() {
+      try {
+        await fetch("/api/sync/stop", { method: "POST" });
+      } catch(e) {}
+    }
+
+    function startStatusPolling() {
+      if (pollInterval) clearInterval(pollInterval);
+      pollInterval = setInterval(async () => {
+        try {
+          const syncRes = await fetch("/api/sync/status");
+          const sync = await syncRes.json();
+
+          const progressContainer = document.getElementById("syncProgressContainer");
+          const btnStop = document.getElementById("btnStopSync");
+          const badge = document.getElementById("syncStatusBadge");
+
+          if (sync.is_running) {
+            progressContainer.style.display = "block";
+            btnStop.style.display = "inline-flex";
+            badge.textContent = "● EŞİTLEME ÇALIŞIYOR";
+            badge.className = "badge badge-primary";
+
+            const percent = sync.total_target > 0 ? Math.round((sync.current_index / sync.total_target) * 100) : 0;
+            document.getElementById("syncProgressBar").style.width = `${percent}%`;
+            document.getElementById("syncProgressPercent").textContent = `%${percent} (${sync.current_index}/${sync.total_target} Dizi)`;
+            document.getElementById("syncCurrentTitle").innerHTML = `<i class="fas fa-spinner fa-spin"></i> Şu an çekiliyor: <b>${sync.current_title}</b>`;
+          } else {
+            btnStop.style.display = "none";
+            badge.textContent = sync.success_count > 0 ? "✓ TAMAMLANDI" : "HAZIRDA BEKLİYOR";
+            badge.className = "badge badge-glass";
+          }
+
+          if (sync.logs && sync.logs.length > 0) {
+            document.getElementById("syncTerminal").innerHTML = sync.logs.map(l => `<div>${l}</div>`).join("");
+          }
+
+          updateAutopilotUI();
+
+        } catch(e) {}
+      }, 2500);
+    }
+
+    function setupSingleScraper() {
+      const form = document.getElementById("singleScrapeForm");
+      const status = document.getElementById("singleScrapeStatus");
+      const btn = document.getElementById("btnSingleScrape");
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const inputVal = document.getElementById("scrapeUrlInput").value.trim();
-        if (!inputVal) return;
+        const val = document.getElementById("singleScrapeInput").value.trim();
+        if (!val) return;
 
-        btnScrape.disabled = true;
-        btnScrape.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Çekiliyor...`;
-        status.style.display = "flex";
+        btn.disabled = true;
+        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Çekiliyor...`;
+        status.style.display = "block";
         status.style.background = "rgba(255, 180, 0, 0.2)";
         status.style.color = "#ffb400";
-        status.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Dizi taranıyor ve tüm video akışları çözülüyor, lütfen bekleyin...`;
+        status.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Dizi taranıyor ve tüm video & Türkçe altyazılar çözülüyor, lütfen bekleyin...`;
 
         try {
           const res = await fetch("/api/scrape", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ url_or_slug: inputVal })
+            body: JSON.stringify({ url_or_slug: val })
           });
-
           const data = await res.json();
           if (res.ok && data.success) {
             status.style.background = "rgba(46, 213, 115, 0.2)";
             status.style.color = "#2ed573";
             status.innerHTML = `<i class="fas fa-check-circle"></i> <b>${data.message}</b>`;
-            document.getElementById("scrapeUrlInput").value = "";
+            document.getElementById("singleScrapeInput").value = "";
             loadAdminSeries();
           } else {
             status.style.background = "rgba(255, 71, 87, 0.2)";
             status.style.color = "#ff4757";
             status.innerHTML = `<i class="fas fa-exclamation-triangle"></i> Hata: ${data.detail || "Çekilemedi"}`;
           }
-        } catch (err) {
+        } catch(e) {
           status.style.background = "rgba(255, 71, 87, 0.2)";
           status.style.color = "#ff4757";
           status.innerHTML = `<i class="fas fa-exclamation-triangle"></i> Bağlantı hatası oluştu.`;
         } finally {
-          btnScrape.disabled = false;
-          btnScrape.innerHTML = `<i class="fas fa-bolt"></i> Otomatik Çek ve Ekle`;
+          btn.disabled = false;
+          btn.innerHTML = `<i class="fas fa-download"></i> Hemen Çek`;
         }
       });
-
-      // Batch scrape 5 series
-      document.getElementById("btnBatchScrape").onclick = async () => {
-        if (!confirm("Popüler 5 dizi arka planda otomatik çekilip sitenize eklenecek. Onaylıyor musunuz?")) return;
-        try {
-          const res = await fetch("/api/scrape/batch?limit=5", { method: "POST" });
-          const data = await res.json();
-          alert(data.message);
-          setTimeout(() => loadAdminSeries(), 6000);
-        } catch(e) {
-          alert("Hata oluştu.");
-        }
-      };
-
-      // Load available list
-      document.getElementById("btnLoadAvailable").onclick = async () => {
-        const wrap = document.getElementById("availableListWrap");
-        const listContainer = document.getElementById("availableItems");
-        wrap.style.display = wrap.style.display === "none" ? "block" : "none";
-        if (wrap.style.display === "block") {
-          listContainer.innerHTML = `<div style="grid-column: 1/-1; color: var(--text-muted);"><i class="fas fa-spinner fa-spin"></i> Trend diziler listeleniyor...</div>`;
-          const res = await fetch("/api/scrape/available");
-          const items = await res.json();
-          listContainer.innerHTML = items.map(it => `
-            <div style="background: #0f1017; padding: 10px; border-radius: 6px; display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; border: 1px solid var(--border-color);">
-              <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 250px;" title="${it.title}">
-                ${it.title}
-              </span>
-              <div>
-                ${it.already_imported ? '<span class="badge-imported">Ekli</span>' : `<button onclick="quickScrape('${it.slug}')" class="nav-btn primary" style="padding: 4px 10px; font-size: 0.75rem;"><i class="fas fa-download"></i> Çek</button>`}
-              </div>
-            </div>
-          `).join("");
-        }
-      };
-    }
-
-    async function quickScrape(slug) {
-      document.getElementById("scrapeUrlInput").value = slug;
-      document.getElementById("btnStartScrape").click();
     }
 
     async function deleteSeries(id) {
@@ -257,10 +600,13 @@
         } else {
           alert("Silinirken hata oluştu.");
         }
-      } catch (err) {
+      } catch(e) {
         alert("Bağlantı hatası.");
       }
     }
+
+    // Başlangıçta Auth Kontrolü
+    checkAuth();
   </script>
 </body>
 </html>

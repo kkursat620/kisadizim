@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KısaDizim - Dikey Mini Dizi & Kısa Dizi İzle (Full HD)</title>
-  <meta name="description" content="KısaDizim.com - En popüler dikey kısa dizileri, ReelShort, DramaBox ve GoodShort mini dizilerini Türkçe Dublaj ve Altyazılı Full HD ücretsiz izleyin.">
+  <title>DiziAlem - Dikey Mini Dizi & Kısa Dizi İzle (Full HD)</title>
+  <meta name="description" content="DiziAlem (dizialem.com) - En popüler dikey kısa dizileri, ReelShort, DramaBox ve GoodShort mini dizilerini Türkçe Dublaj ve Türkçe Altyazılı Full HD ücretsiz izleyin.">
+  <link rel="icon" type="image/png" href="/static/img/favicon.png">
+  <link rel="apple-touch-icon" href="/static/img/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css?v=2.2">
 </head>
 <body>
 
   <!-- NAVBAR -->
   <header class="navbar">
     <a href="/" class="nav-brand">
-      <div class="brand-icon">
-        <i class="fas fa-play"></i>
-      </div>
-      <div>Kısa<span class="brand-accent">Dizim</span></div>
+      <img src="/static/img/logo.png" alt="DiziAlem" class="nav-logo-img" style="height: 42px; width: auto; max-height: 42px; display: block;">
     </a>
 
     <div class="search-container">
@@ -28,13 +27,19 @@
     </div>
 
     <div class="nav-links">
-      <a href="/admin" class="nav-btn primary">
-        <i class="fas fa-plus"></i> Dizi Ekle / Yönet
+      <a href="/" class="nav-btn primary">
+        <i class="fas fa-tv"></i> Diziler
+      </a>
+      <a href="/filmler" class="nav-btn" style="border-color: rgba(255, 42, 95, 0.4); color: #ff2a5f; background: rgba(255, 42, 95, 0.1);">
+        <i class="fas fa-film"></i> Filmler
+      </a>
+      <a href="/DiziAlem.apk" class="nav-btn" style="border-color: rgba(0, 230, 118, 0.4); color: #00e676;">
+        <i class="fab fa-android"></i> Uygulama
       </a>
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN CONTAINER -->
   <main class="main-container">
 
     <!-- HERO FEATURED BANNER -->
@@ -42,9 +47,10 @@
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="hero-badges">
-          <span class="badge badge-primary">Trend #1</span>
+          <span class="badge badge-primary"><i class="fas fa-fire"></i> Trend #1</span>
           <span class="badge badge-gold"><i class="fas fa-star"></i> 9.9</span>
           <span class="badge badge-glass" id="heroCategory">Fantastik</span>
+          <span class="badge badge-cyan" id="heroTag">Türkçe Altyazılı</span>
         </div>
         <h1 class="hero-title" id="heroTitle">Yükleniyor...</h1>
         <p class="hero-desc" id="heroDesc"></p>
@@ -53,7 +59,7 @@
             <i class="fas fa-play"></i> Hemen İzle
           </a>
           <a href="#" id="heroDetailBtn" class="btn-secondary">
-            <i class="fas fa-info-circle"></i> Bölümler & Detay
+            <i class="fas fa-info-circle"></i> Bölümler & Bilgi
           </a>
         </div>
       </div>
@@ -87,6 +93,13 @@
 
   </main>
 
-  <script src="/static/js/app.js"></script>
+  <!-- FOOTER -->
+  <footer style="border-top: 1px solid var(--border-color); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.88rem; margin-top: 60px;">
+    <img src="/static/img/logo.png" alt="DiziAlem" class="footer-logo-img" style="height: 44px; width: auto; max-height: 44px; margin: 0 auto 12px; display: block;">
+    <p>Türkiye'nin En Kapsamlı Dikey Mini Dizi İzleme Platformu</p>
+    <p style="margin-top: 8px; font-size: 0.78rem; opacity: 0.6;">© 2026 DiziAlem (dizialem.com). Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script src="/static/js/app.js?v=2.4"></script>
 </body>
 </html>

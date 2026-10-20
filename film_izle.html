@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Film İzle - DiziAlem Full HD Sinema</title>
+  <link rel="icon" type="image/png" href="/static/img/favicon.png">
+  <link rel="apple-touch-icon" href="/static/img/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css?v=2.3">
+</head>
+<body class="cinema-body">
+
+  <div id="cinemaDimmer" class="cinema-dimmer"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar cinema-navbar">
+    <div class="cinema-nav-left">
+      <a href="/filmler" class="back-link-btn">
+        <i class="fas fa-arrow-left"></i> <span>Filmlere Dön</span>
+      </a>
+      <a href="/" class="nav-brand" style="margin-left: 12px;">
+        <img src="/static/img/logo.png" alt="DiziAlem" class="nav-logo-img" style="height: 38px; width: auto; max-height: 38px;">
+      </a>
+    </div>
+
+    <div class="cinema-nav-right">
+      <button id="cinemaLightsBtn" class="cinema-control-btn" title="Sinema Modu (Işıkları Kapat/Aç)">
+        <i class="fas fa-lightbulb"></i> <span>Işıkları Kapat</span>
+      </button>
+      <a href="/" class="nav-btn">
+        <i class="fas fa-tv"></i> Diziler
+      </a>
+      <a href="/filmler" class="nav-btn primary">
+        <i class="fas fa-film"></i> Filmler
+      </a>
+    </div>
+  </header>
+
+  <!-- CINEMA PLAYER AREA -->
+  <main class="cinema-container">
+    
+    <div class="player-wrapper">
+      <div class="player-frame-box" id="playerFrameBox">
+        <div id="playerLoading" class="player-loading-overlay">
+          <div class="spinner"></div>
+          <p>Sinema Oynatıcı Hazırlanıyor...</p>
+        </div>
+        <iframe 
+          id="cinemaIframe" 
+          src="" 
+          title="Film Oynatıcı" 
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture; encrypted-media" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <!-- MOVIE DETAILS -->
+    <div class="movie-detail-box">
+      <div class="movie-detail-header">
+        <div class="movie-titles">
+          <h1 id="movieDetailTitle" class="movie-detail-title">Yükleniyor...</h1>
+          <div class="movie-meta-row">
+            <span class="meta-item badge-imdb" id="movieDetailImdb"><i class="fas fa-star"></i> 7.5</span>
+            <span class="meta-item" id="movieDetailYear">2026</span>
+            <span class="meta-item" id="movieDetailDuration"><i class="far fa-clock"></i> 110 dk</span>
+            <span class="meta-item badge-quality">1080p Full HD</span>
+            <span class="meta-item badge-audio">Türkçe Dublaj & Altyazılı</span>
+          </div>
+        </div>
+
+        <div class="movie-header-actions">
+          <button id="copyShareBtn" class="action-btn-pill">
+            <i class="fas fa-share-nodes"></i> Paylaş
+          </button>
+          <a href="/DiziAlem.apk" class="action-btn-pill download-pill">
+            <i class="fab fa-android"></i> Mobilde İzle
+          </a>
+        </div>
+      </div>
+
+      <!-- Genres list -->
+      <div class="movie-genres-row" id="movieDetailGenres">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Description -->
+      <div class="movie-description-block">
+        <h3>Film Özeti</h3>
+        <p id="movieDetailDesc">Film açıklaması yükleniyor...</p>
+      </div>
+    </div>
+
+    <!-- RECOMMENDED / RELATED MOVIES -->
+    <section class="related-movies-section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fas fa-film text-primary"></i> Benzer / Önerilen Filmler
+        </h2>
+        <a href="/filmler" class="see-all-link">Tüm Filmleri Gör <i class="fas fa-chevron-right"></i></a>
+      </div>
+      <div class="movie-cards-grid" id="relatedMoviesGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/static/img/logo.png" alt="DiziAlem" style="height: 36px; width: auto;">
+        <p>Türkiye'nin en zengin dikey kısa dizi ve Full HD film platformu.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/">Diziler</a>
+        <a href="/filmler">Filmler</a>
+        <a href="/DiziAlem.apk">Mobil Uygulama</a>
+        <a href="/admin">Yönetim</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 DiziAlem (dizialem.com). Tüm hakları saklıdır.
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/js/film_izle.js?v=2.1"></script>
+</body>
+</html>

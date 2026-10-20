@@ -1,5 +1,5 @@
 // ==========================================
-// KısaDizim - Vertical Video Player JS
+// DiziAlem (dizialem.com) - Vertical Video Player JS
 // ==========================================
 
 let currentSeries = null;
@@ -49,10 +49,61 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPlayerInteractions();
   setupKeyboardControls();
   setupTouchSwipes();
+  setupBufferingEvents();
 });
 
+const videoLoader = document.getElementById("videoLoader");
+const tapPlayOverlay = document.getElementById("tapPlayOverlay");
+
+function showLoader(text) {
+  if (videoLoader) {
+    if (text) {
+      const txtEl = videoLoader.querySelector(".loader-text");
+      if (txtEl) txtEl.textContent = text;
+    }
+    videoLoader.style.display = "flex";
+  }
+}
+
+function hideLoader() {
+  if (videoLoader) videoLoader.style.display = "none";
+}
+
+function setupBufferingEvents() {
+  video.addEventListener("waiting", () => showLoader("Arabelleğe alınıyor..."));
+  video.addEventListener("canplay", () => hideLoader());
+  video.addEventListener("playing", () => {
+    hideLoader();
+    if (tapPlayOverlay) tapPlayOverlay.style.display = "none";
+  });
+  video.addEventListener("seeking", () => showLoader());
+  video.addEventListener("seeked", () => hideLoader());
+  video.addEventListener("error", () => {
+    hideLoader();
+    console.error("[Player] Video oynatma hatası:", video.error);
+  });
+}
+
 async function loadSeriesAndPlay(seriesId, epNum) {
+  // 1. ÖNCE ÖNBELLEKTEN ANINDA YÜKLE (0 milisaniye bekleme)
+  let foundInCache = false;
   try {
+    const cachedList = JSON.parse(localStorage.getItem("dizialem_series_cache") || "[]");
+    const found = cachedList.find((s) => s.id === seriesId || s.slug === seriesId);
+    if (found && found.episodes && found.episodes.length > 0) {
+      currentSeries = found;
+      currentEpNumber = epNum;
+      document.getElementById("playerSeriesTitle").textContent = currentSeries.title;
+      backBtn.onclick = () => (window.location.href = `/dizi?id=${currentSeries.id}`);
+      renderDrawerList();
+      playEpisode(currentEpNumber);
+      foundInCache = true;
+    }
+  } catch (e) {}
+
+  // 2. Sunucudan en güncel halini çek (arka planda veya önbellek yoksa)
+  try {
+    if (!foundInCache) showLoader("Dizi bilgileri alınıyor...");
     const res = await fetch(`/api/series/${seriesId}`);
     if (!res.ok) throw new Error("Dizi bulunamadı");
     currentSeries = await res.json();
@@ -62,11 +113,16 @@ async function loadSeriesAndPlay(seriesId, epNum) {
     backBtn.onclick = () => (window.location.href = `/dizi?id=${currentSeries.id}`);
 
     renderDrawerList();
-    playEpisode(currentEpNumber);
+    if (!foundInCache) {
+      playEpisode(currentEpNumber);
+    }
   } catch (err) {
-    console.error("Dizi oynatıcı hatası:", err);
-    alert("Dizi yüklenirken bir hata oluştu.");
-    window.location.href = "/";
+    if (!currentSeries) {
+      hideLoader();
+      console.error("Dizi oynatıcı hatası:", err);
+      alert("Dizi yüklenirken bir hata oluştu.");
+      window.location.href = "/";
+    }
   }
 }
 
@@ -82,9 +138,12 @@ function playEpisode(epNum) {
     return;
   }
 
+  showLoader("Bölüm başlatılıyor...");
+  if (tapPlayOverlay) tapPlayOverlay.style.display = "none";
+
   // Update URL state without page reload
   history.replaceState(null, "", `/izle?id=${currentSeries.id}&ep=${epNum}`);
-  document.title = `${currentSeries.title} - Bölüm ${epNum} | KısaDizim`;
+  document.title = `${currentSeries.title} - Bölüm ${epNum} | DiziAlem`;
 
   // Update UI Titles & Episode Nav Buttons
   document.getElementById("playerEpTitle").textContent = epData.title || `Bölüm ${epNum}`;
@@ -93,9 +152,38 @@ function playEpisode(epNum) {
 
   highlightDrawerItem(epNum);
 
+  // Clear previous subtitle tracks
+  const oldTracks = video.querySelectorAll("track");
+  oldTracks.forEach((t) => t.remove());
+
+  // Attach Turkish Subtitle Track if available
+  if (epData.subtitle_url) {
+    let subUrl = epData.subtitle_url;
+    subUrl = `/api/proxy?url=${encodeURIComponent(subUrl)}`;
+
+    const track = document.createElement("track");
+    track.kind = "subtitles";
+    track.label = "Türkçe";
+    track.srclang = "tr";
+    track.src = subUrl;
+    track.default = true;
+    track.setAttribute("default", "true");
+
+    track.addEventListener("load", function () {
+      console.log("[Player] Türkçe altyazı başarıyla yüklendi.");
+      if (track.track) {
+        track.track.mode = "showing";
+      }
+    });
+
+    video.appendChild(track);
+    if (track.track) {
+      track.track.mode = "showing";
+    }
+  }
+
   // Video Source Resolution
   let streamUrl = epData.video_url;
-  // If stream URL is external and could have CORS issues, route through our streaming proxy
   if (streamUrl.includes(".m3u8") && !streamUrl.includes("localhost") && !streamUrl.includes("127.0.0.1")) {
     streamUrl = `/api/proxy?url=${encodeURIComponent(streamUrl)}`;
   }
@@ -106,16 +194,43 @@ function playEpisode(epNum) {
     hlsInstance = null;
   }
 
+  function handleAutoplay(playPromise) {
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          hideLoader();
+          if (tapPlayOverlay) tapPlayOverlay.style.display = "none";
+          ensureSubtitlesActive();
+        })
+        .catch((err) => {
+          hideLoader();
+          console.log("[Player] Otomatik oynatma bekliyor, dokunma butonu gösteriliyor:", err);
+          if (tapPlayOverlay) {
+            tapPlayOverlay.style.display = "flex";
+            tapPlayOverlay.onclick = () => {
+              tapPlayOverlay.style.display = "none";
+              showLoader("Oynatılıyor...");
+              video.play().finally(() => hideLoader());
+            };
+          }
+        });
+    }
+  }
+
   if (streamUrl.includes(".m3u8")) {
     if (Hls.isSupported()) {
       hlsInstance = new Hls({
         enableWorker: true,
         lowLatencyMode: true,
+        backBufferLength: 20,
+        maxBufferLength: 10,
+        maxMaxBufferLength: 20,
+        maxBufferSize: 25 * 1000 * 1000,
       });
       hlsInstance.loadSource(streamUrl);
       hlsInstance.attachMedia(video);
       hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
-        video.play().catch((e) => console.log("Otomatik oynatma kullanıcı etkileşimi bekliyor"));
+        handleAutoplay(video.play());
       });
       hlsInstance.on(Hls.Events.ERROR, (event, data) => {
         if (data.fatal) {
@@ -133,15 +248,40 @@ function playEpisode(epNum) {
         }
       });
     } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      // Native Safari iOS HLS support
       video.src = streamUrl;
-      video.play().catch(() => {});
+      handleAutoplay(video.play());
     }
   } else {
-    // Standard MP4
+    // Doğrudan MP4 Hızlı Akış
     video.src = streamUrl;
-    video.play().catch(() => {});
+    video.load();
+    handleAutoplay(video.play());
   }
+
+  // Bir sonraki bölümü arka planda önceden önbelleğe al (Prefetch Next Episode)
+  preloadNextEpisode(epNum);
+}
+
+function preloadNextEpisode(currentEp) {
+  try {
+    const episodes = currentSeries.episodes || [];
+    const nextEp = episodes.find((e) => e.episode === currentEp + 1);
+    if (nextEp && nextEp.video_url) {
+      const link = document.createElement("link");
+      link.rel = "prefetch";
+      link.href = nextEp.video_url;
+      link.as = "video";
+      document.head.appendChild(link);
+    }
+  } catch (e) {}
+}
+
+function ensureSubtitlesActive() {
+  setTimeout(() => {
+    for (let i = 0; i < video.textTracks.length; i++) {
+      video.textTracks[i].mode = "showing";
+    }
+  }, 200);
 }
 
 // ==========================================
@@ -155,6 +295,10 @@ video.addEventListener("timeupdate", () => {
   const cur = formatTime(video.currentTime);
   const dur = formatTime(video.duration);
   timeDisplay.textContent = `${cur} / ${dur}`;
+});
+
+video.addEventListener("play", () => {
+  ensureSubtitlesActive();
 });
 
 video.addEventListener("ended", () => {
@@ -185,7 +329,6 @@ progressContainer.addEventListener("click", (e) => {
 // ==========================================
 function setupPlayerInteractions() {
   viewport.addEventListener("click", (e) => {
-    // Ignore clicks on control buttons or drawer
     if (e.target.closest("button") || e.target.closest(".episode-drawer") || e.target.closest(".progress-container")) {
       return;
     }
@@ -198,7 +341,6 @@ function setupPlayerInteractions() {
     const isLeft = clickX < rect.width / 2;
 
     if (tapInterval < 280 && tapInterval > 0) {
-      // DOUBLE TAP DETECTED
       clearTimeout(singleTapTimeout);
       singleTapTimeout = null;
 
@@ -211,7 +353,6 @@ function setupPlayerInteractions() {
       }
       lastTapTime = 0;
     } else {
-      // SINGLE TAP
       clearTimeout(singleTapTimeout);
       singleTapTimeout = setTimeout(() => {
         togglePlay();
@@ -221,11 +362,9 @@ function setupPlayerInteractions() {
     }
   });
 
-  // Episode Nav Buttons
   btnPrevEp.onclick = () => playEpisode(currentEpNumber - 1);
   btnNextEp.onclick = () => playEpisode(currentEpNumber + 1);
 
-  // Speed Toggle Button
   btnSpeed.onclick = () => {
     currentSpeedIndex = (currentSpeedIndex + 1) % speeds.length;
     const newSpeed = speeds[currentSpeedIndex];
@@ -233,13 +372,11 @@ function setupPlayerInteractions() {
     speedText.textContent = `${newSpeed}x`;
   };
 
-  // Mute Toggle Button
   btnMute.onclick = () => {
     video.muted = !video.muted;
     muteIcon.className = video.muted ? "fas fa-volume-mute" : "fas fa-volume-up";
   };
 
-  // Fullscreen Button
   btnFullscreen.onclick = () => {
     if (!document.fullscreenElement) {
       viewport.requestFullscreen().catch(() => {});
@@ -248,7 +385,6 @@ function setupPlayerInteractions() {
     }
   };
 
-  // Drawer Toggles
   btnOpenDrawer.onclick = () => drawer.classList.add("open");
   btnCloseDrawer.onclick = () => drawer.classList.remove("open");
 }
@@ -282,7 +418,7 @@ function showRipple(id) {
 }
 
 // ==========================================
-// Keyboard Controls (Desktop Friendly)
+// Keyboard Controls
 // ==========================================
 function setupKeyboardControls() {
   document.addEventListener("keydown", (e) => {
@@ -314,7 +450,7 @@ function setupKeyboardControls() {
 }
 
 // ==========================================
-// Touch Swipe Gestures (Mobile Swipe Up / Down)
+// Touch Swipes
 // ==========================================
 function setupTouchSwipes() {
   let touchStartY = 0;
@@ -331,16 +467,14 @@ function setupTouchSwipes() {
 
   function handleSwipe() {
     const diff = touchStartY - touchEndY;
-    const threshold = 70; // min swipe distance in px
+    const threshold = 70;
 
     if (diff > threshold) {
-      // Swiped UP -> Next Episode
       const episodes = currentSeries.episodes || [];
       if (currentEpNumber < episodes.length) {
         playEpisode(currentEpNumber + 1);
       }
     } else if (diff < -threshold) {
-      // Swiped DOWN -> Prev Episode
       if (currentEpNumber > 1) {
         playEpisode(currentEpNumber - 1);
       }

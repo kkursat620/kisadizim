@@ -1137,3 +1137,783 @@ input:checked + .slider-switch:before {
   font-size: 1.05rem;
   text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
+
+
+/* ========================================================
+   DiziAlem - FILMLER & SINEMA MODU STYLES
+   ======================================================== */
+
+.movies-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 30px;
+  margin-top: 25px;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .movies-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.movies-main-col {
+  min-width: 0;
+}
+
+/* Toolbar */
+.movies-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.movies-toolbar-left .section-title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.sort-select {
+  background: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.sort-select option {
+  background: #151824;
+  color: #fff;
+}
+
+/* Quick Filter Chips */
+.quick-filter-chips {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.filter-chip {
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.filter-chip:hover {
+  border-color: rgba(255, 42, 95, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.filter-chip.active {
+  background: linear-gradient(135deg, #ff2a5f, #ff5e3a);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(255, 42, 95, 0.35);
+}
+
+/* MOVIE CARDS GRID */
+.movie-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 22px;
+}
+
+@media (max-width: 640px) {
+  .movie-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+.movie-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 42, 95, 0.25);
+}
+
+.movie-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.movie-poster-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: #0d0f17;
+}
+
+.movie-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.movie-card:hover .movie-poster-img {
+  transform: scale(1.06);
+}
+
+.movie-overlay-play {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.movie-card:hover .movie-overlay-play {
+  opacity: 1;
+}
+
+.play-icon-glow {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.25rem;
+  box-shadow: 0 0 25px rgba(255, 42, 95, 0.8);
+  transform: scale(0.85);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.movie-card:hover .play-icon-glow {
+  transform: scale(1);
+}
+
+.movie-top-badges {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.badge-imdb-card {
+  background: rgba(15, 17, 26, 0.88);
+  backdrop-filter: blur(8px);
+  color: #ffb400;
+  font-weight: 800;
+  font-size: 0.78rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 180, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-hd-card {
+  background: rgba(0, 242, 254, 0.85);
+  color: #000;
+  font-weight: 900;
+  font-size: 0.7rem;
+  padding: 3px 7px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.movie-bottom-badges {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.badge-audio-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  color: #e0e0e0;
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.movie-card-info {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.movie-card-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+.meta-dot {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.movie-meta-cat {
+  color: #ff5e3a;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ========================================================
+   RIGHT SIDEBAR: FILM TARZLARI (GENRES)
+   ======================================================== */
+.movies-sidebar {
+  width: 100%;
+}
+
+.sticky-sidebar {
+  position: sticky;
+  top: 90px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.sidebar-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-badge {
+  background: rgba(255, 42, 95, 0.18);
+  color: var(--primary);
+  border: 1px solid rgba(255, 42, 95, 0.35);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+.sidebar-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.genre-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 14px;
+}
+
+.genre-search-box i {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.genre-search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 0.85rem;
+  font-family: inherit;
+  width: 100%;
+}
+
+.genre-list {
+  list-style: none;
+  max-height: 480px;
+  overflow-y: auto;
+  padding-right: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.genre-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.genre-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+.genre-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  color: #c4c9d4;
+  font-size: 0.9rem;
+}
+
+.genre-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.genre-icon {
+  width: 18px;
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.genre-item:hover {
+  background: rgba(255, 42, 95, 0.12);
+  color: #ff2a5f;
+  transform: translateX(4px);
+}
+
+.genre-item:hover .genre-icon {
+  color: #ff2a5f;
+}
+
+.genre-item.active {
+  background: linear-gradient(90deg, rgba(255, 42, 95, 0.28), rgba(255, 42, 95, 0.08));
+  border-left: 3px solid #ff2a5f;
+  color: #fff;
+  font-weight: 700;
+}
+
+.genre-item.active .genre-icon {
+  color: #ff2a5f;
+}
+
+.genre-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+
+.genre-item.active .genre-count {
+  background: #ff2a5f;
+  color: #fff;
+}
+
+/* Promo app box in sidebar */
+.sidebar-promo-box {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-promo-box .promo-icon {
+  font-size: 2rem;
+  color: #00e676;
+}
+
+.sidebar-promo-box h4 {
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.sidebar-promo-box p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.promo-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 230, 118, 0.15);
+  color: #00e676;
+  border: 1px solid rgba(0, 230, 118, 0.35);
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: var(--transition);
+  margin-top: 4px;
+}
+
+.promo-download-btn:hover {
+  background: #00e676;
+  color: #000;
+  box-shadow: 0 4px 15px rgba(0, 230, 118, 0.4);
+}
+
+/* ========================================================
+   CINEMA PLAYER PAGE (film_izle.html)
+   ======================================================== */
+.cinema-body {
+  background: #06070a;
+}
+
+.cinema-dimmer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 40;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.cinema-dimmer.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cinema-navbar {
+  position: relative;
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cinema-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.back-link-btn:hover {
+  background: rgba(255, 42, 95, 0.15);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.cinema-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cinema-control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 180, 0, 0.12);
+  border: 1px solid rgba(255, 180, 0, 0.3);
+  color: #ffb400;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: var(--transition);
+}
+
+.cinema-control-btn:hover, .cinema-control-btn.active {
+  background: #ffb400;
+  color: #000;
+  box-shadow: 0 0 15px rgba(255, 180, 0, 0.5);
+}
+
+.cinema-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+  position: relative;
+  z-index: 42;
+}
+
+.player-wrapper {
+  position: relative;
+  z-index: 46;
+  margin-bottom: 28px;
+}
+
+.player-frame-box {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  background: #000;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: box-shadow 0.4s ease;
+}
+
+.player-frame-box.cinema-highlight {
+  box-shadow: 0 0 70px rgba(255, 42, 95, 0.5), 0 0 30px rgba(0, 242, 254, 0.3);
+}
+
+.player-frame-box iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.player-loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: #07090e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 5;
+  color: var(--text-muted);
+}
+
+.movie-detail-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 40px;
+}
+
+.movie-detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+.movie-detail-title {
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.movie-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.meta-item.badge-imdb {
+  background: rgba(255, 180, 0, 0.15);
+  color: #ffb400;
+  border: 1px solid rgba(255, 180, 0, 0.4);
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.meta-item.badge-quality {
+  background: rgba(0, 242, 254, 0.15);
+  color: #00f2fe;
+  border: 1px solid rgba(0, 242, 254, 0.35);
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.meta-item.badge-audio {
+  background: rgba(0, 230, 118, 0.15);
+  color: #00e676;
+  border: 1px solid rgba(0, 230, 118, 0.35);
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.movie-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.action-btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.action-btn-pill:hover {
+  background: rgba(255, 42, 95, 0.18);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.action-btn-pill.download-pill {
+  background: rgba(0, 230, 118, 0.15);
+  border-color: rgba(0, 230, 118, 0.4);
+  color: #00e676;
+}
+
+.action-btn-pill.download-pill:hover {
+  background: #00e676;
+  color: #000;
+}
+
+.movie-genres-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.genre-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 0.82rem;
+  color: #c4c9d4;
+  transition: var(--transition);
+}
+
+.genre-tag-pill:hover {
+  background: rgba(255, 42, 95, 0.15);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.movie-description-block h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.movie-description-block p {
+  color: #b0b6c6;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.related-movies-section {
+  margin-top: 40px;
+}
+
+.movie-hero {
+  border-radius: var(--radius-lg);
+  margin-bottom: 30px;
+  padding: 40px;
+  background-size: cover;
+  background-position: center top;
+}
