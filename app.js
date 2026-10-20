@@ -24,13 +24,20 @@ async function initApp() {
     }
   } catch (e) {}
 
-  // 2. Arka planda sunucudan güncelle
+  // 2. Sunucudan en güncel tüm dizileri çek
   try {
     const res = await fetch("/api/series");
     allSeries = await res.json();
-    localStorage.setItem("dizialem_series_cache", JSON.stringify(allSeries));
+    // Önce ekranı hemen güncelle (asla bloke olmaz)
     renderHero(allSeries);
     renderGrid(allSeries);
+
+    // Güvenli önbellek kaydı
+    try {
+      localStorage.setItem("dizialem_series_cache", JSON.stringify(allSeries));
+    } catch (storageErr) {
+      console.warn("Önbellek boyutu sınırı aşıldı, sadece canlı veri kullanılıyor.");
+    }
   } catch (err) {
     if (!allSeries || allSeries.length === 0) {
       console.error("Diziler yüklenirken hata:", err);

@@ -216,7 +216,7 @@ async def download_apk():
 # REST API Endpoints
 # ==========================================
 @app.get("/api/series")
-async def get_series(category: str = None, search: str = None, tag: str = None):
+async def get_series(category: str = None, search: str = None, tag: str = None, full: bool = False):
     series = load_series()
     if category and category.lower() != "tümü":
         series = [s for s in series if s.get("category", "").lower() == category.lower()]
@@ -231,6 +231,13 @@ async def get_series(category: str = None, search: str = None, tag: str = None):
             or q in s.get("description", "").lower()
             or q in s.get("category", "").lower()
         ]
+    if not full:
+        light_list = []
+        for s in series:
+            item = {k: v for k, v in s.items() if k != "episodes"}
+            item["total_episodes"] = s.get("total_episodes") or len(s.get("episodes", []))
+            light_list.append(item)
+        return light_list
     return series
 
 
