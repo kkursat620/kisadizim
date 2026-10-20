@@ -194,6 +194,24 @@ async def get_logo():
     raise HTTPException(status_code=404, detail="Logo bulunamadı")
 
 
+@app.get("/DiziAlem.apk")
+@app.get("/dizialem.apk")
+@app.get("/app.apk")
+async def download_apk():
+    paths = [
+        os.path.join(BASE_DIR, "DiziAlem.apk"),
+        os.path.join(STATIC_DIR, "DiziAlem.apk"),
+    ]
+    for p in paths:
+        if os.path.exists(p):
+            return FileResponse(
+                p,
+                media_type="application/vnd.android.package-archive",
+                filename="DiziAlem.apk",
+            )
+    raise HTTPException(status_code=404, detail="APK dosyası bulunamadı")
+
+
 # ==========================================
 # REST API Endpoints
 # ==========================================
